@@ -42,7 +42,8 @@ body {
 
 /* Header */
 header {
-    background-color: var(--color-black);
+    background: #000000;
+    background: linear-gradient(0deg,rgba(0, 0, 0, 1) 0%, rgba(255, 242, 0, 1) 100%);
     padding: 1rem 0;
     border-bottom: 2px solid var(--color-yellow);
 }
