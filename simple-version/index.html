@@ -3,47 +3,410 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABGP - Plateforme</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>ABGP - Africa Building Group and Partners</title>
+    <style>
+        :root {
+            --primary: #FFD700;
+            --secondary: #000000;
+            --accent: #0056B3;
+            --light: #F5F5F5;
+            --dark: #333333;
+            --gray: #777777;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--secondary);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 5px solid var(--primary);
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .tagline {
+            font-style: italic;
+            margin: 0;
+            color: var(--primary);
+        }
+        nav {
+            background-color: var(--secondary);
+            padding: 1rem;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav ul li {
+            margin: 0 1.5rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        .section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            color: var(--secondary);
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 0.5rem auto;
+        }
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('https://via.placeholder.com/1920x600?text=BTP+Afrique');
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 5rem 1rem;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--secondary);
+            padding: 0.8rem 2rem;
+            margin: 1rem 0;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background-color: #FFC000;
+            transform: translateY(-3px);
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 1.5rem;
+        }
+        .card h3 {
+            color: var(--secondary);
+            margin-top: 0;
+        }
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        .footer-logo {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .contact-info {
+            margin: 1rem 0;
+        }
+        .social-links a {
+            color: white;
+            margin: 0 0.5rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <div class="app">
-        <header>
-            <nav>
-                <a href="#" class="logo">ABGP</a>
-                <button class="menu-toggle" aria-label="Menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <div class="nav-links">
-                    <a href="#accueil">Accueil</a>
-                    <a href="#tabim">TABIMM</a>
-                    <a href="#sdm">SDM</a>
-                    <a href="#hrrm">HRRM</a>
-                    <a href="#tlm">TLM</a>
-                    <a href="#lbc">LBC</a>
-                    <a href="#rem">REM</a>
-                    <a href="#sbdq">SBDQ</a>
-                    <a href="#finance">Finance</a>
-                    <a href="#gouvernance">Gouvernance</a>
+    <header>
+        <div class="logo">ABGP</div>
+        <p class="tagline">Passion - Puissance - Excellence</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#departments">Départements</a></li>
+            <li><a href="#formations">Formations</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#atouts">Atouts et Valeurs</a></li>
+            <li><a href="#partners">Partenaires</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <section class="hero">
+        <h1>Bienvenue à Africa Building Group and Partners</h1>
+        <p>Votre partenaire de confiance pour le conseil, la formation et l'assistance en ingénierie et management de la construction. Nous illuminons le secteur du BTP en Afrique avec passion et excellence.'</p>
+        <a href="#contact" class="btn">Nous contacter</a>
+    </section>
+    <section id="about" class="section">
+        <h2 class="section-title">Notre Cabinet</h2>
+        <p>
+            <strong>AFRICA BUILDING GROUP AND PARTNERS (ABGP SARL)</strong> est une société de prestations intellectuelles dans le BTP, servant de trait d'union entre les bureaux d'études et les chantiers de construction. Notre vocation est d'assurer l'harmonie entre concepteurs et constructeurs, avec une expertise en :
+        </p>
+        <ul>
+            <li><strong>Schedule Management:</strong> Nous assurons une planification précise et efficace pour garantir le respect des délais de vos projets.</li>
+            <li><strong>Cost Management:</strong> Optimisation des coûts pour maximiser la rentabilité de vos investissements.</li>
+            <li><strong>Risk Management:</strong> Identification et gestion proactive des risques pour sécuriser vos projets.</li>
+            <li><strong>Quality Management:</strong> Engagement envers l'excellence et le respect des normes les plus strictes.'</li>
+            <li><strong>Drawing Management:</strong> Gestion rigoureuse des plans et spécifications techniques pour une exécution sans faille.</li>
+        </ul>
+        <p>
+            <em>"Une lumière brille dans le noir pour le monde du BTP en Afrique : c'est l'emblème du jaune qui illumine le noir."</em>
+        </p>
+    </section>
+    <section id="services" class="section" style="background-color: #f9f9f9;">
+        <h2 class="section-title">Nos Services</h2>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-content">
+                    <h3>Ordonnancement</h3>
+                    <p>Pilotage et Coordination (OPC), Maîtrise d'Œuvre, Conception & Suivi. Nous assurons une gestion complète et intégrée de vos projets de construction, de la conception à la livraison.'</p>
                 </div>
-            </nav>
-        </header>
-
-        <main id="content">
-            <!-- Le contenu sera chargé dynamiquement ici -->
-        </main>
-
-        <footer>
-            <p>&copy; <span id="current-year"></span> ABGP - Tous droits réservés</p>
-        </footer>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>BIM</h3>
+                    <p>Building Information Modeling : Conception, Exécution & Exploitation. Le BIM est au cœur de notre approche pour une gestion intelligente et collaborative des projets.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Formations</h3>
+                    <p>Modules spécialisés en gestion de projet, économie de la construction, BIM, et plus. Nos formations sont conçues pour répondre aux besoins spécifiques des professionnels du BTP.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="departments" class="section">
+        <h2 class="section-title">Nos Départements</h2>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-content">
+                    <h3>Technical Assistance and BIM Management (TABIMM)</h3>
+                    <p>Accompagnement spécialisé des entreprises et des Maîtres d'ouvrages dans la réalisation de leur projet de construction. Notre expertise technique et notre maîtrise du BIM garantissent une exécution optimale.'</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Training and Learning Management (TLM)</h3>
+                    <p>Préparation de modules adaptés à chaque besoin dans les secteurs de la gestion de projet, économie de la construction, BIM, et plus. Nous formons les professionnels de demain avec des programmes innovants et pratiques.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Sustainable Building Quarries and Drone (SBQD)</h3>
+                    <p>Développement des approches constructives dans le cadre du développement durable et utilisation de drones. Nous intégrons les dernières technologies pour des constructions respectueuses de l'environnement.'</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Structure and Design Management (SDM)</h3>
+                    <p>Accompagnement dans le processus de réalisation de projets d'exécution : études de faisabilité, esquisse, APS, APD, PROJET, DCE ou DAO, contrôles et suivi d'exécutions. Notre approche structurée assure la réussite de vos projets.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Human Ressource and Recruitement Management (HRRM)</h3>
+                    <p>Assistance dans le recrutement de cadres spécialisés en BTP et mise en place provisoire de cadres de Direction. Nous vous aidons à constituer des équipes performantes et motivées.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Real Estate Management (REM)</h3>
+                    <p>Accompagnement dans l'investissement immobilier, la gestion immobilière et l'expertise d'évaluation. Nous maximisons la valeur de vos actifs immobiliers avec une gestion professionnelle et stratégique.'</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Life and Business Coaching (LBC)</h3>
+                    <p>Intervention dans les domaines du développement personnel, orientation et performance professionnelle, team building, leadership, et plus. Nous accompagnons les individus et les équipes vers l'excellence.'</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="formations" class="section" style="background-color: #f9f9f9;">
+        <h2 class="section-title">Nos Formations</h2>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-content">
+                    <h3>Construction Project Management</h3>
+                    <p>Gestion de projet de construction, économie de la construction, planification d'exécution. Nos formations en gestion de projet vous préparent à relever les défis complexes du secteur de la construction.'</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Maquette Numérique (BIM Management)</h3>
+                    <p>Formation sur la modélisation des informations du bâtiment. Le BIM est une compétence essentielle pour les professionnels modernes de la construction, et nos formations vous préparent à l'excellence dans ce domaine.'</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Droit de la Construction</h3>
+                    <p>Lois et textes réglementaires dans le domaine de la construction. Une connaissance approfondie du droit de la construction est cruciale pour naviguer dans le secteur avec confiance et compétence.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Passations des Marchés</h3>
+                    <p>Textes et procédures pour les marchés publics. Nos formations vous préparent à maîtriser les processus complexes des marchés publics pour une gestion efficace et conforme.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>CAO/DAO</h3>
+                    <p>Logiciels d'optimisation de la productivité. La maîtrise des outils de CAO/DAO est essentielle pour une conception et une exécution efficaces des projets de construction.'</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Constructions Durables</h3>
+                    <p>Développement durable pour le BTP. Nous formons les professionnels à intégrer les principes du développement durable dans leurs projets pour un avenir plus vert.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Développement Personnel pour BTP</h3>
+                    <p>Formation pour le développement personnel dans le secteur du BTP. Le développement personnel est la clé pour débloquer votre potentiel et atteindre l'excellence professionnelle.'</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="projects" class="section">
+        <h2 class="section-title">Nos Projets</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="2.png" alt="Projet Kandi">
+                <div class="card-content">
+                    <h3>Stations Service (Bénin)</h3>
+                    <p>Mission de contrôle permanent des projets de construction à Natitingou et Kandi. Ces projets illustrent notre engagement envers la qualité et la sécurité dans la construction d'infrastructures essentielles.'</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="1.jpeg" alt="Tour Altair">
+                <div class="card-content">
+                    <h3>Tour Altair (Sénégal)</h3>
+                    <p>Mission de méthodes pour la réalisation de ce projet architectural. La Tour Altair est un exemple de notre expertise en gestion de projets complexes et innovants.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="3.png" alt="Entrepôts">
+                <div class="card-content">
+                    <h3>Entrepôts Glo-Djigbé</h3>
+                    <p>Assistance QHSE pour la construction de 2 entrepôts de 5000m². Ce projet démontre notre capacité à gérer des constructions de grande envergure avec un accent sur la qualité, la santé, la sécurité et l'environnement.'</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="atouts" class="section" style="background-color: #f9f9f9;">
+        <h2 class="section-title">Nos Atouts et Valeurs</h2>
+        <div class="card-container">
+            <div class="card">
+                <div class="card-content">
+                    <h3>Expertise et Expérience</h3>
+                    <p>Notre équipe est composée de professionnels expérimentés et passionnés, prêts à relever les défis les plus complexes du secteur du BTP.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Innovation</h3>
+                    <p>Nous intégrons les dernières technologies et méthodes innovantes pour offrir des solutions de pointe à nos clients.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Engagement envers la Qualité</h3>
+                    <p>La qualité est au cœur de tout ce que nous faisons. Nous nous engageons à livrer des projets qui répondent aux normes les plus élevées.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Développement Durable</h3>
+                    <p>Nous sommes engagés dans des pratiques de construction durables et respectueuses de l'environnement pour un avenir meilleur.'</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="partners" class="section">
+    <h2 class="section-title">Partenaires et Clients</h2>
+    <div class="card-container">
+        <div class="card">
+            <div style="display: flex; justify-content: center;">
+                <img src="4.png" alt="Partenaires et Clients" style="width: 752px; height: 951px; object-fit: cover;">
+            </div>
+            <div class="card-content">
+                <h3>Nos Partenaires et Clients</h3>
+                <p>Nous collaborons avec divers partenaires et clients pour offrir des solutions complètes et intégrées. Notre engagement envers l'excellence et l'innovation nous permet de répondre aux besoins spécifiques de chaque projet.</p>
+            </div>
+        </div>
     </div>
-
-    <script src="js/app.js"></script>
+</section>
+    <footer id="contact">
+        <div class="footer-logo">ABGP</div>
+        <div class="contact-info">
+            <p>4ème étage, Immeuble Neon, Sainte Rita, Cotonou</p>
+            <p>+229 97 72 65 64 | +229 60 37 38 38</p>
+            <p>abgpsarl@gmail.com | ayigilles5@gmail.com</p>
+        <p>&copy; 2025 Africa Building Group and Partners. Tous droits réservés.</p>
+    </footer>
 </body>
 </html>
