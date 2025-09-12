@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBQD - ABGP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --yellow: #F0D501;
+            --black: #000000;
+            --gray: #F5F5F5;
+            --white: #FFFFFF;
+            --dark-gray: #6c757d;
+            --shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --border-radius: 12px;
+            --max-width: 1200px;
+            --font-primary: 'Montserrat', sans-serif;
+            --font-secondary: 'Playfair Display', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--black);
+            background-color: var(--white);
+            line-height: 1.7;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--yellow);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--yellow);
+        }
+
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+
+        .department-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('drone-image.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .department-hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+        }
+
+        .department-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .department-hero h1 {
+            font-family: var(--font-secondary);
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .department-hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        main {
+            padding-top: 40px;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        section h2 {
+            text-align: center;
+            font-family: var(--font-secondary);
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            color: var(--black);
+        }
+
+        section h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--yellow);
+        }
+
+        .department-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .department-image {
+            flex: 0 0 350px;
+        }
+
+        .department-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .department-info {
+            flex: 1;
+        }
+
+        .department-info h3 {
+            font-family: var(--font-secondary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--black);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .department-info h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background-color: var(--yellow);
+        }
+
+        .department-info p {
+            margin-bottom: 1.5rem;
+            color: var(--dark-gray);
+            line-height: 1.7;
+        }
+
+        .department-features {
+            margin-top: 2rem;
+        }
+
+        .department-features h4 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .feature-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--yellow);
+            font-weight: bold;
+        }
+
+        #contact {
+            background-color: var(--gray);
+        }
+
+        .contact-department {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            flex: 1;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-secondary);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+        }
+
+        .contact-details {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .contact-details h4 {
+            margin-bottom: 1rem;
+            color: var(--black);
+        }
+
+        .contact-details p {
+            margin-bottom: 0.5rem;
+            color: var(--dark-gray);
+        }
+
+        .contact-details a {
+            color: var(--yellow);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cta-button {
+            background-color: var(--yellow);
+            color: var(--black);
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+            font-family: var(--font-primary);
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: #FFD700;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo img {
+            height: 60px;
+            margin-bottom: 1rem;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-links h4,
+        .footer-contact h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--white);
+        }
+
+        .footer-links h4:after,
+        .footer-contact h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--yellow);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--yellow);
+        }
+
+        .footer-contact p {
+            margin-bottom: 0.8rem;
+            color: #ccc;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-contact i {
+            color: var(--yellow);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--yellow);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #333;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 992px) {
+            .department-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .department-image {
+                flex: none;
+            }
+
+            .contact-department {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .department-hero h1 {
+                font-size: 2rem;
+            }
+
+            .department-hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="logo.png" alt="Logo ABGP">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#departements">Départements</a></li>
+                    <li><a href="index.html#projets">Projets</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="department-hero">
+        <div class="container">
+            <h1>Sustainable Building Quarries and Drone (SBQD)</h1>
+            <p>
+                Développement d'approches constructives dans le cadre du développement durable.
+            </p>
+        </div>
+    </section>
+
+    <main>
+        <section>
+            <div class="container">
+                <h2>Qui sommes-nous ?</h2>
+                <div class="department-content">
+                    <div class="department-image">
+                        <img src="dirigeant-sbqd.jpg" alt="Photo du responsable du département SBQD">
+                    </div>
+                    <div class="department-info">
+                        <h3>Notre Mission</h3>
+                        <p>
+                            Le département **SBQD** (Sustainable Building Quarries and Drone) développe des approches constructives dans le cadre du développement durable. Il se spécialise dans l'implémentation des principes de développement durable dans les domaines du bâtiment, du génie civil et des carrières.
+                        </p>
+                        <p>
+                            Il cumule en son sein l'apport technologique du drone dans les secteurs précités. Son objectif est d'offrir de la consultation et de l'accompagnement dans les domaines des constructions durables et de la photogrammétrie.
+                        </p>
+                        <div class="department-features">
+                            <h4>Nos Expertises Clés</h4>
+                            <ul class="feature-list">
+                                <li>Constructions durables et écoresponsables</li>
+                                <li>Gestion et exploitation des carrières</li>
+                                <li>Utilisation de drones pour la cartographie et la surveillance</li>
+                                <li>Photogrammétrie et modélisation 3D</li>
+                                <li>Optimisation des ressources et réduction des déchets</li>
+                                <li>Conseil en énergie renouvelable pour les bâtiments</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>Contactez-nous</h2>
+                <div class="contact-department">
+                    <div class="contact-info">
+                        <h3>Intéressé par nos solutions durables et innovantes ?</h3>
+                        <p>
+                            Notre équipe est à votre disposition pour discuter de vos projets et vous proposer des solutions adaptées à vos besoins.
+                        </p>
+                        <div class="contact-details">
+                            <h4>Coordonnées du département SBQD</h4>
+                            <p><i class="fas fa-phone"></i> <strong>Téléphone:</strong> <a href="tel:+22997726564">+229 97 72 65 64</a></p>
+                            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:abgpsarl@gmail.com">abgpsarl@gmail.com</a></p>
+                            <p><i class="fas fa-map-marker-alt"></i> <strong>Adresse:</strong> Cotonou Sainte Rita, 4ème étage Immeuble La Lucide, Bénin</p>
+                        </div>
+                        <a href="index.html#contact" class="cta-button">Envoyer un message</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="ABGP Logo">
+                    <p style="margin: 1rem 0; color: #ccc;">
+                        **AFRICA BUILDING GROUP AND PARTNERS** est votre partenaire de confiance pour tous vos projets de construction et BTP en Afrique.
+                    </p>
+                    <p style="color: var(--yellow); font-weight: bold; font-size: 1.1rem;">PASSION - PUISSANCE - EXCELLENCE</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Nos Services</h4>
+                    <ul>
+                        <li><a href="index.html#services">Ordonnancement</a></li>
+                        <li><a href="index.html#services">Pilotage & Coordination (OPC)</a></li>
+                        <li><a href="index.html#services">Recrutement Spécialisé</a></li>
+                        <li><a href="index.html#services">Maîtrise d’Œuvre</a></li>
+                        <li><a href="index.html#services">Building Information Modeling (BIM)</a></li>
+                        <li><a href="index.html#services">Économie & Droit de la Construction</a></li>
+                        <li><a href="index.html#services">Formations Continues</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contactez-Nous</h4>
+                    <p><i class="fas fa-phone"></i> +229 97 72 65 64</p>
+                    <p><i class="fas fa-envelope"></i> abgpsarl@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Cotonou, Sainte Rita, Bénin</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">© 2025 ABGP - Africa Building Group and Partners. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>

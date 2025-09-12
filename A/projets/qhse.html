@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez la mission de contrôle permanent des stations de Ourbouga et Aefi, réalisée par ABGP.">
+    <meta property="og:title" content="Stations de Ourbouga et Aefi - ABGP">
+    <meta property="og:description" content="Mission de contrôle permanent des projets de construction des stations de Ourbouga (Natitingou) et de Aefi (Kandi), réalisée par Africa Building Group and Partners (ABGP).">
+    <meta property="og:image" content="chemin/vers/image-stations-ourbouga-aefi.jpg">
+    <title>Stations de Ourbouga et Aefi - ABGP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --yellow: #F0D501;
+            --black: #000000;
+            --gray: #F5F5F5;
+            --white: #FFFFFF;
+            --dark-gray: #6c757d;
+            --light-gray: #f8f9fa;
+            --shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --border-radius: 12px;
+            --font-primary: 'Montserrat', sans-serif;
+            --font-secondary: 'Playfair Display', serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--black);
+            background-color: var(--light-gray);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 0;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--yellow);
+        }
+
+        .project-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('chemin/vers/image-stations-ourbouga-aefi.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 70px;
+            position: relative;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .project-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-hero h1 {
+            font-family: var(--font-secondary);
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .project-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .project-detail {
+            padding: 60px 0;
+            background-color: var(--white);
+            margin: -50px 0 0;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            position: relative;
+            z-index: 1;
+            box-shadow: var(--shadow);
+        }
+
+        .project-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-images {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .project-images img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-images img:hover {
+            transform: scale(1.02);
+        }
+
+        .project-info h2 {
+            font-family: var(--font-secondary);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--black);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .project-info h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--yellow);
+        }
+
+        .project-info h3 {
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem;
+            color: var(--black);
+        }
+
+        .project-info p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: var(--dark-gray);
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+        }
+
+        .meta-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .meta-item h4 {
+            font-size: 1rem;
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .meta-item p {
+            font-size: 1.1rem;
+            color: var(--black);
+            font-weight: 500;
+        }
+
+        .project-cta {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .project-cta h2 {
+            font-family: var(--font-secondary);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-cta p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            background-color: var(--yellow);
+            color: var(--black);
+            padding: 15px 35px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+            font-size: 1rem;
+            border: 2px solid var(--yellow);
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--yellow);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .floating-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .floating-cta .cta-button {
+            background-color: var(--yellow);
+            color: var(--black);
+            padding: 12px 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .floating-cta .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+        }
+
+        .floating-cta i {
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 992px) {
+            .project-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .project-hero h1 {
+                font-size: 2.2rem;
+            }
+            .project-hero p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-hero {
+                height: 50vh;
+            }
+            .project-hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="chemin/vers/logo-abgp.png" alt="Logo ABGP">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html#accueil">Accueil</a></li>
+                    <li><a href="../index.html#projets">Projets</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="project-hero">
+        <div class="container">
+            <h1>Stations de Ourbouga et Aefi, Bénin</h1>
+            <p>Mission de contrôle permanent pour des infrastructures essentielles au Bénin.</p>
+        </div>
+    </section>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-content">
+                <div class="project-images">
+                    <img src="chemin/vers/image1-stations-ourbouga-aefi.jpg" alt="Vue de la station de Ourbouga" loading="lazy">
+                    <img src="chemin/vers/image2-stations-ourbouga-aefi.jpg" alt="Détail de la station de Aefi" loading="lazy">
+                </div>
+                <div class="project-info">
+                    <h2>À propos du projet</h2>
+                    <p>
+                        La mission de <strong>contrôle permanent des stations de Ourbouga (Natitingou) et de Aefi (Kandi)</strong> a été confiée à ABGP pour garantir la qualité et la conformité des infrastructures.
+                        Notre équipe a supervisé chaque étape du projet, de la planification à la livraison, en veillant au respect des normes techniques et environnementales.
+                    </p>
+                    <p>
+                        Ce projet souligne notre expertise dans la gestion de projets publics et notre engagement envers l'excellence.
+                    </p>
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <h4>Type de projet</h4>
+                            <p>Contrôle permanent</p>
+                        </div>
+                        <div class="meta-item">
+                            <h4>Localisation</h4>
+                            <p>Natitingou et Kandi, Bénin</p>
+                        </div>
+                        <div class="meta-item">
+                            <h4>Période</h4>
+                            <p>Septembre 2020 à Avril 2021</p>
+                        </div>
+                        <div class="meta-item">
+                            <h4>Client</h4>
+                            <p>OBSA</p>
+                        </div>
+                    </div>
+                    <h3>Notre rôle</h3>
+                    <p>ABGP a assuré :</p>
+                    <ul style="margin: 1rem 0 1.5rem; padding-left: 20px;">
+                        <li>Le <strong>contrôle permanent</strong> des travaux.</li>
+                        <li>La <strong>supervision technique</strong> pour garantir la conformité.</li>
+                        <li>La <strong>gestion des risques</strong> et des imprévus.</li>
+                        <li>Le <strong>suivi des normes environnementales</strong>.</li>
+                    </ul>
+                    <h3>Innovations et défis</h3>
+                    <p>Ce projet a permis à ABGP de relever plusieurs défis :</p>
+                    <ul style="margin: 1rem 0 1.5rem; padding-left: 20px;">
+                        <li>La coordination entre <strong>plusieurs sites géographiquement éloignés</strong>.</li>
+                        <li>L'adaptation aux <strong>contraintes locales</strong> et aux spécificités de chaque station.</li>
+                        <li>L'application de <strong>normes strictes</strong> pour des infrastructures publiques.</li>
+                    </ul>
+                    <h3>Résultats</h3>
+                    <p>Les stations de Ourbouga et Aefi sont aujourd'hui des infrastructures fiables et durables.</p>
+                    <ul style="margin: 1rem 0 1.5rem; padding-left: 20px;">
+                        <li>Un <strong>taux de satisfaction client de 100%</strong>.</li>
+                        <li>Un <strong>respect strict des normes techniques</strong>.</li>
+                        <li>Une <strong>livraison dans les délais</strong> impartis.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-cta">
+        <div class="container">
+            <h2>Vous avez un projet public similaire ?</h2>
+            <p>
+                Notre équipe d'experts est prête à vous accompagner pour garantir la qualité et la conformité de vos infrastructures.
+                Contactez-nous dès aujourd'hui pour discuter de vos besoins.
+            </p>
+            <a href="../index.html#contact" class="cta-button">Nous contacter</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 ABGP - Africa Building Group and Partners. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <div class="floating-cta">
+        <a href="../index.html#contact" class="cta-button">
+            <i class="fas fa-comments"></i>
+            <span>Contactez-nous</span>
+        </a>
+    </div>
+</body>
+</html>
