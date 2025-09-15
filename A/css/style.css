@@ -10,7 +10,7 @@
     --border-radius: 12px;
     --max-width: 1200px;
     --font-primary: 'Montserrat', sans-serif;
-    --font-secondary: 'Playfair Display', serif;
+    /*--font-secondary: 'Playfair Display', serif;*/
 }
 
 * {
@@ -247,9 +247,9 @@ section h2:after {
 
 /* Mot du Directeur */
 #mot-du-directeur {
-    background-color: var(--black);
-    color: var(--yellow);
-    padding: 80px 0;
+    background-color: var(--white);
+    color: var(--black);
+    padding: 200px 0;
     text-align: center;
 }
 
