@@ -3,23 +3,441 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez la mission d'appui technique à maîtrise d'ouvrage pour le centre de revalidation de bouteilles de gaz à Sèmè, réalisée par ABGP.">
-    <meta property="og:title" content="Centre de Revalidation de Bouteilles de Gaz à Sèmè - ABGP">
-    <meta property="og:description" content="Mission d'appui technique à maîtrise d'ouvrage pour le projet de construction d'un centre de revalidation de bouteilles de gaz à Sèmè, réalisée par Africa Building Group and Partners (ABGP).">
-    <meta property="og:image" content="../images/centre-revalidation-gaz-seme.jpg">
-    <title>Centre de Revalidation de Bouteilles de Gaz à Sèmè - ABGP</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Centre de Revalidation de Bouteilles de Gaz - ABGP</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/projets.css">
+    <style>
+        :root {
+            --yellow: #F0D501;
+            --black: #000000;
+            --gray: #F5F5F5;
+            --white: #FFFFFF;
+            --dark-gray: #6c757d;
+            --shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+            --font-primary: 'Montserrat', sans-serif;
+            --font-secondary: 'Playfair Display', serif;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            color: var(--black);
+            background-color: var(--gray);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--yellow);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: var(--yellow);
+        }
+
+        .hero-section {
+            padding: 150px 0 60px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--gray) 0%, var(--light-gray) 100%);
+        }
+
+        .hero-title {
+            font-family: "Montserrat", sans-serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 1rem;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--dark-gray);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .carousel-wrapper {
+            width: 95%;
+            max-width: 1300px;
+            margin: 0 auto 50px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 20px;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 500px;
+            border-radius: var(--border-radius);
+        }
+
+        .swiper-slide {
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .swiper-slide::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            max-width: 80%;
+        }
+
+        .slide-content h2 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: var(--yellow);
+        }
+
+        .slide-content p {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .slide-content .client {
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--yellow);
+        }
+
+        .swiper-pagination-bullet {
+            background-color: var(--white);
+            opacity: 0.8;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: var(--yellow);
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--yellow);
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .project-detail {
+            padding: 60px 0;
+            background-color: var(--white);
+            margin: -40px 0 0;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            position: relative;
+            z-index: 1;
+            box-shadow: var(--shadow);
+        }
+
+        .project-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-images {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .project-images img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.4s ease;
+        }
+
+        .project-images img:hover {
+            transform: scale(1.02);
+        }
+
+        .project-info h2 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--black);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .project-info h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--yellow), transparent);
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: var(--black);
+            border-bottom: 1px solid var(--gray);
+            padding-bottom: 10px;
+        }
+
+        .project-info p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: var(--dark-gray);
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background-color: var(--light-gray);
+            border-radius: var(--border-radius);
+            border-left: 5px solid var(--yellow);
+        }
+
+        .meta-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .meta-item h4 {
+            font-size: 1rem;
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .meta-item p {
+            font-size: 1.1rem;
+            color: var(--black);
+            font-weight: 500;
+        }
+
+        .project-cta {
+            background: linear-gradient(135deg, var(--black) 0%, #1a1a1a 100%);
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><polygon points=\"0,0 100,0 50,50\" fill=\"rgba(240,213,1,0.1)\"/></svg>');
+            animation: shine 15s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
+        }
+
+        .project-cta h2 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 2.4rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button {
+            background-color: var(--yellow);
+            color: var(--black);
+            padding: 16px 40px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            display: inline-block;
+            font-size: 1.1rem;
+            border: 2px solid var(--yellow);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::after {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--yellow);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        @media (max-width: 992px) {
+            .project-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .swiper-container {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .swiper-container {
+                height: 300px;
+            }
+
+            .project-cta h2 {
+                font-size: 2rem;
+            }
+
+            .project-cta p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- En-tête -->
     <header>
         <div class="container">
             <div class="logo">
-                <img src="../images/logo.png" alt="Logo ABGP">
+                <img src="../logo.png" alt="Logo ABGP">
             </div>
             <nav>
                 <ul>
@@ -30,36 +448,74 @@
             </nav>
         </div>
     </header>
-    <section class="project-hero">
+
+    <!-- Section Héro -->
+    <section class="hero-section">
         <div class="container">
-            <h1>Centre de Revalidation de Bouteilles de Gaz à Sèmè, Bénin</h1>
-            <p>Mission d'appui technique à maîtrise d'ouvrage pour un projet industriel stratégique.</p>
+            <h1 class="hero-title">Centre de Revalidation de Bouteilles de Gaz (Sèmè)</h1>
+            <p class="hero-subtitle">
+                Mission d’appui technique pour la construction d'un centre de revalidation de bouteilles de gaz dans la zone franche industrielle de Sèmè.
+            </p>
+        </div>
+        <div class="carousel-wrapper">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide" style="background-image: url('../images/centre-revalidation/gasb.jpg');">
+                        <div class="slide-content">
+                            <h2>Centre de Revalidation de Bouteilles de Gaz</h2>
+                            <p>Préparation du terrain</p>
+                            <p class="client">Période : Janvier 2022</p>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide" style="background-image: url('../images/centre-revalidation/centre-revalidation-gaz-seme.jpg');">
+                        <div class="slide-content">
+                            <h2>Centre de Revalidation de Bouteilles de Gaz</h2>
+                            <p>Construction des bâtiments</p>
+                            <p class="client">Période : Mars 2022</p>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide" style="background-image: url('../images/centre-revalidation/gasb.jpg');">
+                        <div class="slide-content">
+                            <h2>Centre de Revalidation de Bouteilles de Gaz</h2>
+                            <p>Installation des équipements</p>
+                            <p class="client">Période : Juin 2022</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
         </div>
     </section>
+
+    <!-- Détails du Projet -->
     <section class="project-detail">
         <div class="container">
             <div class="project-content">
                 <div class="project-images">
-                    <img src="../images/centre-revalidation-gaz-seme-1.jpg" alt="Vue du centre de revalidation de bouteilles de gaz" loading="lazy">
-                    <img src="../images/centre-revalidation-gaz-seme-2.jpg" alt="Détail des installations du centre" loading="lazy">
+                    <img src="../1.png" alt="Détail - Terrain">
+                    <img src="../2.png" alt="Détail - Bâtiments">
                 </div>
                 <div class="project-info">
                     <h2>À propos du projet</h2>
                     <p>
-                        La mission d'<strong>appui technique à maîtrise d'ouvrage pour le projet de construction d'un centre de revalidation de bouteilles de gaz à la zone franche industrielle de Sèmè</strong> a été confiée à ABGP par ORYX Énergie Bénin SA.
-                        Notre rôle a consisté à accompagner le client dans la planification, la coordination et le suivi technique du projet, en garantissant le respect des normes de sécurité et de qualité.
+                        La mission d’appui technique pour la construction d'un <strong>centre de revalidation de bouteilles de gaz</strong> dans la zone franche industrielle de Sèmè a été confiée à ABGP.
                     </p>
                     <p>
-                        Ce projet illustre notre expertise dans la gestion de projets industriels complexes et notre engagement envers l'innovation et la durabilité.
+                        Notre rôle a consisté à superviser les travaux de construction et à garantir la conformité aux normes de sécurité et environnementales.
                     </p>
                     <div class="project-meta">
                         <div class="meta-item">
                             <h4>Type de projet</h4>
-                            <p>Appui technique à maîtrise d'ouvrage</p>
+                            <p>Appui technique</p>
                         </div>
                         <div class="meta-item">
                             <h4>Localisation</h4>
-                            <p>Zone franche industrielle de Sèmè, Bénin</p>
+                            <p>Sèmè, Bénin</p>
                         </div>
                         <div class="meta-item">
                             <h4>Période</h4>
@@ -67,56 +523,66 @@
                         </div>
                         <div class="meta-item">
                             <h4>Client</h4>
-                            <p>ORYX Énergie Bénin SA</p>
+                            <p>ORYX ENERGIE BENIN SA</p>
                         </div>
                     </div>
-                    <h3>Notre rôle</h3>
-                    <p>ABGP a assuré :</p>
-                    <ul>
-                        <li>L'<strong>appui technique à maîtrise d'ouvrage</strong> pour la planification et le suivi du projet.</li>
-                        <li>La <strong>coordination des acteurs</strong> impliqués dans le projet.</li>
-                        <li>Le <strong>suivi des normes de sécurité et de qualité</strong>.</li>
-                        <li>L'<strong>optimisation des processus</strong> pour une livraison efficace.</li>
-                    </ul>
-                    <h3>Innovations et défis</h3>
-                    <p>Ce projet a permis à ABGP de relever plusieurs défis :</p>
-                    <ul>
-                        <li>La gestion des <strong>contraintes techniques</strong> liées à un projet industriel spécialisé.</li>
-                        <li>L'application de <strong>normes strictes</strong> pour garantir la sécurité des installations.</li>
-                        <li>L'utilisation de <strong>technologies innovantes</strong> pour une gestion optimale du projet.</li>
+                    <h3>Étapes Clés</h3>
+                    <ul style="margin: 1rem 0 1.5rem; padding-left: 20px;">
+                        <li><strong>Préparation du terrain</strong> : Nivellement et stabilisation.</li>
+                        <li><strong>Construction des bâtiments</strong> : Montage des structures.</li>
+                        <li><strong>Installation des équipements</strong> : Mise en place des machines de revalidation.</li>
                     </ul>
                     <h3>Résultats</h3>
-                    <p>Le centre de revalidation de bouteilles de gaz à Sèmè est aujourd'hui une infrastructure industrielle moderne et sécurisée.</p>
-                    <ul>
-                        <li>Un <strong>taux de satisfaction client de 100%</strong>.</li>
-                        <li>Un <strong>respect strict des normes de sécurité</strong>.</li>
-                        <li>Une <strong>livraison dans les délais</strong> et selon le budget.</li>
-                    </ul>
+                    <p>
+                        Le centre de revalidation est aujourd'hui opérationnel et répond aux normes de sécurité et de qualité.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Section CTA -->
     <section class="project-cta">
         <div class="container">
             <h2>Vous avez un projet industriel similaire ?</h2>
             <p>
-                Notre équipe d'experts est prête à vous accompagner pour garantir la qualité et la sécurité de vos infrastructures.
+                Notre équipe d'experts est prête à vous accompagner pour garantir la qualité et la conformité de vos infrastructures.
                 Contactez-nous dès aujourd'hui pour discuter de vos besoins.
             </p>
             <a href="../index.html#contact" class="cta-button">Nous contacter</a>
         </div>
     </section>
+
+    <!-- Pied de page -->
     <footer>
         <div class="container">
             <p>© 2025 ABGP - Africa Building Group and Partners. Tous droits réservés.</p>
         </div>
     </footer>
-    <div class="floating-cta">
-        <a href="../index.html#contact" class="cta-button">
-            <i class="fas fa-comments"></i>
-            <span>Contactez-nous</span>
-        </a>
-    </div>
-    <script src="../js/projets.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            effect: 'coverflow',
+            coverflowEffect: {
+                rotate: 30,
+                slideShadows: true,
+            },
+        });
+    </script>
 </body>
 </html>
