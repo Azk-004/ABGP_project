@@ -461,29 +461,28 @@
             <div class="swiper-container">
                 <div class="swiper-wrapper">
                     <!-- Slide 1 -->
-                    <div class="swiper-slide" style="background-image: url('../images/tour_altair/1.jpeg');">
+                    <div class="swiper-slide" style="background-image: url('../images/tour_altair/TOUR-ALTAIR-6.jpg'); background-size: 130% auto; background-position: center bottom;">
                         <div class="slide-content">
                             <h2>Tour ALTAIR</h2>
-                            <p>Fondations et structure</p>
+                            <p>ABGP a assuré les études méthodes et la coordination pour un chantier complexe et innovant.</p>
                             <p class="client">Période : 2021</p>
                         </div>
                     </div>
                     <!-- Slide 2 -->
-                    <div class="swiper-slide" style="background-image: url('../images/tour_altair/2.jpeg');">
+                    <div class="swiper-slide" style="background-image: url('../images/tour_altair/TOUR-ALTAIR-3.jpg'); background-size: 200% auto;">
                         <div class="slide-content">
                             <h2>Tour ALTAIR</h2>
-                            <p>Montage des étages</p>
+                            <p>Immeuble residentiel de 30 étages.</p>
                             <p class="client">Période : 2022</p>
                         </div>
                     </div>
                     <!-- Slide 3 -->
-                    <div class="swiper-slide" style="background-image: url('../images/tour_altair/TOUR-ALTAIR-00.jpg');">
+                    <div class="swiper-slide" style="background-image: url('../images/tour_altair/TOUR-ALTAIR-00.jpg'); background-size: 100% auto;">
                         <div class="slide-content">
                             <h2>Tour ALTAIR</h2>
-                            <p>Finitions et livraison</p>
+                            <p>Parking jusqu’au 4ᵉ étage + logements du 5ᵉ à la toiture.</p>
                             <p class="client">Période : 2023</p>
-                        </div>
-                    </div>
+                     </div>
                 </div>
                 <div class="swiper-pagination"></div>
                 <div class="swiper-button-next"></div>
@@ -497,8 +496,8 @@
         <div class="container">
             <div class="project-content">
                 <div class="project-images">
-                    <img src="../1.png" alt="Détail - Fondations">
-                    <img src="../2.png" alt="Détail - Étages">
+                    <img src="../images/tour_altair/1.jpeg" alt="Détail - Fondations">
+                    <img src="../images/tour_altair/TOUR-ALTAIR-00.jpg" alt="Détail - Étages">
                 </div>
                 <div class="project-info">
                     <h2>À propos du projet</h2>
@@ -563,25 +562,42 @@
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
-        const swiper = new Swiper('.swiper-container', {
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            effect: 'coverflow',
-            coverflowEffect: {
-                rotate: 30,
-                slideShadows: true,
-            },
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                const swiper = new Swiper('.swiper-container', {
+                    loop: true,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    effect: 'coverflow',
+                    coverflowEffect: {
+                        rotate: 30,
+                        slideShadows: true,
+                    },
+                    on: {
+                        init: function() {
+                            console.log('Swiper initialized successfully');
+                        },
+                        click: function() {
+                            this.autoplay.stop();
+                            setTimeout(() => {
+                                this.autoplay.start();
+                            }, 5000);
+                        }
+                    }
+                });
+            } catch (error) {
+                console.error('Error initializing Swiper:', error);
+            }
         });
     </script>
 </body>

@@ -3,13 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Découvrez les deux entrepôts de 5000 m² à la zone industrielle de Glo-Djigbé, un projet QHSE réalisé par ABGP.">
-    <meta property="og:title" content="Deux Entrepôts de 5000 m² - ABGP">
-    <meta property="og:description" content="Projet de construction de deux entrepôts de 5000 m² à Glo-Djigbé, Bénin, réalisé par Africa Building Group and Partners (ABGP).">
-    <meta property="og:image" content="chemin/vers/image-entrepots.jpg">
-    <title>Deux Entrepôts de 5000 m² - ABGP</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>04 Km de Clôture - ABGP</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -19,9 +14,7 @@
             --gray: #F5F5F5;
             --white: #FFFFFF;
             --dark-gray: #6c757d;
-            --light-gray: #f8f9fa;
-            --shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
             --border-radius: 12px;
             --font-primary: 'Montserrat', sans-serif;
             --font-secondary: 'Playfair Display', serif;
@@ -30,7 +23,7 @@
         body {
             font-family: "Montserrat", sans-serif;
             color: var(--black);
-            background-color: var(--light-gray);
+            background-color: var(--gray);
             line-height: 1.8;
             margin: 0;
             padding: 0;
@@ -44,8 +37,8 @@
         }
 
         header {
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             padding: 15px 0;
             position: fixed;
             width: 100%;
@@ -67,63 +60,58 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         nav ul li a {
             color: var(--black);
             text-decoration: none;
             font-weight: 500;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             padding: 8px 0;
             font-size: 0.95rem;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--yellow);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
         }
 
         nav ul li a:hover {
             color: var(--yellow);
         }
 
-        .project-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../image-entrepots.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .hero-section {
+            padding: 150px 0 60px;
             text-align: center;
-            color: var(--white);
-            margin-top: 70px;
-            position: relative;
+            background: linear-gradient(135deg, var(--gray) 0%, var(--light-gray) 100%);
         }
 
-        .project-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        .project-hero .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        .project-hero h1 {
+        .hero-title {
             font-family: "Montserrat", sans-serif;
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 700;
+            color: var(--black);
             margin-bottom: 1rem;
             animation: fadeIn 1.2s ease-out;
         }
 
-        .project-hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--dark-gray);
+            max-width: 800px;
+            margin: 0 auto 3rem;
             animation: fadeIn 1.5s ease-out;
         }
 
@@ -132,10 +120,91 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        .carousel-wrapper {
+            width: 95%;
+            max-width: 1300px;
+            margin: 0 auto 50px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 20px;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 500px;
+            border-radius: var(--border-radius);
+        }
+
+        .swiper-slide {
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .swiper-slide::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            max-width: 80%;
+        }
+
+        .slide-content h2 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            color: var(--yellow);
+        }
+
+        .slide-content p {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .slide-content .client {
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--yellow);
+        }
+
+        .swiper-pagination-bullet {
+            background-color: var(--white);
+            opacity: 0.8;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: var(--yellow);
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--yellow);
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
         .project-detail {
             padding: 60px 0;
             background-color: var(--white);
-            margin: -50px 0 0;
+            margin: -40px 0 0;
             border-radius: var(--border-radius) var(--border-radius) 0 0;
             position: relative;
             z-index: 1;
@@ -159,7 +228,7 @@
             width: 100%;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            transition: var(--transition);
+            transition: transform 0.4s ease;
         }
 
         .project-images img:hover {
@@ -180,15 +249,17 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 60px;
+            width: 80px;
             height: 3px;
-            background-color: var(--yellow);
+            background: linear-gradient(90deg, var(--yellow), transparent);
         }
 
         .project-info h3 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             margin: 2rem 0 1rem;
             color: var(--black);
+            border-bottom: 1px solid var(--gray);
+            padding-bottom: 10px;
         }
 
         .project-info p {
@@ -205,6 +276,7 @@
             padding: 1.5rem;
             background-color: var(--light-gray);
             border-radius: var(--border-radius);
+            border-left: 5px solid var(--yellow);
         }
 
         .meta-item {
@@ -226,37 +298,77 @@
         }
 
         .project-cta {
-            background-color: var(--black);
+            background: linear-gradient(135deg, var(--black) 0%, #1a1a1a 100%);
             color: var(--white);
-            padding: 4rem 0;
+            padding: 5rem 0;
             text-align: center;
             margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><polygon points=\"0,0 100,0 50,50\" fill=\"rgba(240,213,1,0.1)\"/></svg>');
+            animation: shine 15s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
         }
 
         .project-cta h2 {
             font-family: "Montserrat", sans-serif;
-            font-size: 2.2rem;
+            font-size: 2.4rem;
             margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
         }
 
         .project-cta p {
-            font-size: 1.1rem;
-            max-width: 600px;
+            font-size: 1.2rem;
+            max-width: 700px;
             margin: 0 auto 2rem;
             line-height: 1.8;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-button {
             background-color: var(--yellow);
             color: var(--black);
-            padding: 15px 35px;
+            padding: 16px 40px;
             border-radius: var(--border-radius);
             text-decoration: none;
             font-weight: 600;
-            transition: var(--transition);
+            transition: all 0.4s ease;
             display: inline-block;
-            font-size: 1rem;
+            font-size: 1.1rem;
             border: 2px solid var(--yellow);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::after {
+            left: 100%;
         }
 
         .cta-button:hover {
@@ -278,60 +390,50 @@
             color: #ccc;
         }
 
-        .floating-cta {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        .floating-cta .cta-button {
-            background-color: var(--yellow);
-            color: var(--black);
-            padding: 12px 15px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .floating-cta .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
-        }
-
-        .floating-cta i {
-            font-size: 1.1rem;
-        }
-
         @media (max-width: 992px) {
             .project-content {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
-            .project-hero h1 {
-                font-size: 2.2rem;
+
+            .hero-title {
+                font-size: 2.5rem;
             }
-            .project-hero p {
-                font-size: 1rem;
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .swiper-container {
+                height: 400px;
             }
         }
 
         @media (max-width: 768px) {
-            .project-hero {
-                height: 50vh;
+            .hero-title {
+                font-size: 2rem;
             }
-            .project-hero h1 {
-                font-size: 1.8rem;
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .swiper-container {
+                height: 300px;
+            }
+
+            .project-cta h2 {
+                font-size: 2rem;
+            }
+
+            .project-cta p {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- En-tête -->
     <header>
         <div class="container">
             <div class="logo">
@@ -347,96 +449,140 @@
         </div>
     </header>
 
-    <section class="project-hero">
+    <!-- Section Héro -->
+    <section class="hero-section">
         <div class="container">
-            <h1>Deux Entrepôts de 5000 m², Bénin</h1>
-            <p>Un projet QHSE pour la zone industrielle de Glo-Djigbé, alliant sécurité et efficacité.</p>
+            <h1 class="hero-title">Deux Entrepôts de 5000 m² (Sipi)</h1>
+            <p class="hero-subtitle">
+                Mission d’assistance QHSE pour la construction de deux entrepôts de 5000 m² dans la zone industrielle de Sipi.
+            </p>
+        </div>
+        <div class="carousel-wrapper">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide" style="background-image: url('../images/sipi_benin/Warehouse-Design-Layout.png');">
+                        <div class="slide-content">
+                            <h2>Deux Entrepôts de 5000 m²</h2>
+                            <p>ABGP a accompagné le projet avec une expertise QHSE et une gestion proactive des risques.</p>
+                            <p class="client">Période : Septembre 2021</p>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide" style="background-image: url('../images/sipi_benin/entrpot.jpg');">
+                        <div class="slide-content">
+                            <h2>Deux Entrepôts de 5000 m²</h2>
+                            <p>Des entrepôts industriels stratégiques au cœur de la zone économique de Glo-Djigbé.</p>
+                            <p class="client">Période : Octobre 2021</p>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide" style="background-image: url('../images/sipi_benin/GDIZ-PICS-169-1.jpg');">
+                        <div class="slide-content">
+                            <h2>Deux Entrepôts de 5000 m²</h2>
+                            <p>Une infrastructure logistique conforme aux plus hauts standards internationaux</p>
+                            <p class="client">Période : Mars 2022</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
         </div>
     </section>
 
+    <!-- Détails du Projet -->
     <section class="project-detail">
         <div class="container">
             <div class="project-content">
                 <div class="project-images">
-                    <img "../image1-entrepots.jpg" alt="Vue extérieure des entrepôts" loading="lazy">
-                    <img "../image2-entrepots.jpg" alt="Détail de la structure des entrepôts" loading="lazy">
+                    <img src="../images/sipi_benin/GDIZ-PICS-197-1.jpg" alt="Détail - Tracé">
+                    <img src="../images/sipi_benin/GDIZ-PICS-169-1.jpg" alt="Détail - Poteaux">
                 </div>
                 <div class="project-info">
                     <h2>À propos du projet</h2>
                     <p>
-                        Les <strong>deux entrepôts de 5000 m²</strong> à Glo-Djigbé, Bénin, sont un projet clé pour la zone industrielle, réalisé avec un focus sur la qualité, la santé, la sécurité et l'environnement (QHSE).
-                        ABGP a assuré la coordination et le suivi pour garantir une construction conforme aux normes les plus strictes.
+                        La mission d’assistance QHSE pour la construction de <strong>deux entrepôts de 5000 m²</strong> dans la zone industrielle de Sipi a été confiée à ABGP.
                     </p>
                     <p>
-                        Ce projet démontre notre expertise dans la gestion de projets industriels complexes.
+                        Notre rôle a consisté à garantir la sécurité, la qualité et le respect des normes environnementales tout au long du projet.
                     </p>
                     <div class="project-meta">
                         <div class="meta-item">
                             <h4>Type de projet</h4>
-                            <p>Industriel (QHSE)</p>
+                            <p>Assistance QHSE</p>
                         </div>
                         <div class="meta-item">
                             <h4>Localisation</h4>
-                            <p>Glo-Djigbé, Bénin</p>
+                            <p>Glo-Djigbe, Bénin</p>
                         </div>
                         <div class="meta-item">
-                            <h4>Année de réalisation</h4>
-                            <p>2021 - 2022</p>
+                            <h4>Période</h4>
+                            <p>Septembre 2021 à Mars 2022</p>
                         </div>
                         <div class="meta-item">
-                            <h4>Surface</h4>
-                            <p>10 000 m²</p>
+                            <h4>Client</h4>
+                            <p>VICO SARL pour SIPI BENIN</p>
                         </div>
                     </div>
-                    <h3>Notre rôle</h3>
-                    <p>ABGP a assuré :</p>
+                    <h3>Étapes Clés</h3>
                     <ul style="margin: 1rem 0 1.5rem; padding-left: 20px;">
-                        <li>La <strong>coordination QHSE</strong> pour garantir la sécurité et la qualité.</li>
-                        <li>Le <strong>suivi des normes environnementales</strong>.</li>
-                        <li>La <strong>gestion des risques</strong> liés à la construction industrielle.</li>
-                        <li>L'<strong>optimisation des processus</strong> pour une livraison efficace.</li>
-                    </ul>
-                    <h3>Innovations et défis</h3>
-                    <p>Ce projet a permis à ABGP de relever plusieurs défis :</p>
-                    <ul style="margin: 1rem 0 1.5rem; padding-left: 20px;">
-                        <li>L'application de <strong>normes QHSE strictes</strong> dans un environnement industriel.</li>
-                        <li>La gestion des <strong>contraintes logistiques</strong> pour un projet de grande envergure.</li>
-                        <li>L'utilisation de <strong>matériaux durables</strong> pour une construction responsable.</li>
+                        <li><strong>Préparation du tracé</strong> : Définition du parcours.</li>
+                        <li><strong>Installation des poteaux</strong> : Mise en place des supports.</li>
+                        <li><strong>Pose des panneaux</strong> : Fixation des clôtures.</li>
                     </ul>
                     <h3>Résultats</h3>
-                    <p>Les entrepôts de Glo-Djigbé sont aujourd'hui un modèle de construction industrielle sécurisée et efficace.</p>
-                    <ul style="margin: 1rem 0 1.5rem; padding-left: 20px;">
-                        <li>Un <strong>taux de satisfaction client de 100%</strong>.</li>
-                        <li>Un <strong>respect strict des normes QHSE</strong>.</li>
-                        <li>Une <strong>livraison dans les délais</strong> et selon le budget.</li>
-                    </ul>
+                    <p>
+                        Les entrepôts sont aujourd'hui installés et sécurisés.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Section CTA -->
     <section class="project-cta">
         <div class="container">
-            <h2>Vous avez un projet industriel similaire ?</h2>
+            <h2>Vous avez un projet d'entrepôt similaire ?</h2>
             <p>
-                Notre équipe d'experts est prête à vous accompagner pour transformer vos idées en réalités concrètes.
-                Contactez-nous dès aujourd'hui pour discuter de vos besoins et obtenir une solution sur mesure.
+                Notre équipe d'experts est prête à vous accompagner pour garantir la qualité et la conformité de vos infrastructures.
+                Contactez-nous dès aujourd'hui pour discuter de vos besoins.
             </p>
             <a href="../index.html#contact" class="cta-button">Nous contacter</a>
         </div>
     </section>
 
+    <!-- Pied de page -->
     <footer>
         <div class="container">
             <p>© 2025 ABGP - Africa Building Group and Partners. Tous droits réservés.</p>
         </div>
     </footer>
 
-    <div class="floating-cta">
-        <a href="../index.html#contact" class="cta-button">
-            <i class="fas fa-comments"></i>
-            <span>Contactez-nous</span>
-        </a>
-    </div>
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            effect: 'coverflow',
+            coverflowEffect: {
+                rotate: 30,
+                slideShadows: true,
+            },
+        });
+    </script>
 </body>
 </html>
