@@ -3,159 +3,797 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HRRM - ABGP</title>
+    <meta name="description" content="ABGP - Recrutement de cadres spécialisés en BTP et solutions de management de transition">
+    <title>HRRM - Recrutement BTP | ABGP</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/departements.css">
-    <link rel="stylesheet" href="../css/mddirecteur.css">
+    <style>
+        :root {
+            --yellow: #F0D501;
+            --black: #000000;
+            --gray: #F5F5F5;
+            --white: #FFFFFF;
+            --dark-gray: #6c757d;
+            --shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s ease;
+            --border-radius: 12px;
+            --max-width: 1200px;
+            --font-primary: 'Montserrat', sans-serif;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: var(--font-primary);
+            color: var(--black);
+            background-color: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        header.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            height: 60px;
+            transition: var(--transition);
+        }
+        header.scrolled .logo img {
+            height: 50px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        nav ul li a {
+            font-family: var(--font-primary);
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--yellow);
+            transition: var(--transition);
+        }
+        nav ul li a:hover {
+            color: var(--yellow);
+        }
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        /* Hero Section */
+        .department-hero {
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            padding-top: 100px;
+            position: relative;
+            margin-bottom: 40px;
+        }
+        .department-hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+        }
+        .department-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+        .department-hero h1 {
+            font-family: var(--font-primary);
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+        .department-hero p {
+            font-family: var(--font-primary);
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+        /* Main Content */
+        main {
+            padding-top: 40px;
+            margin-bottom: 60px;
+        }
+        section {
+            padding: 60px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-family: var(--font-primary);
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            color: var(--black);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--yellow);
+        }
+        /* Department Content */
+        .department-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        .department-image {
+            flex: 0 0 350px;
+        }
+        .department-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+        .department-image img:hover {
+            transform: scale(1.02);
+        }
+        .department-info {
+            flex: 1;
+        }
+        .department-info p {
+            font-family: var(--font-primary);
+            margin-bottom: 1.5rem;
+            color: var(--dark-gray);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+        /* Services Section */
+        .services-section {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .services-section h3 {
+            font-family: var(--font-primary);
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--black);
+            position: relative;
+            padding-bottom: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .services-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 2px;
+            background-color: var(--yellow);
+        }
+        .feature-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .feature-list li {
+            font-family: var(--font-primary);
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--dark-gray);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .feature-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--yellow);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        /* Contact Section */
+        #contact {
+            background-color: var(--gray);
+            padding: 80px 0;
+        }
+        .contact-department {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .contact-info {
+            flex: 1;
+            text-align: center;
+        }
+        .contact-info h3 {
+            font-family: var(--font-primary);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--black);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .contact-info p {
+            font-family: var(--font-primary);
+            margin-bottom: 1.5rem;
+            color: var(--dark-gray);
+            line-height: 1.7;
+        }
+        .contact-details {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+            text-align: left;
+        }
+        .contact-details h4 {
+            font-family: var(--font-primary);
+            margin-bottom: 1.5rem;
+            color: var(--black);
+            text-align: center;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .contact-details h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background-color: var(--yellow);
+        }
+        .contact-details p {
+            font-family: var(--font-primary);
+            margin-bottom: 0.8rem;
+            color: var(--dark-gray);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .contact-details a {
+            color: var(--yellow);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .contact-details a:hover {
+            color: #FFD700;
+        }
+        /* Buttons */
+        .cta-button {
+            font-family: var(--font-primary);
+            background-color: var(--yellow);
+            color: var(--black);
+            padding: 14px 30px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+            margin-top: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .cta-button:hover {
+            background-color: #FFD700;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            color: var(--black);
+        }
+        /* Navigation */
+        .department-navigation {
+            display: flex;
+            justify-content: space-between;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            border-top: 1px solid #eee;
+            max-width: var(--max-width);
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .nav-arrow {
+            font-family: var(--font-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 12px 20px;
+            background-color: var(--yellow);
+            color: var(--black);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.85rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .nav-arrow:hover {
+            background-color: #FFD700;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .nav-arrow i {
+            font-size: 1.1rem;
+        }
+        /* Floating Arrows */
+        .floating-nav-arrows {
+            position: fixed;
+            bottom: 30%;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            pointer-events: none;
+        }
+        .floating-arrow {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: var(--yellow);
+            color: var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            pointer-events: auto;
+            opacity: 0.9;
+            z-index: 1001;
+        }
+        .floating-arrow:hover {
+            background-color: #FFD700;
+            transform: scale(1.1);
+            opacity: 1;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+        }
+        .prev-arrow {
+            left: 20px;
+        }
+        .next-arrow {
+            right: 20px;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .floating-arrow {
+            animation: pulse 2.5s infinite;
+        }
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        .footer-logo img {
+            height: 60px;
+            margin-bottom: 1.5rem;
+            filter: brightness(0) invert(1);
+            transition: transform 0.3s ease;
+        }
+        .footer-logo img:hover {
+            transform: scale(1.05);
+        }
+        .footer-logo p {
+            font-family: var(--font-primary);
+            color: #ccc;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        .footer-links h4,
+        .footer-contact h4 {
+            font-family: var(--font-primary);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--white);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .footer-links h4:after,
+        .footer-contact h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--yellow);
+        }
+        .footer-links ul {
+            list-style: none;
+        }
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+        .footer-links ul li a {
+            font-family: var(--font-primary);
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .footer-links ul li a:hover {
+            color: var(--yellow);
+            text-decoration: underline;
+        }
+        .footer-contact p {
+            font-family: var(--font-primary);
+            margin-bottom: 0.8rem;
+            color: #ccc;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .footer-contact i {
+            color: var(--yellow);
+            font-size: 1rem;
+        }
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+            justify-content: center;
+        }
+        .social-links a {
+            color: var(--white);
+            font-size: 1.3rem;
+            transition: var(--transition);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .social-links a:hover {
+            color: var(--yellow);
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #333;
+            color: #999;
+            font-size: 0.85rem;
+            font-family: var(--font-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        /* Responsive */
+        @media (max-width: 1199px) {
+            .container {
+                width: 95%;
+            }
+            .department-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .department-image {
+                flex: none;
+                max-width: 300px;
+            }
+            .contact-department {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        @media (max-width: 991px) {
+            .department-hero h1 {
+                font-size: 2.2rem;
+            }
+            .department-hero p {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .services-section h3 {
+                font-size: 1.6rem;
+            }
+        }
+        @media (max-width: 767px) {
+            .department-hero {
+                height: 40vh;
+                min-height: 300px;
+            }
+            .department-hero h1 {
+                font-size: 1.8rem;
+                line-height: 1.3;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .feature-list {
+                text-align: center;
+            }
+            .feature-list li {
+                padding-left: 0;
+                text-align: left;
+                display: flex;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+            .feature-list li:before {
+                position: static;
+                margin-top: 0.1rem;
+            }
+            .contact-department {
+                gap: 2rem;
+            }
+            .nav-arrow {
+                padding: 10px 15px;
+                font-size: 0.8rem;
+            }
+        }
+        @media (max-width: 575px) {
+            .department-hero h1 {
+                font-size: 1.6rem;
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+            .cta-button {
+                padding: 12px 20px;
+                font-size: 0.85rem;
+            }
+            .floating-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
             <div class="logo">
-                <img src="../LOGO ABGP WEB1.jpg" alt="Logo ABGP">
+                <img src="../images/logo.png" alt="Logo ABGP">
             </div>
             <nav>
                 <ul>
-                    <li><a href="../index.html#accueil">Accueil</a></li>
-                    <li><a href="../index.html#mddirecteur.html">Mot du directeur</a></li>
-                    <li><a href="../index.html#services">Services</a></li>
-                    <li><a href="../index.html#departements">Départements</a></li>
-                    <li><a href="../index.html#projets">Projets</a></li>
-                    <li><a href="../index.html#contact">Contact</a></li>
+                    <li><a href="../index.html#accueil">ACCUEIL</a></li>
+                    <li><a href="../index.html#services">SERVICES</a></li>
+                    <li><a href="../index.html#departements">DÉPARTEMENTS</a></li>
+                    <li><a href="../index.html#projets">PROJETS</a></li>
+                    <li><a href="../index.html#contact">CONTACT</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-     <!-- Hero Section -->
-   <div class="mobile-menu-container">
-    <div class="logo">
-                <img src="../LOGO ABGP WEB1.jpg ABGP WEB1.jpg" alt="Logo ABGP - Africa Building Group and Partners">
-            </div>
-    <div class="space-menu"></div>
 
-    <!-- Checkbox cachée pour gérer l'état -->
-    <input type="checkbox" id="menu-toggle-input">
-
-    <!-- Bouton hamburger (3 lignes) -->
-    <label for="menu-toggle-input" class="menu-toggle">
-        <span class="ligne-menu"></span>
-        <span class="ligne-menu"></span>
-        <span class="ligne-menu"></span>
-        <div class="logo", style="padding-top: 10px;">
-            <img src="../menu.png" alt="Logo ABGP - Africa Building Group and Partners">
-        </div>
-    </label>
-
-    <!-- Menu déroulant -->
-    <ul class="mobile-menu">
-        <li><a href="../index.html#accueil">Accueil</a></li>
-        <li><a href="../index.html#mddirecteur.html">Mot du directeur</a></li>
-        <li><a href="../index.html#services">Services</a></li>
-        <li><a href="../index.html#departements">Départements</a></li>
-        <li><a href="../index.html#projets">Projets</a></li>
-        <li><a href="../index.html#contact">Contact</a></li>
-    </ul>
-    </div>
-</div>
-    <section class="department-hero">
+    <section class="department-hero" style="background-image: url('../images/bg-hrrm.jpg');">
         <div class="container">
-            <h1>Human Resource and Recruitment Management (HRRM)</h1>
-            <p>
-                Recrutement de cadres spécialisés en BTP et mise en place de solutions de management de transition.
-            </p>
+            <h1>HUMAN RESOURCE AND RECRUITMENT MANAGEMENT</h1>
+            <p>RECRUTEMENT DE CADRES SPÉCIALISÉS EN BTP ET SOLUTIONS DE MANAGEMENT DE TRANSITION</p>
         </div>
     </section>
+
     <main>
         <section>
             <div class="container">
-                <h2>Qui sommes-nous ?</h2>
+                <h2 class="section-title">QUI SOMMES-NOUS ?</h2>
                 <div class="department-content">
                     <div class="department-image">
-                        <img src="../images/dirigeant-hrrm.jpg" alt="Photo du responsable du département HRRM">
+                        <img src="../images/dirigeant-hrrm.jpg" alt="Responsable HRRM - ABGP">
                     </div>
                     <div class="department-info">
-                        <h3>Notre Mission</h3>
                         <p>
-                            Le département <strong>HRRM</strong> (Human Resource and Recruitment Management) d'<strong>ABGP</strong> accompagne les entreprises et institutions dans le recrutement de cadres spécialisés en BTP, la mise en place provisoire de cadres de direction, et le recrutement de chefs d'équipe de travaux.
+                            Le département HRRM d'ABGP accompagne les entreprises du BTP dans le recrutement de cadres spécialisés, la gestion de transition et le placement de chefs d'équipe. Nous proposons des solutions RH sur mesure, adaptées aux enjeux techniques et humains de vos projets, avec une approche centrée sur la performance et la durabilité.
                         </p>
                         <p>
-                            Notre objectif est de fournir des solutions RH sur mesure, adaptées aux besoins spécifiques de chaque client, en garantissant la qualité et la compétitivité des profils proposés.
+                            Notre expertise couvre tous les aspects du recrutement et de la gestion des talents dans le secteur du BTP, avec une attention particulière portée sur l'adéquation entre les compétences techniques et les besoins spécifiques de chaque entreprise.
                         </p>
-                        <div class="department-features">
-                            <h4>Nos Services</h4>
-                            <ul class="feature-list">
-                                <li>Recrutement de cadres spécialisés en BTP</li>
-                                <li>Management de transition</li>
-                                <li>Recrutement de chefs d'équipe de travaux</li>
-                            </ul>
-                        </div>
                     </div>
+                </div>
+
+                <div class="services-section">
+                    <h3>NOS SERVICES</h3>
+                    <ul class="feature-list">
+                        <li>Recrutement de cadres et ingénieurs BTP qualifiés</li>
+                        <li>Management de transition pour les postes clés de direction</li>
+                        <li>Placement de chefs de chantier et conducteurs de travaux expérimentés</li>
+                        <li>Conseil en organisation et optimisation des ressources humaines</li>
+                        <li>Évaluation des compétences et développement des talents</li>
+                        <li>Accompagnement dans la gestion des carrières et la mobilité interne</li>
+                    </ul>
                 </div>
             </div>
         </section>
+
         <section id="contact">
             <div class="container">
-                <h2>Contactez-nous</h2>
+                <h2 class="section-title">CONTACTEZ-NOUS</h2>
                 <div class="contact-department">
                     <div class="contact-info">
-                        <h3>Besoin de recruter des cadres spécialisés en BTP ?</h3>
+                        <h3>BESOIN DE RECRUTER DES TALENTS BTP ?</h3>
                         <p>
-                            Notre équipe est à votre disposition pour discuter de vos besoins en recrutement et vous proposer des solutions adaptées.
+                            Notre équipe vous propose des solutions RH adaptées à vos enjeux sectoriels pour renforcer vos équipes avec des profils qualifiés et expérimentés dans le bâtiment et les travaux publics. Nous vous accompagnons dans toutes les étapes du processus de recrutement.
                         </p>
                         <div class="contact-details">
-                            <h4>Coordonnées du département HRRM</h4>
-                            <p><i class="fas fa-phone"></i> <strong>Téléphone:</strong> <a href="tel:+22997726564">+229 97 72 65 64</a></p>
-                            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:abgpsarl@gmail.com">abgpsarl@gmail.com</a></p>
-                            <p><i class="fas fa-map-marker-alt"></i> <strong>Adresse:</strong> Cotonou Sainte Rita, 4ème étage de l'immeuble La Lucide, Bénin</p>
+                            <h4>COORDONNÉES DU DÉPARTEMENT HRRM</h4>
+                            <p><i class="fas fa-phone"></i> <strong>TÉLÉPHONE:</strong> <a href="tel:+22997726564">+229 97 72 65 64</a></p>
+                            <p><i class="fas fa-envelope"></i> <strong>EMAIL:</strong> <a href="mailto:abgpsarl@gmail.com">abgpsarl@gmail.com</a></p>
+                            <p><i class="fas fa-map-marker-alt"></i> <strong>ADRESSE:</strong> Cotonou Sainte Rita, 4ème étage Immeuble La Lucide, Bénin</p>
                         </div>
-                        <a href="../index.html#contact" class="cta-button">Envoyer un message</a>
+                        <a href="../index.html#contact" class="cta-button">NOUS CONTACTER</a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <div class="department-navigation">
+        <div class="container">
+            <a href="lbc.html" class="nav-arrow"><i class="fas fa-arrow-left"></i> DÉPARTEMENT PRÉCÉDENT</a>
+            <a href="rem.html" class="nav-arrow">DÉPARTEMENT SUIVANT <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="../LOGO ABGP WEB1.jpg" alt="ABGP Logo">
-                    <p style="margin: 1rem 0; color: #ccc;">
-                        <strong>AFRICA BUILDING GROUP AND PARTNERS</strong> est votre partenaire de confiance pour tous vos projets de construction et BTP en Afrique.
+                    <img src="../images/logo.png" alt="ABGP Logo">
+                    <p>
+                        <strong>AFRICA BUILDING GROUP AND PARTNERS</strong> est votre partenaire de confiance pour tous vos projets de construction et BTP en Afrique. Nous combinons expertise technique et approche humaine pour des solutions durables et performantes.
                     </p>
-                    <p style="color: var(--yellow); font-weight: bold; font-size: 1.1rem;">PASSION - PUISSANCE - EXCELLENCE</p>
+                    <p style="color: var(--yellow); font-weight: bold; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px;">PASSION - PUISSANCE - EXCELLENCE</p>
                 </div>
                 <div class="footer-links">
-                    <h4>Nos Services</h4>
+                    <h4>NOS SERVICES</h4>
                     <ul>
-                        <li><a href="../index.html#services">Ordonnancement</a></li>
-                        <li><a href="../index.html#services">Pilotage & Coordination (OPC)</a></li>
-                        <li><a href="../index.html#services">Recrutement Spécialisé</a></li>
-                        <li><a href="../index.html#services">Maîtrise d’Œuvre</a></li>
-                        <li><a href="../index.html#services">Building Information Modeling (BIM)</a></li>
-                        <li><a href="../index.html#services">Économie & Droit de la Construction</a></li>
-                        <li><a href="../index.html#services">Formations Continues</a></li>
+                        <li><a href="../index.html#services">ORDONNANCEMENT</a></li>
+                        <li><a href="../index.html#services">PILOTAGE & COORDINATION (OPC)</a></li>
+                        <li><a href="../index.html#services">RECRUTEMENT SPÉCIALISÉ</a></li>
+                        <li><a href="../index.html#services">MAÎTRISE D'ŒUVRE</a></li>
+                        <li><a href="../index.html#services">BUILDING INFORMATION MODELING (BIM)</a></li>
+                        <li><a href="../index.html#services">ÉCONOMIE & DROIT DE LA CONSTRUCTION</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
-                    <h4>Contactez-Nous</h4>
+                    <h4>CONTACTEZ-NOUS</h4>
                     <p><i class="fas fa-phone"></i> +229 97 72 65 64</p>
                     <p><i class="fas fa-envelope"></i> abgpsarl@gmail.com</p>
                     <p><i class="fas fa-map-marker-alt"></i> Cotonou, Sainte Rita, Bénin</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
-            <p class="copyright">© 2025 ABGP - Africa Building Group and Partners. Tous droits réservés.</p>
+            <p class="copyright">© 2025 ABGP - AFRICA BUILDING GROUP AND PARTNERS. TOUS DROITS RÉSERVÉS.</p>
         </div>
     </footer>
-    <script src="../js/scrip.js"></script>
+
+    <div class="floating-nav-arrows">
+        <a href="lbc.html" class="floating-arrow prev-arrow" id="prev-dept"><i class="fas fa-arrow-left"></i></a>
+        <a href="rem.html" class="floating-arrow next-arrow" id="next-dept"><i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <script>
+        // Effet de scroll pour le header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Gestion des flèches de navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const navArrows = document.querySelectorAll('.nav-arrow, .floating-arrow');
+            navArrows.forEach(arrow => {
+                arrow.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    if (href) {
+                        window.location.href = href;
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
