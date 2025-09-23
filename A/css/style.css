@@ -165,7 +165,7 @@ nav ul li a:hover:after {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/m.jpeg');
+    background: linear-gradient(rgba(253, 237, 4, 0.3), rgba(0, 0, 0, 0.3)), url('../PHOTO Batiment durable carriere et drone Sustainable building careers.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -268,7 +268,7 @@ section h2:after {
 /* Vision et Mission */
 #vision-mission {
     padding: 80px 0;
-    background-color: var(--gray);
+    background: linear-gradient(135deg, rgba(240,213,1,0.1) 0%, rgba(240,213,1,0.05) 100%);
 }
 
 .vision-mission-grid {
@@ -370,7 +370,7 @@ section h2:after {
 /* Services */
 #services {
     padding: 80px 0;
-    background-color: var(--gray);
+    background: linear-gradient(135deg, rgba(240,213,1,0.1) 0%, rgba(240,213,1,0.05) 100%);
 }
 
 .services-grid {
@@ -564,7 +564,7 @@ section h2:after {
 /* Galerie */
 #galerie {
     padding: 80px 0;
-    background-color: var(--gray);
+    background: linear-gradient(135deg, rgba(240,213,1,0.1) 0%, rgba(240,213,1,0.05) 100%);
 }
 
 .galerie-grid {
@@ -712,7 +712,7 @@ section h2:after {
 /* Contact */
 #contact {
     padding: 80px 0;
-    background-color: var(--gray);
+    background: linear-gradient(135deg, rgba(240,213,1,0.1) 0%, rgba(240,213,1,0.05) 100%);
 }
 
 .contact-container {

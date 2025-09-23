@@ -285,7 +285,7 @@ nav ul li a:hover:after {
 
 #mot-du-directeur {
     display: flex;
-    background-color: var(--white);
+    background: linear-gradient(135deg, rgba(240,213,1,0.1) 0%, rgba(240,213,1,0.05) 100%);
     color: var(--black);
     padding: 200px 50px;
     text-align: center;
