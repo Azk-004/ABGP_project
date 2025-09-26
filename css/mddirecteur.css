@@ -117,19 +117,7 @@ nav ul li a:hover:after {
 }
 
 /* Bouton hamburger */
-.menu-toggle {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: clamp(60px, 5vw, 60px);
-    height: clamp(60px, 5vw, 60px);
-    cursor: pointer;
-    border-radius: 50%;
-    background-color: #F0D501;
-    transition: all 0.3s ease;
-    margin-top: 5px;
-}
+
 .space-menu {
     width: 750px;
 }
