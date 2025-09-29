@@ -231,10 +231,16 @@
             background-color: var(--yellow);
         }
         .feature-list {
+            display: flex;
+            list-style: none;
+            max-width: 1100px;
+            text-align: left;
+        }
+        .feature-list-block {
             list-style: none;
             max-width: 800px;
-            margin: 0 auto;
             text-align: left;
+            margin: 0 auto;
         }
         .feature-list li {
             font-family: var(--font-primary);
@@ -692,7 +698,7 @@
     </div>
 </div>
 
-    <section class="department-hero" style="background-image: url('../images/bg-lbc.jpg');">
+    <section class="department-hero" style="background-image: url('../images/Business-Coaching.jpg');">
         <div class="container">
             <h1>LIFE AND BUSINESS COACHING</h1>
             <p>DÉVELOPPEMENT PERSONNEL ET PERFORMANCE PROFESSIONNELLE POUR LES ACTEURS DU BTP</p>
@@ -705,7 +711,7 @@
                 <h2 class="section-title">QUI SOMMES-NOUS ?</h2>
                 <div class="department-content">
                     <div class="department-image">
-                        <img src="../images/dirigeant-lbc.jpg" alt="Responsable LBC - ABGP">
+                        <img src="../images/lb.jpg" alt="Responsable LBC - ABGP">
                     </div>
                     <div class="department-info">
                         <p>
@@ -720,13 +726,18 @@
                 <div class="services-section">
                     <h3>NOS SERVICES</h3>
                     <ul class="feature-list">
-                        <li>Coaching individuel pour dirigeants et managers BTP</li>
-                        <li>Développement du leadership et gestion d'équipe</li>
-                        <li>Accompagnement au changement organisationnel</li>
-                        <li>Team building et cohésion d'équipe</li>
-                        <li>Gestion du stress et équilibre vie pro/vie perso</li>
-                        <li>Communication efficace et techniques de négociation</li>
-                        <li>Formation en intelligence émotionnelle et collective</li>
+                        <ul class="feature-list-block">
+                            <li>Coaching individuel pour dirigeants et managers BTP</li>
+                            <li>Développement du leadership et gestion d'équipe</li>
+                            <li>Accompagnement au changement organisationnel</li>
+                            <li>Team building et cohésion d'équipe</li>
+                        </ul>
+                        <ul class="feature-list-block">
+                            <li>Gestion du stress et équilibre vie pro/vie perso</li>
+                            <li>Communication efficace et techniques de négociation</li>
+                            <li>Formation en intelligence émotionnelle et collective</li>
+                            <li>Accompagnement à la prise de décision stratégique</li>
+                        </ul>
                     </ul>
                 </div>
             </div>

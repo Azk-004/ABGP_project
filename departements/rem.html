@@ -231,10 +231,16 @@
             background-color: var(--yellow);
         }
         .feature-list {
+            display: flex;
+            list-style: none;
+            max-width: 1100px;
+            text-align: left;
+        }
+        .feature-list-block {
             list-style: none;
             max-width: 800px;
-            margin: 0 auto;
             text-align: left;
+            margin: 0 auto;
         }
         .feature-list li {
             font-family: var(--font-primary);
@@ -692,7 +698,7 @@
     </div>
 </div>
 
-    <section class="department-hero" style="background-image: url('../images/bg-rem.jpg');">
+    <section class="department-hero" style="background-image: url('../images/Restate.jpeg');">
         <div class="container">
             <h1>REAL ESTATE MANAGEMENT</h1>
             <p>ACCOMPAGNEMENT DES PROMOTEURS DANS L'INVESTISSEMENT IMMOBILIER ET LA GESTION DE PATRIMOINE</p>
@@ -705,7 +711,7 @@
                 <h2 class="section-title">QUI SOMMES-NOUS ?</h2>
                 <div class="department-content">
                     <div class="department-image">
-                        <img src="../images/dirigeant-rem.jpg" alt="Responsable REM - ABGP">
+                        <img src="../images/re.jpg" alt="Responsable REM - ABGP">
                     </div>
                     <div class="department-info">
                         <p>
@@ -720,13 +726,18 @@
                 <div class="services-section">
                     <h3>NOS SERVICES</h3>
                     <ul class="feature-list">
-                        <li>Conseil en investissement immobilier et analyse de marché</li>
-                        <li>Gestion locative et administrative complète</li>
-                        <li>Expertise et évaluation foncière et immobilière</li>
-                        <li>Stratégie patrimoniale et optimisation fiscale</li>
-                        <li>Développement de projets immobiliers clés en main</li>
-                        <li>Gestion de copropriétés et syndic de copropriété</li>
-                        <li>Conseil en immobilier d'entreprise et commercial</li>
+                        <ul class="feature-list-block">
+                            <li>Conseil en investissement immobilier et analyse de marché</li>
+                            <li>Gestion locative et administrative complète</li>
+                            <li>Expertise et évaluation foncière et immobilière</li>
+                            <li>Stratégie patrimoniale et optimisation fiscale</li>
+                        </ul>
+                        <ul class="feature-list-block">
+                            <li>Développement de projets immobiliers clés en main</li>
+                            <li>Gestion de copropriétés et syndic de copropriété</li>
+                            <li>Conseil en immobilier d'entreprise et commercial</li>
+                            <li>Due diligence immobilière et audits techniques</li>
+                        </ul>
                     </ul>
                 </div>
             </div>

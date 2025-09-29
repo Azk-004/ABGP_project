@@ -232,10 +232,16 @@
             background-color: var(--yellow);
         }
         .feature-list {
+            display: flex;
+            list-style: none;
+            max-width: 1100px;
+            text-align: left;
+        }
+        .feature-list-block {
             list-style: none;
             max-width: 800px;
-            margin: 0 auto;
             text-align: left;
+            margin: 0 auto;
         }
         .feature-list li {
             font-family: var(--font-primary);
@@ -693,7 +699,7 @@
     </div>
 </div>
 
-    <section class="department-hero" style="background-image: url('../images/bg-hrrm.jpg');">
+    <section class="department-hero" style="background-image: url('../images/hr.webp');">
         <div class="container">
             <h1>HUMAN RESOURCE AND RECRUITMENT MANAGEMENT</h1>
             <p>RECRUTEMENT DE CADRES SPÉCIALISÉS EN BTP ET SOLUTIONS DE MANAGEMENT DE TRANSITION</p>
@@ -706,7 +712,7 @@
                 <h2 class="section-title">QUI SOMMES-NOUS ?</h2>
                 <div class="department-content">
                     <div class="department-image">
-                        <img src="../images/dirigeant-hrrm.jpg" alt="Responsable HRRM - ABGP">
+                        <img src="../images/hr.jpg" alt="Responsable HRRM - ABGP">
                     </div>
                     <div class="department-info">
                         <p>
@@ -721,12 +727,18 @@
                 <div class="services-section">
                     <h3>NOS SERVICES</h3>
                     <ul class="feature-list">
-                        <li>Recrutement de cadres et ingénieurs BTP qualifiés</li>
-                        <li>Management de transition pour les postes clés de direction</li>
-                        <li>Placement de chefs de chantier et conducteurs de travaux expérimentés</li>
-                        <li>Conseil en organisation et optimisation des ressources humaines</li>
-                        <li>Évaluation des compétences et développement des talents</li>
-                        <li>Accompagnement dans la gestion des carrières et la mobilité interne</li>
+                        <ul class="feature-list-block">
+                            <li>Recrutement de cadres et ingénieurs BTP qualifiés</li>
+                            <li>Management de transition pour les postes clés de direction</li>
+                            <li>Placement de chefs de chantier et conducteurs de travaux expérimentés</li>
+                            <li>Conseil en organisation et optimisation des ressources humaines</li>
+                        </ul>
+                        <ul class="feature-list-block">
+                            <li>Évaluation des compétences et développement des talents</li>
+                            <li>Accompagnement dans la gestion des carrières et la mobilité interne</li>
+                            <li>Formation et coaching pour les équipes techniques</li>
+                            <li>Gestion prévisionnelle des emplois et des compétences</li>
+                        </ul>
                     </ul>
                 </div>
             </div>
