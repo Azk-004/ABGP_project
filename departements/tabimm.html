@@ -116,6 +116,8 @@
             margin-bottom: 40px;
         }
         .department-hero:before {
+            background-size: cover;
+            background-position: center;
             content: '';
             position: absolute;
             top: 0;
@@ -149,7 +151,7 @@
         /* Main Content */
         main {
             padding-top: 40px;
-            margin-bottom: 60px;
+            /*margin-bottom: 60px;*/
         }
         section {
             padding: 60px 0;
@@ -231,10 +233,16 @@
             background-color: var(--yellow);
         }
         .feature-list {
+            display: flex;
+            list-style: none;
+            max-width: 1100px;
+            text-align: left;
+        }
+        .feature-list-block {
             list-style: none;
             max-width: 800px;
-            margin: 0 auto;
             text-align: left;
+            margin: 0 auto;
         }
         .feature-list li {
             font-family: var(--font-primary);
@@ -255,7 +263,7 @@
         }
         /* Contact Section */
         #contact {
-            background-color: var(--gray);
+            background: linear-gradient(135deg, rgba(240,213,1,0.1) 0%, rgba(240,213,1,0.05) 100%);
             padding: 80px 0;
         }
         .contact-department {
@@ -692,7 +700,7 @@
     </div>
 </div>
 
-    <section class="department-hero" style="background-image: url('../images/bg-tabimm.jpg');">
+    <section class="department-hero" style="background: linear-gradient(rgba(253, 237, 4, 0.3), rgba(0, 0, 0, 0.3)), url('../images/ta.jpg'); background-size: cover;">
         <div class="container">
             <h1>TECHNICAL ASSISTANCE AND BIM MANAGEMENT</h1>
             <p>ASSISTANCE TECHNIQUE ET GESTION BIM POUR DES PROJETS DE CONSTRUCTION OPTIMISÉS</p>
@@ -705,7 +713,7 @@
                 <h2 class="section-title">QUI SOMMES-NOUS ?</h2>
                 <div class="department-content">
                     <div class="department-image">
-                        <img src="../images/dirigeant-tabimm.jpg" alt="Responsable TABIMM - ABGP">
+                        <img src="../images/personne2.jpeg" alt="Responsable TABIMM - ABGP">
                     </div>
                     <div class="department-info">
                         <p>
@@ -720,15 +728,19 @@
                 <div class="services-section">
                     <h3>NOS SERVICES</h3>
                     <ul class="feature-list">
-                        <li>Assistance technique et planification de projets complexes</li>
-                        <li>Gestion BIM (Building Information Modeling) complète</li>
-                        <li>Contrôle qualité et conformité réglementaire</li>
-                        <li>Optimisation des coûts et gestion des risques</li>
-                        <li>Coordination multi-acteurs et gestion des interfaces</li>
-                        <li>Formation aux outils BIM et logiciels métiers</li>
-                        <li>Audit technique et diagnostic de projets</li>
-                        <li>Pilotage et coordination de chantiers (OPC)</li>
-                        <li>Gestion des délais et ordonnancement</li>
+                        <ul class="feature-list-block">
+                            <li>Assistance technique et planification de projets complexes</li>
+                            <li>Gestion BIM (Building Information Modeling) complète</li>
+                            <li>Contrôle qualité et conformité réglementaire</li>
+                            <li>Optimisation des coûts et gestion des risques</li>
+                            <li>Coordination multi-acteurs et gestion des interfaces</li>
+                        </ul>
+                        <ul class="feature-list-block">
+                            <li>Formation aux outils BIM et logiciels métiers</li>
+                            <li>Audit technique et diagnostic de projets</li>
+                            <li>Pilotage et coordination de chantiers (OPC)</li>
+                            <li>Gestion des délais et ordonnancement</li>
+                        </ul>
                     </ul>
                 </div>
             </div>
@@ -745,7 +757,7 @@
                         </p>
                         <div class="contact-details">
                             <h4>COORDONNÉES DU DÉPARTEMENT TABIMM</h4>
-                            <p><i class="fas fa-phone"></i> <strong>TÉLÉPHONE:</strong> <a href="tel:+22997726564">+229 97 72 65 64</a></p>
+                            <p><i class="fas fa-phone"></i> <strong>TÉLÉPHONE:</strong> <a href="tel:+22997726564">+229 01 43 43  00 39</a></p>
                             <p><i class="fas fa-envelope"></i> <strong>EMAIL:</strong> <a href="mailto:abgpsarl@gmail.com">abgpsarl@gmail.com</a></p>
                             <p><i class="fas fa-map-marker-alt"></i> <strong>ADRESSE:</strong> Cotonou Sainte Rita, 4ème étage Immeuble La Lucide, Bénin</p>
                         </div>
@@ -755,13 +767,6 @@
             </div>
         </section>
     </main>
-
-    <div class="department-navigation">
-        <div class="container">
-            <a href="sbqd.html" class="nav-arrow"><i class="fas fa-arrow-left"></i> DÉPARTEMENT PRÉCÉDENT</a>
-            <a href="tlm.html" class="nav-arrow">DÉPARTEMENT SUIVANT <i class="fas fa-arrow-right"></i></a>
-        </div>
-    </div>
 
     <footer>
         <div class="container">
@@ -786,7 +791,7 @@
                 </div>
                 <div class="footer-contact">
                     <h4>CONTACTEZ-NOUS</h4>
-                    <p><i class="fas fa-phone"></i> +229 97 72 65 64</p>
+                    <p><i class="fas fa-phone"></i> +229 01 43 43 00 39</p>
                     <p><i class="fas fa-envelope"></i> abgpsarl@gmail.com</p>
                     <p><i class="fas fa-map-marker-alt"></i> Cotonou, Sainte Rita, Bénin</p>
                     <div class="social-links">

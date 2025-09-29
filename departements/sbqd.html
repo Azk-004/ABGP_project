@@ -84,7 +84,7 @@
             padding: 5px 0;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-        }
+        }Main
         nav ul li a:after {
             content: '';
             position: absolute;
@@ -122,7 +122,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+            background: linear-gradient(rgba(253, 237, 4, 0.3), rgba(0, 0, 0, 0.3)) url(../sb.jpg);
         }
         .department-hero .container {
             position: relative;
@@ -149,7 +149,6 @@
         /* Main Content */
         main {
             padding-top: 40px;
-            margin-bottom: 60px;
         }
         section {
             padding: 60px 0;
@@ -231,10 +230,16 @@
             background-color: var(--yellow);
         }
         .feature-list {
+            display: flex;
+            list-style: none;
+            max-width: 1100px;
+            text-align: left;
+        }
+        .feature-list-block{
             list-style: none;
             max-width: 800px;
-            margin: 0 auto;
             text-align: left;
+            margin: 0 auto;
         }
         .feature-list li {
             font-family: var(--font-primary);
@@ -255,7 +260,7 @@
         }
         /* Contact Section */
         #contact {
-            background-color: var(--gray);
+            background: linear-gradient(135deg, rgba(240,213,1,0.1) 0%, rgba(240,213,1,0.05) 100%);
             padding: 80px 0;
         }
         .contact-department {
@@ -692,7 +697,7 @@
     </div>
 </div>
 
-    <section class="department-hero" style="background-image: url('../images/bg-sbqd.jpg');">
+    <section class="department-hero" style="background-image: linear-gradient(rgba(253, 237, 4, 0.3), rgba(0, 0, 0, 0.3)), url('../images/sb.jpg');">
         <div class="container">
             <h1>SUSTAINABLE BUILDING QUARRIES AND DRONE</h1>
             <p>INNOVATIONS DURABLES ET TECHNOLOGIES DRONES POUR LE BTP ET LES CARRIÈRES</p>
@@ -705,7 +710,7 @@
                 <h2 class="section-title">QUI SOMMES-NOUS ?</h2>
                 <div class="department-content">
                     <div class="department-image">
-                        <img src="../images/dirigeant-sbqd.jpg" alt="Responsable SBQD - ABGP">
+                        <img src="../images/personne1.avif" alt="Responsable SBQD - ABGP">
                     </div>
                     <div class="department-info">
                         <p>
@@ -720,14 +725,18 @@
                 <div class="services-section">
                     <h3>NOS SERVICES</h3>
                     <ul class="feature-list">
+                        <ul class="feature-list-block">
                         <li>Conceptions de bâtiments durables et écoresponsables</li>
                         <li>Gestion optimisée des carrières avec approches durables</li>
                         <li>Cartographie et surveillance de sites par drones</li>
                         <li>Photogrammétrie et modélisation 3D avancée</li>
+                        </ul>
+                        <ul class="feature-list-block">
                         <li>Conseil en énergie renouvelable pour le BTP</li>
                         <li>Optimisation des ressources naturelles et matériaux</li>
                         <li>Formation aux technologies durables et drones</li>
                         <li>Audit environnemental et certification durable</li>
+                        </ul> 
                     </ul>
                 </div>
             </div>
@@ -744,7 +753,7 @@
                         </p>
                         <div class="contact-details">
                             <h4>COORDONNÉES DU DÉPARTEMENT SBQD</h4>
-                            <p><i class="fas fa-phone"></i> <strong>TÉLÉPHONE:</strong> <a href="tel:+22997726564">+229 97 72 65 64</a></p>
+                            <p><i class="fas fa-phone"></i> <strong>TÉLÉPHONE:</strong> <a href="tel:+22997726564">+229 01 43 43 00 39</a></p>
                             <p><i class="fas fa-envelope"></i> <strong>EMAIL:</strong> <a href="mailto:abgpsarl@gmail.com">abgpsarl@gmail.com</a></p>
                             <p><i class="fas fa-map-marker-alt"></i> <strong>ADRESSE:</strong> Cotonou Sainte Rita, 4ème étage Immeuble La Lucide, Bénin</p>
                         </div>
@@ -754,13 +763,6 @@
             </div>
         </section>
     </main>
-
-    <div class="department-navigation">
-        <div class="container">
-            <a href="rem.html" class="nav-arrow"><i class="fas fa-arrow-left"></i> DÉPARTEMENT PRÉCÉDENT</a>
-            <a href="tabimm.html" class="nav-arrow">DÉPARTEMENT SUIVANT <i class="fas fa-arrow-right"></i></a>
-        </div>
-    </div>
 
     <footer>
         <div class="container">
@@ -785,7 +787,7 @@
                 </div>
                 <div class="footer-contact">
                     <h4>CONTACTEZ-NOUS</h4>
-                    <p><i class="fas fa-phone"></i> +229 97 72 65 64</p>
+                    <p><i class="fas fa-phone"></i> +229 01 43 43 00 39 </p>
                     <p><i class="fas fa-envelope"></i> abgpsarl@gmail.com</p>
                     <p><i class="fas fa-map-marker-alt"></i> Cotonou, Sainte Rita, Bénin</p>
                     <div class="social-links">
