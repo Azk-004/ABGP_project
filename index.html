@@ -13,7 +13,7 @@
     <title>ABGP - Africa Building Group and Partners</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
@@ -28,7 +28,6 @@
             --border-radius: 12px;
             --max-width: 1200px;
             --font-primary: 'Montserrat', sans-serif;
-            --font-secondary: 'Playfair Display', serif;
         }
 
         * {
@@ -275,7 +274,7 @@
         }
 
         .hero h1 {
-            font-family: var(--font-secondary);
+            font-family: var(--font-primary);
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
             font-weight: 700;
@@ -308,7 +307,7 @@
 
         section h2 {
             text-align: center;
-            font-family: var(--font-secondary);
+            font-family: var(--font-primary);
             font-size: 2.5rem;
             margin-bottom: 3rem;
             position: relative;
@@ -370,58 +369,415 @@
             line-height: 1.7;
         }
 
-        /* Atouts et Valeurs */
+        /* Atouts et Valeurs - DESIGN AMÉLIORÉ */
         #atouts-valeurs {
             padding: 80px 0;
             background-color: var(--white);
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Services */
-        #services {
-            padding: 80px 0;
-            background: linear-gradient(135deg, rgba(240,213,1,0.1) 0%, rgba(240,213,1,0.05) 100%);
+        #atouts-valeurs::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 70%, rgba(240, 213, 1, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(240, 213, 1, 0.05) 0%, transparent 50%);
+            z-index: 0;
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 2rem;
+        .intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+            color: var(--dark-gray);
+            position: relative;
+            z-index: 1;
         }
 
-        .service-card {
+        /* Version Desktop - Diagramme circulaire */
+        .diagram-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            aspect-ratio: 1/1;
+            max-height: 90vh;
+            margin: 0 auto 3rem;
+            background: #f8f9fa;
+            border-radius: 20px;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 1;
+        }
+
+        .center-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 150px;
             background-color: var(--white);
-            padding: 2.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border: 3px solid var(--yellow);
+            transition: transform 0.4s ease;
+        }
+
+        .center-icon {
+            font-size: 2.5rem;
+            color: var(--yellow);
+            margin-bottom: 0.5rem;
+        }
+
+        .center-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--black);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Blocs de valeurs (1.5x plus grands - 240px) */
+        .value-block {
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            background-color: var(--white);
+            border: 2px solid var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            z-index: 10;
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        .value-block.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .value-block:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            border-color: var(--yellow);
+            z-index: 30;
+        }
+
+        .value-icon {
+            font-size: 2.7rem;
+            color: var(--yellow);
+            margin-bottom: 0.8rem;
+        }
+
+        .value-title {
+            font-size: 1.65rem;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 0.8rem;
+        }
+
+        /* Lignes de connexion (ajustées pour les grands cercles) */
+        .connecting-line {
+            position: absolute;
+            height: 3px;
+            background: linear-gradient(90deg, var(--yellow), var(--yellow));
+            z-index: 5;
+            top: 50%;
+            left: 50%;
+            transform-origin: 0% 50%;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            border-radius: 1.5px;
+        }
+
+        .connecting-line.active {
+            opacity: 1;
+        }
+
+        /* Version Mobile - Grille AMÉLIORÉE */
+        .values-grid {
+            display: none;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .value-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-left: 4px solid var(--yellow);
+            transition: transform 0.3s ease;
+            text-align: center;
+            cursor: pointer;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-card-icon {
+            font-size: 3.75rem;
+            color: var(--yellow);
+            margin-bottom: 1.5rem;
+        }
+
+        .value-card-title {
+            font-size: 1.95rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            color: var(--black);
+        }
+
+        .value-card-description {
+            font-size: 1.05rem;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            padding: 0 1rem;
+        }
+
+        /* NUAGES FLOTTANTS */
+        .floating-clouds {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9998;
+        }
+
+        .value-cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 15px;
+            padding: 15px 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            border: 2px solid var(--yellow);
+            max-width: 250px;
+            z-index: 10000;
+            pointer-events: none;
+            opacity: 0;
+            transform: translate(-50%, -100%);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: #333;
             text-align: center;
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            border-color: transparent;
+        .value-cloud::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 8px solid var(--yellow);
         }
 
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
+        .value-cloud.active {
+            opacity: 1;
+            transform: translate(-50%, -120%);
         }
 
-        .service-card h3 i {
+        .cloud-content {
+            font-weight: 500;
+        }
+
+        /* Services - CORRECTION DES MARGES */
+
+        #services {
+        padding: 80px 0 100px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(135deg, rgba(240,213,1,0.1) 0%, rgba(240,213,1,0.05) 100%);
+        }
+
+/* Conteneur des services */
+#services .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Timeline des services */
+.services-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex: 1;
+    padding: 20px 0; 
+}
+
+.services-timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 6px; /* Épaisseur (ajustable) */
+    background-color: var(--yellow);
+    transform: translateX(-50%);
+    border-radius: 3px;
+    height: 100%;
+}
+
+        .service-node {
+            position: relative;
+            margin: 80px 0;
+            width: 100%;
+            min-height: 200px;
+        }
+
+        .node-wrapper {
+            width: 45%;
+            position: relative;
+        }
+
+        .service-node:nth-child(odd) .node-wrapper {
+            float: left;
+            clear: both;
+            padding-right: 30px;
+            text-align: right;
+        }
+
+        .service-node:nth-child(even) .node-wrapper {
+            float: right;
+            clear: both;
+            padding-left: 30px;
+            text-align: left;
+        }
+
+        .node-content {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            position: relative;
+            border: 2px solid rgba(240, 213, 1, 0.2);
+            opacity: 0;
+            transform: translateX(-100px);
+            transition: all 0.8s ease-out;
+        }
+
+        .service-node:nth-child(even) .node-content {
+            transform: translateX(100px);
+        }
+
+        .service-node.active .node-content {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .node-content:hover {
+            transform: translateY(-5px) !important;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .node-icon {
             color: var(--yellow);
-            font-size: 2rem;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
         }
 
-        .service-card p {
-            color: var(--dark-gray);
-            margin-bottom: 1rem;
+        .node-content h3 {
+            color: var(--black);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .node-content p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .node-connector {
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 4px;
+            background-color: var(--yellow);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s ease 0.3s;
+        }
+
+        .service-node.active .node-connector {
+            opacity: 1;
+        }
+
+        .service-node:nth-child(odd) .node-connector {
+            right: -50px;
+            transform: translateY(-50%);
+        }
+
+        .service-node:nth-child(even) .node-connector {
+            left: -50px;
+            transform: translateY(-50%);
+        }
+
+        .node-point {
+            position: absolute;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background-color: var(--yellow);
+            border-radius: 50%;
+            transform: translateY(-50%) scale(0);
+            z-index: 2;
+            box-shadow: 0 0 0 5px rgba(240, 213, 1, 0.3);
+            transition: transform 0.5s ease 0.2s;
+        }
+
+        .service-node.active .node-point {
+            transform: translateY(-50%) scale(1);
+        }
+
+        .service-node:nth-child(odd) .node-point {
+            right: -10px;
+        }
+
+        .service-node:nth-child(even) .node-point {
+            left: -10px;
         }
 
         /* Départements Grid */
@@ -475,7 +831,7 @@
         }
 
         .departement-card h3 {
-            font-family: var(--font-secondary);
+            font-family: var(--font-primary);
             font-size: 1.5rem;
             margin-bottom: 1.2rem;
             color: var(--black);
@@ -558,7 +914,7 @@
         }
 
         .projet-info h4 {
-            font-family: var(--font-secondary);
+            font-family: var(--font-primary);
             font-size: 1.3rem;
             margin-bottom: 1rem;
             color: var(--black);
@@ -682,7 +1038,7 @@
 
         .modal-caption h3 {
             color: var(--black);
-            font-family: var(--font-secondary);
+            font-family: var(--font-primary);
             font-size: 1.5rem;
         }
 
@@ -707,7 +1063,7 @@
         }
 
         .contact-form h3 {
-            font-family: var(--font-secondary);
+            font-family: var(--font-primary);
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
             position: relative;
@@ -834,7 +1190,7 @@
 
         .footer-links h4,
         .footer-contact h4 {
-            font-family: var(--font-secondary);
+            font-family: var(--font-primary);
             font-size: 1.3rem;
             margin-bottom: 1.5rem;
             position: relative;
@@ -942,134 +1298,7 @@
             visibility: visible;
         }
 
-        /* Styles pour les nuages flottants */
-        .floating-clouds {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9998;
-        }
-
-        /* Styles pour la section Valeurs */
-        .diagram-container {
-            position: relative;
-            width: 100%;
-            max-width: 1000px;
-            height: 600px;
-            margin: 0 auto 3rem;
-            background: #f8f9fa;
-            border-radius: 20px;
-        }
-
-        .center-circle {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 20;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-            border: 3px solid var(--yellow);
-        }
-
-        .center-icon {
-            font-size: 2.5rem;
-            color: var(--yellow);
-            margin-bottom: 0.5rem;
-        }
-
-        .center-text {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--black);
-            text-transform: uppercase;
-        }
-
-        /* Blocs de valeurs */
-        .value-block {
-            position: absolute;
-            width: 180px;
-            height: 180px;
-            background: white;
-            border: 2px solid var(--yellow);
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 1rem;
-            text-align: center;
-            cursor: pointer;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            z-index: 10;
-            transition: all 0.3s ease;
-        }
-
-        .value-icon {
-            font-size: 2rem;
-            color: var(--yellow);
-            margin-bottom: 0.5rem;
-        }
-
-        .value-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--black);
-        }
-
-        /* NUAGES FLOTTANTS */
-        .value-cloud {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 12px 18px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            border: 2px solid #F0D501;
-            max-width: 200px;
-            z-index: 10000;
-            pointer-events: none;
-            opacity: 0;
-            transform: translate(-50%, -100%);
-            transition: all 0.3s ease;
-            font-size: 0.85rem;
-            line-height: 1.3;
-            color: #333;
-            text-align: center;
-        }
-
-        .value-cloud::after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-top: 8px solid #F0D501;
-        }
-
-        .value-cloud.active {
-            opacity: 1;
-            transform: translate(-50%, -120%);
-        }
-
-        .cloud-content {
-            font-weight: 500;
-        }
-
-        /* Carrousel */
+        /* Carrousel amélioré */
         .carousel-container {
             position: relative;
             overflow: hidden;
@@ -1101,8 +1330,8 @@
         }
 
         .partner-logo img {
-            max-width: 80%;
-            max-height: 80%;
+            max-width: 100%;
+            max-height: 100%;
             object-fit: contain;
         }
 
@@ -1155,8 +1384,25 @@
             transform: scale(1.2);
         }
 
-        /* Responsive */
+        /* Responsive Design pour Atouts et Valeurs */
         @media (max-width: 1200px) {
+            .diagram-container {
+                max-width: 1000px;
+            }
+            
+            .value-block {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .value-icon {
+                font-size: 2.2rem;
+            }
+            
+            .value-title {
+                font-size: 1.4rem;
+            }
+            
             .carousel-slide {
                 flex: 0 0 calc(33.33% - 1rem);
             }
@@ -1190,6 +1436,89 @@
                 height: 100px;
                 padding: 10px;
             }
+            
+            /* Atouts et Valeurs responsive */
+            .diagram-container {
+                max-width: 800px;
+            }
+            
+            .center-circle {
+                width: 130px;
+                height: 130px;
+            }
+            
+            .center-icon {
+                font-size: 2rem;
+            }
+            
+            .center-text {
+                font-size: 1rem;
+            }
+            
+            .value-block {
+                width: 180px;
+                height: 180px;
+            }
+            
+            .value-icon {
+                font-size: 2rem;
+            }
+            
+            .value-title {
+                font-size: 1.2rem;
+            }
+            
+            /* Services responsive */
+            .services-timeline::before {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .node-wrapper {
+                width: 85%;
+                margin: 0 auto;
+                text-align: center !important;
+                padding: 0 20px !important;
+                float: none !important;
+            }
+            .service-node:nth-child(odd) .node-wrapper,
+            .service-node:nth-child(even) .node-wrapper {
+                float: none;
+                text-align: center;
+                padding: 0 20px;
+            }
+            .node-content {
+                transform: translateY(30px) !important;
+                margin: 0 10px;
+                padding: 20px;
+            }
+            .service-node.active .node-content {
+                transform: translateY(0) !important;
+            }
+            .node-connector {
+                display: none;
+            }
+            .node-point {
+                left: 50% !important;
+                right: auto !important;
+                top: -10px !important;
+                transform: translateX(-50%) scale(0);
+                width: 16px;
+                height: 16px;
+            }
+            .service-node.active .node-point {
+                transform: translateX(-50%) scale(1);
+            }
+            .node-content h3 {
+                font-size: 1.3rem;
+            }
+            .node-content p {
+                font-size: 0.95rem;
+                line-height: 1.5;
+            }
+            .node-icon {
+                font-size: 2rem;
+                margin-bottom: 15px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1207,14 +1536,82 @@
                 height: 40px;
                 font-size: 1rem;
             }
-        }
-
-        @media (max-width: 480px) {
             .services-grid,
             .departements-grid,
             .projets-grid {
                 grid-template-columns: 1fr;
             }
+            
+            /* Atouts et Valeurs mobile */
+            #atouts-valeurs h2 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+            
+            .intro-text {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            
+            /* Cacher le diagramme et afficher la grille */
+            .diagram-container {
+                display: none;
+            }
+            
+            .values-grid {
+                display: grid;
+            }
+            
+            .value-card {
+                padding: 1.5rem;
+                min-height: 250px;
+            }
+            
+            .value-card-icon {
+                font-size: 3rem;
+            }
+            
+            .value-card-title {
+                font-size: 1.6rem;
+            }
+            
+            .value-card-description {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            #atouts-valeurs {
+                padding: 60px 0;
+            }
+            
+            #atouts-valeurs h2 {
+                font-size: 1.8rem;
+            }
+            
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 0.5rem;
+            }
+            
+            .value-card {
+                padding: 1.25rem;
+                min-height: 240px;
+            }
+            
+            .value-card-icon {
+                font-size: 2.5rem;
+            }
+            
+            .value-card-title {
+                font-size: 1.4rem;
+            }
+            
+            .value-card-description {
+                font-size: 0.85rem;
+            }
+            
             .carousel-slide {
                 flex: 0 0 100%;
                 padding: 0 5px;
@@ -1230,6 +1627,86 @@
             .indicator {
                 width: 10px;
                 height: 10px;
+            }
+            .node-wrapper {
+                width: 90%;
+                padding: 0 15px !important;
+            }
+            .node-content {
+                padding: 18px;
+                margin: 0 5px;
+            }
+            .node-content h3 {
+                font-size: 1.2rem;
+            }
+            .node-content p {
+                font-size: 0.9rem;
+            }
+            .node-icon {
+                font-size: 1.8rem;
+            }
+            .node-point {
+                width: 14px;
+                height: 14px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .value-card {
+                padding: 1rem;
+                min-height: 220px;
+            }
+            
+            .value-card-icon {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+            
+            .value-card-title {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+            
+            .value-card-description {
+                font-size: 0.8rem;
+                line-height: 1.5;
+            }
+        }
+
+        /* Mode paysage mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            #atouts-valeurs {
+                padding: 40px 0;
+            }
+            
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+            
+            .value-card {
+                min-height: 200px;
+                padding: 1rem;
+            }
+        }
+
+        /* Support tactile amélioré */
+        @media (hover: none) and (pointer: coarse) {
+            .value-block:hover {
+                transform: none;
+            }
+            
+            .value-card:hover {
+                transform: none;
+            }
+        }
+
+        /* Réduction des animations pour les préférences utilisateur */
+        @media (prefers-reduced-motion: reduce) {
+            .value-block,
+            .value-card,
+            .value-cloud {
+                transition: none;
             }
         }
     </style>
@@ -1320,16 +1797,16 @@
         </div>
     </section>
 
-    <!-- Atouts et Valeurs -->
+    <!-- Atouts et Valeurs - DESIGN AMÉLIORÉ -->
     <section id="atouts-valeurs">
         <div class="container">
             <h2>Nos Atouts et <span style="color: #F0D501;">Valeurs Fondamentales</span></h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem; color: var(--dark-gray);">
+            <p class="intro-text">
                 Chez <strong>ABGP</strong>, nous nous distinguons par notre <strong>engagement, notre expertise et nos valeurs fortes</strong>.
                 Voici ce qui fait notre force et notre différence.
             </p>
 
-            <!-- Diagramme des valeurs -->
+            <!-- Version Desktop - Diagramme circulaire -->
             <div class="diagram-container" id="diagram">
                 <div class="center-circle">
                     <div class="center-icon">
@@ -1337,7 +1814,46 @@
                     </div>
                     <div class="center-text">ABGP</div>
                 </div>
-                <!-- Les blocs de valeurs seront ajoutés par JavaScript -->
+                <!-- Les blocs de valeurs et lignes de connexion seront ajoutés par JavaScript -->
+            </div>
+
+            <!-- Version Mobile - Grille AMÉLIORÉE -->
+            <div class="values-grid" id="valuesGrid">
+                <div class="value-card">
+                    <div class="value-card-icon"><i class="fas fa-trophy"></i></div>
+                    <h3 class="value-card-title">Excellence</h3>
+                    <p class="value-card-description">
+                        Nous visons l'excellence dans tout ce que nous entreprenons, en dépassant systématiquement les attentes de nos clients et partenaires.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <div class="value-card-icon"><i class="fas fa-heart"></i></div>
+                    <h3 class="value-card-title">Passion</h3>
+                    <p class="value-card-description">
+                        Notre passion pour l'innovation et la qualité guide chaque projet que nous réalisons avec engagement et détermination.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <div class="value-card-icon"><i class="fas fa-users"></i></div>
+                    <h3 class="value-card-title">Collaboration</h3>
+                    <p class="value-card-description">
+                        Nous croyons en la puissance du travail d'équipe et des partenariats durables pour atteindre des résultats exceptionnels.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <div class="value-card-icon"><i class="fas fa-handshake"></i></div>
+                    <h3 class="value-card-title">Respect</h3>
+                    <p class="value-card-description">
+                        Le respect mutuel est la base de toutes nos relations professionnelles et humaines, tant en interne qu'avec nos partenaires.
+                    </p>
+                </div>
+                <div class="value-card">
+                    <div class="value-card-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="value-card-title">Progrès</h3>
+                    <p class="value-card-description">
+                        Nous nous engageons à progresser constamment pour un avenir meilleur et plus durable, en innovant dans nos pratiques.
+                    </p>
+                </div>
             </div>
 
             <!-- Container pour les nuages flottants -->
@@ -1345,59 +1861,164 @@
         </div>
     </section>
 
-    <!-- Services -->
+    <!-- Services - CORRECTION DES MARGES -->
     <section id="services">
         <div class="container">
             <h2>Nos Services</h2>
             <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem; color: var(--dark-gray);">
                 <strong>ABGP</strong> vous propose une gamme complète de services pour répondre à tous vos besoins en construction et gestion de projets.
             </p>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3><i class="fas fa-project-diagram"></i> Ordonnancement Pilotage et Coordination (OPC)</h3>
-                    <p>
-                        Coordination des acteurs et des ressources pour une exécution <strong>fluide, efficace et sans conflit</strong>.
-                    </p>
+            
+            <div class="services-timeline">
+                <!-- Bureau d'Étude Méthode -->
+                <div class="service-node" data-index="0">
+                    <div class="node-wrapper">
+                        <div class="node-connector"></div>
+                        <div class="node-point"></div>
+                        <div class="node-content">
+                            <div class="node-icon">
+                                <i class="fas fa-hard-hat"></i>
+                            </div>
+                            <h3>Bureau d'Étude Méthode</h3>
+                            <p>Analyse et optimisation des méthodes de construction pour garantir qualité, coût et délais.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h3><i class="fas fa-users"></i> Recrutement Spécialisé</h3>
-                    <p>
-                        Recrutement de <strong>cadres qualifiés</strong> et gestion des ressources humaines pour les secteurs industriels et du BTP.
-                    </p>
+
+                <!-- AMO -->
+                <div class="service-node" data-index="1">
+                    <div class="node-wrapper">
+                        <div class="node-connector"></div>
+                        <div class="node-point"></div>
+                        <div class="node-content">
+                            <div class="node-icon">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <h3>AMO</h3>
+                            <p>Assistance à Maître d'Ouvrage pour piloter vos projets avec expertise et sérénité.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h3><i class="fas fa-drafting-compass"></i> Maîtrise d'Œuvre</h3>
-                    <p>
-                        Conception, étude et suivi technique de vos projets, de l'<strong>idée à la réalisation</strong>.
-                    </p>
+
+                <!-- ATMO -->
+                <div class="service-node" data-index="2">
+                    <div class="node-wrapper">
+                        <div class="node-connector"></div>
+                        <div class="node-point"></div>
+                        <div class="node-content">
+                            <div class="node-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h3>ATMO</h3>
+                            <p>Assistance Technique à Maître d'Ouvrage pour une gestion optimale de vos chantiers.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h3><i class="fas fa-cube"></i> Building Information Modeling (BIM)</h3>
-                    <p>
-                        Modélisation numérique pour une gestion <strong>intégrée et collaborative</strong> de vos projets de construction.
-                    </p>
+
+                <!-- OPC -->
+                <div class="service-node" data-index="3">
+                    <div class="node-wrapper">
+                        <div class="node-connector"></div>
+                        <div class="node-point"></div>
+                        <div class="node-content">
+                            <div class="node-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <h3>OPC</h3>
+                            <p>Ordonnancement, Pilotage et Coordination pour une exécution fluide de vos projets.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h3><i class="fas fa-balance-scale"></i> Économie & Droit de la Construction</h3>
-                    <p>
-                        Optimisation des coûts et conseil juridique pour une gestion <strong>transparente et sécurisée</strong> de vos projets.
-                    </p>
+
+                <!-- Schedule Management -->
+                <div class="service-node" data-index="4">
+                    <div class="node-wrapper">
+                        <div class="node-connector"></div>
+                        <div class="node-point"></div>
+                        <div class="node-content">
+                            <div class="node-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <h3>Schedule Management</h3>
+                            <p>Planification rigoureuse et gestion des délais pour respecter vos échéances.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h3><i class="fas fa-graduation-cap"></i> Formations Continues</h3>
-                    <p>
-                        Formations adaptées aux professionnels du BTP pour développer leurs <strong>compétences et leur expertise</strong>.
-                    </p>
+
+                <!-- Quality Management -->
+                <div class="service-node" data-index="5">
+                    <div class="node-wrapper">
+                        <div class="node-connector"></div>
+                        <div class="node-point"></div>
+                        <div class="node-content">
+                            <div class="node-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h3>Quality Management</h3>
+                            <p>Contrôle qualité et respect des normes pour des infrastructures durables.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <h3><i class="fas fa-recycle"></i> Développement Durable</h3>
-                    <p>
-                        Intégration des principes de <strong>construction durable</strong> et utilisation de technologies innovantes (drones, photogrammétrie).
-                    </p>
+
+                <!-- Cost Management -->
+                <div class="service-node" data-index="6">
+                    <div class="node-wrapper">
+                        <div class="node-connector"></div>
+                        <div class="node-point"></div>
+                        <div class="node-content">
+                            <div class="node-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <h3>Cost Management</h3>
+                            <p>Optimisation des coûts et maîtrise budgétaire pour maximiser votre retour sur investissement.</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="cta-contact">
-                <a href="#contact" class="cta-button">Nous contacter</a>
+
+                <!-- Risk Management -->
+                <div class="service-node" data-index="7">
+                    <div class="node-wrapper">
+                        <div class="node-connector"></div>
+                        <div class="node-point"></div>
+                        <div class="node-content">
+                            <div class="node-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Risk Management</h3>
+                            <p>Identification et mitigation des risques pour sécuriser vos projets.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drawing Management -->
+                <div class="service-node" data-index="8">
+                    <div class="node-wrapper">
+                        <div class="node-connector"></div>
+                        <div class="node-point"></div>
+                        <div class="node-content">
+                            <div class="node-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>Drawing Management</h3>
+                            <p>Gestion documentaire et plans techniques pour une traçabilité parfaite.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BIM Integration -->
+                <div class="service-node" data-index="9">
+                    <div class="node-wrapper">
+                        <div class="node-connector"></div>
+                        <div class="node-point"></div>
+                        <div class="node-content">
+                            <div class="node-icon">
+                                <i class="fas fa-cubes"></i>
+                            </div>
+                            <h3>BIM Integration</h3>
+                            <p>Intégration des méthodes BIM pour une conception et gestion innovante de vos projets.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1921,33 +2542,33 @@
             }
         };
 
-        // DIAGRAMME DES VALEURS AVEC NUAGES FONCTIONNELS
+        // DIAGRAMME DES VALEURS AVEC NOUVEAU DESIGN ET LIGNES DE CONNEXION
         document.addEventListener('DOMContentLoaded', function() {
             const values = [
                 { 
                     icon: 'fas fa-trophy', 
                     title: 'Excellence',
-                    description: 'Nous visons l\'excellence dans tout ce que nous entreprenons, en dépassant systématiquement les attentes.' 
+                    description: 'Nous visons l\'excellence dans tout ce que nous entreprenons, en dépassant systématiquement les attentes de nos clients et partenaires.' 
                 },
                 { 
                     icon: 'fas fa-heart', 
                     title: 'Passion',
-                    description: 'Notre passion guide chaque projet avec engagement et détermination.' 
+                    description: 'Notre passion pour l\'innovation et la qualité guide chaque projet avec engagement et détermination.' 
                 },
                 { 
                     icon: 'fas fa-users', 
                     title: 'Collaboration',
-                    description: 'Nous croyons en la puissance du travail d\'équipe et des partenariats durables.' 
+                    description: 'Nous croyons en la puissance du travail d\'équipe et des partenariats durables pour atteindre des résultats exceptionnels.' 
                 },
                 { 
                     icon: 'fas fa-handshake', 
                     title: 'Respect',
-                    description: 'Le respect mutuel est la base de toutes nos relations professionnelles.' 
+                    description: 'Le respect mutuel est la base de toutes nos relations professionnelles et humaines, tant en interne qu\'avec nos partenaires.' 
                 },
                 { 
                     icon: 'fas fa-chart-line', 
                     title: 'Progrès',
-                    description: 'Nous progressons constamment pour un avenir meilleur et plus durable.' 
+                    description: 'Nous nous engageons à progresser constamment pour un avenir meilleur et plus durable, en innovant dans nos pratiques.' 
                 }
             ];
 
@@ -1956,21 +2577,33 @@
 
             if (diagram) {
                 function positionValues() {
+                    // Supprimer les éléments existants
+                    const existingBlocks = diagram.querySelectorAll('.value-block, .connecting-line');
+                    existingBlocks.forEach(block => block.remove());
+
+                    // Dimensions du conteneur
                     const centerX = diagram.offsetWidth / 2;
                     const centerY = diagram.offsetHeight / 2;
-                    const radius = 200;
-                    const blockSize = 180;
+                    const radius = Math.min(centerX, centerY) * 0.6; // Rayon ajusté pour les grands cercles
+                    const blockSize = 240; // 160px * 1.5
+                    const blockRadius = blockSize / 2;
 
+                    // Positionner chaque bloc et sa ligne
                     values.forEach((value, index) => {
                         const angle = (index * (2 * Math.PI / values.length)) - Math.PI / 2;
-                        
+
+                        // Coordonnées du centre du bloc
                         const blockX = centerX + radius * Math.cos(angle);
                         const blockY = centerY + radius * Math.sin(angle);
 
+                        // Créer le bloc de valeur
                         const valueBlock = document.createElement('div');
                         valueBlock.className = 'value-block';
-                        valueBlock.style.left = `${blockX - blockSize/2}px`;
-                        valueBlock.style.top = `${blockY - blockSize/2}px`;
+                        valueBlock.style.width = `${blockSize}px`;
+                        valueBlock.style.height = `${blockSize}px`;
+                        valueBlock.style.left = `${blockX - blockRadius}px`;
+                        valueBlock.style.top = `${blockY - blockRadius}px`;
+                        valueBlock.style.transitionDelay = `${index * 0.1}s`;
                         valueBlock.innerHTML = `
                             <div class="value-icon"><i class="${value.icon}"></i></div>
                             <h3 class="value-title">${value.title}</h3>
@@ -1986,8 +2619,45 @@
                             hideCloud();
                         });
 
+                        // Gestion tactile pour mobile
+                        valueBlock.addEventListener('touchstart', function(e) {
+                            e.preventDefault();
+                            showCloud(e, value.description);
+                        });
+
+                        valueBlock.addEventListener('touchend', function(e) {
+                            e.preventDefault();
+                            setTimeout(hideCloud, 2000);
+                        });
+
                         diagram.appendChild(valueBlock);
+
+                        // Créer la ligne de connexion
+                        const line = document.createElement('div');
+                        line.className = 'connecting-line';
+                        const lineLength = Math.sqrt(Math.pow(blockX - centerX, 2) + Math.pow(blockY - centerY, 2));
+                        line.style.width = `${lineLength}px`;
+                        line.style.transform = `rotate(${Math.atan2(blockY - centerY, blockX - centerX)}rad)`;
+                        line.style.left = `${centerX}px`;
+                        line.style.top = `${centerY}px`;
+                        line.style.transitionDelay = `${index * 0.1}s`;
+                        diagram.appendChild(line);
+
+                        // Animation d'apparition
+                        setTimeout(() => {
+                            valueBlock.classList.add('active');
+                            line.classList.add('active');
+                        }, index * 200);
                     });
+
+                    // Animation du cercle central
+                    const centerCircle = document.querySelector('.center-circle');
+                    setTimeout(() => {
+                        centerCircle.style.transform = 'translate(-50%, -50%) scale(1.05)';
+                        setTimeout(() => {
+                            centerCircle.style.transform = 'translate(-50%, -50%) scale(1)';
+                        }, 1000);
+                    }, 200 * values.length + 300);
                 }
 
                 function showCloud(event, description) {
@@ -1997,9 +2667,28 @@
                     cloud.className = 'value-cloud';
                     cloud.innerHTML = `<div class="cloud-content">${description}</div>`;
                     
-                    const rect = event.currentTarget.getBoundingClientRect();
+                    let rect;
+                    if (event.type === 'touchstart') {
+                        const touch = event.touches[0];
+                        rect = {
+                            left: touch.clientX,
+                            top: touch.clientY,
+                            width: 0,
+                            height: 0
+                        };
+                    } else {
+                        rect = event.currentTarget.getBoundingClientRect();
+                    }
+                    
                     cloud.style.left = `${rect.left + rect.width/2}px`;
                     cloud.style.top = `${rect.top}px`;
+                    
+                    // Ajustement pour les écrans mobiles
+                    if (window.innerWidth <= 768) {
+                        cloud.style.maxWidth = '200px';
+                        cloud.style.fontSize = '0.8rem';
+                        cloud.style.transform = 'translate(-50%, -130%)';
+                    }
                     
                     cloudsContainer.appendChild(cloud);
                     
@@ -2020,133 +2709,201 @@
                     });
                 }
 
+                // Positionner les blocs au chargement
                 positionValues();
 
-                // CARROUSEL DES PARTENAIRES
-                const carouselTrack = document.getElementById('carouselTrack');
-                const prevBtn = document.getElementById('prevBtn');
-                const nextBtn = document.getElementById('nextBtn');
-                const indicatorsContainer = document.getElementById('indicators');
-
-                const totalPartners = 21;
-                let currentIndex = 0;
-                let slidesPerView = getSlidesPerView();
-                let autoPlayInterval;
-
-                for (let i = 1; i <= totalPartners; i++) {
-                    const slide = document.createElement('div');
-                    slide.className = 'carousel-slide';
-                    slide.style.flex = `0 0 ${100 / slidesPerView}%`;
-                    
-                    const logoDiv = document.createElement('div');
-                    logoDiv.className = 'partner-logo';
-                    
-                    const img = document.createElement('img');
-                    img.alt = "Partenaire " + i;
-                    img.src = "NOS PARTENAIRES " + i + ".jpg";
-                    
-                    img.onerror = function() {
-                        this.style.display = 'none';
-                        logoDiv.innerHTML = `<div style="color: #666; font-size: 14px;">Partenaire ${i}</div>`;
-                    };
-                    
-                    logoDiv.appendChild(img);
-                    slide.appendChild(logoDiv);
-                    carouselTrack.appendChild(slide);
-                }
-
-                const totalGroups = Math.ceil(totalPartners / slidesPerView);
-
-                for (let i = 0; i < totalGroups; i++) {
-                    const indicator = document.createElement('div');
-                    indicator.className = 'indicator';
-                    if (i === 0) indicator.classList.add('active');
-                    indicator.addEventListener('click', () => goToSlide(i * slidesPerView));
-                    indicatorsContainer.appendChild(indicator);
-                }
-
-                function updateCarousel() {
-                    const slideWidth = 100 / slidesPerView;
-                    carouselTrack.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
-
-                    const indicators = document.querySelectorAll('.indicator');
-                    const activeIndicatorIndex = Math.floor(currentIndex / slidesPerView);
-
-                    indicators.forEach((ind, idx) => {
-                        ind.classList.toggle('active', idx === activeIndicatorIndex);
-                    });
-                }
-
-                function goToSlide(index) {
-                    const maxIndex = totalPartners - slidesPerView;
-                    currentIndex = Math.max(0, Math.min(index, maxIndex));
-                    updateCarousel();
-                }
-
-                function nextSlide() {
-                    if (currentIndex < totalPartners - slidesPerView) {
-                        currentIndex++;
-                    } else {
-                        currentIndex = 0;
-                    }
-                    updateCarousel();
-                }
-
-                function prevSlide() {
-                    if (currentIndex > 0) {
-                        currentIndex--;
-                    } else {
-                        currentIndex = totalPartners - slidesPerView;
-                    }
-                    updateCarousel();
-                }
-
-                function startAutoPlay() {
-                    autoPlayInterval = setInterval(nextSlide, 4000);
-                }
-
-                nextBtn.addEventListener('click', () => {
-                    nextSlide();
-                    clearInterval(autoPlayInterval);
-                    startAutoPlay();
+                // Repositionner en cas de redimensionnement
+                let resizeTimeout;
+                window.addEventListener('resize', function() {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(positionValues, 250);
                 });
 
-                prevBtn.addEventListener('click', () => {
-                    prevSlide();
-                    clearInterval(autoPlayInterval);
-                    startAutoPlay();
-                });
-
-                function getSlidesPerView() {
-                    if (window.innerWidth >= 1200) return 4;
-                    if (window.innerWidth >= 992) return 3;
-                    if (window.innerWidth >= 768) return 2;
-                    return 1;
-                }
-
-                window.addEventListener('resize', () => {
-                    const newSlidesPerView = getSlidesPerView();
-                    if (newSlidesPerView !== slidesPerView) {
-                        slidesPerView = newSlidesPerView;
-                        document.querySelectorAll('.carousel-slide').forEach(slide => {
-                            slide.style.flex = `0 0 ${100 / slidesPerView}%`;
-                        });
-                        currentIndex = Math.min(currentIndex, totalPartners - slidesPerView);
-                        updateCarousel();
-                    }
-                });
-
-                startAutoPlay();
-                updateCarousel();
-
-                carouselTrack.addEventListener('mouseenter', () => {
-                    clearInterval(autoPlayInterval);
-                });
-
-                carouselTrack.addEventListener('mouseleave', () => {
-                    startAutoPlay();
+                // Réinitialiser au redimensionnement
+                window.addEventListener('orientationchange', function() {
+                    setTimeout(positionValues, 500);
                 });
             }
+
+            // Gestion des cartes sur mobile
+            const valueCards = document.querySelectorAll('.value-card');
+            valueCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Animation de feedback au clic
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                });
+            });
+
+            // CARROUSEL DES PARTENAIRES
+            const carouselTrack = document.getElementById('carouselTrack');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const indicatorsContainer = document.getElementById('indicators');
+
+            const totalPartners = 21;
+            let currentIndex = 0;
+            let slidesPerView = getSlidesPerView();
+            let autoPlayInterval;
+
+            for (let i = 1; i <= totalPartners; i++) {
+                const slide = document.createElement('div');
+                slide.className = 'carousel-slide';
+                slide.style.flex = `0 0 ${100 / slidesPerView}%`;
+                
+                const logoDiv = document.createElement('div');
+                logoDiv.className = 'partner-logo';
+                
+                const img = document.createElement('img');
+                img.alt = "Partenaire " + i;
+                img.src = "NOS PARTENAIRES " + i + ".jpg";
+                
+                img.onerror = function() {
+                    this.style.display = 'none';
+                    logoDiv.innerHTML = `<div style="color: #666; font-size: 14px;">Partenaire ${i}</div>`;
+                };
+                
+                logoDiv.appendChild(img);
+                slide.appendChild(logoDiv);
+                carouselTrack.appendChild(slide);
+            }
+
+            const totalGroups = Math.ceil(totalPartners / slidesPerView);
+
+            for (let i = 0; i < totalGroups; i++) {
+                const indicator = document.createElement('div');
+                indicator.className = 'indicator';
+                if (i === 0) indicator.classList.add('active');
+                indicator.addEventListener('click', () => goToSlide(i * slidesPerView));
+                indicatorsContainer.appendChild(indicator);
+            }
+
+            function updateCarousel() {
+                const slideWidth = 100 / slidesPerView;
+                carouselTrack.style.transform = `translateX(-${currentIndex * slideWidth}%)`;
+
+                const indicators = document.querySelectorAll('.indicator');
+                const activeIndicatorIndex = Math.floor(currentIndex / slidesPerView);
+
+                indicators.forEach((ind, idx) => {
+                    ind.classList.toggle('active', idx === activeIndicatorIndex);
+                });
+            }
+
+            function goToSlide(index) {
+                const maxIndex = totalPartners - slidesPerView;
+                currentIndex = Math.max(0, Math.min(index, maxIndex));
+                updateCarousel();
+            }
+
+            function nextSlide() {
+                if (currentIndex < totalPartners - slidesPerView) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0;
+                }
+                updateCarousel();
+            }
+
+            function prevSlide() {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = totalPartners - slidesPerView;
+                }
+                updateCarousel();
+            }
+
+            function startAutoPlay() {
+                autoPlayInterval = setInterval(nextSlide, 4000);
+            }
+
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                clearInterval(autoPlayInterval);
+                startAutoPlay();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                clearInterval(autoPlayInterval);
+                startAutoPlay();
+            });
+
+            function getSlidesPerView() {
+                if (window.innerWidth >= 1200) return 4;
+                if (window.innerWidth >= 992) return 3;
+                if (window.innerWidth >= 768) return 2;
+                return 1;
+            }
+
+            window.addEventListener('resize', () => {
+                const newSlidesPerView = getSlidesPerView();
+                if (newSlidesPerView !== slidesPerView) {
+                    slidesPerView = newSlidesPerView;
+                    document.querySelectorAll('.carousel-slide').forEach(slide => {
+                        slide.style.flex = `0 0 ${100 / slidesPerView}%`;
+                    });
+                    currentIndex = Math.min(currentIndex, totalPartners - slidesPerView);
+                    updateCarousel();
+                }
+            });
+
+            startAutoPlay();
+            updateCarousel();
+
+            carouselTrack.addEventListener('mouseenter', () => {
+                clearInterval(autoPlayInterval);
+            });
+
+            carouselTrack.addEventListener('mouseleave', () => {
+                startAutoPlay();
+            });
+
+            // ANIMATION DES SERVICES
+            const serviceNodes = document.querySelectorAll('.service-node');
+
+            function checkVisibility() {
+                const windowHeight = window.innerHeight;
+                
+                serviceNodes.forEach((node) => {
+                    const nodeRect = node.getBoundingClientRect();
+                    
+                    const isVisible = (
+                        nodeRect.top <= windowHeight * 0.8 && 
+                        nodeRect.bottom >= windowHeight * 0.2
+                    );
+
+                    if (isVisible) {
+                        node.classList.add('active');
+                    }
+                });
+            }
+
+            // Vérification initiale
+            checkVisibility();
+
+            // Écouteur d'événement optimisé
+            let ticking = false;
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    requestAnimationFrame(function() {
+                        checkVisibility();
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+
+            // Forcer le recalcul après le chargement
+            window.addEventListener('load', checkVisibility);
+
+            // Gestion du redimensionnement
+            window.addEventListener('resize', function() {
+                checkVisibility();
+            });
         });
     </script>
 </body>
