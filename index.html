@@ -54,19 +54,19 @@
         /* Header */
         header {
             background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             padding: 20px 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            transition: var(--transition);
+            transition: background 0.3s ease;
+            background: transparent;
         }
-
         header.scrolled {
             padding: 10px 0;
             background-color: rgba(255, 255, 255, 0.95);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+           
         }
 
         header .container {
@@ -87,7 +87,16 @@
         }
 
         nav ul li a {
-            color: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        header.scrolled nav ul li a {
+            color: black !important;
             text-decoration: none;
             font-weight: 500;
             transition: var(--transition);
@@ -248,12 +257,13 @@
         .hero {
             background: linear-gradient(rgba(253, 237, 4, 0.3), rgba(0, 0, 0, 0.3)), url('PHOTO Batiment durable carriere et drone Sustainable building careers.jpg');
             background-size: cover;
+            /*background-color: #F0D501;*/
             background-position: center;
             height: 100vh;
             display: flex;
             align-items: center;
             color: var(--white);
-            text-align: center;
+            text-align: left;
             padding-top: 80px;
             position: relative;
         }
@@ -265,29 +275,41 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+           background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
         }
 
         .hero .container {
             position: relative;
             z-index: 2;
+            max-width: 40rem;
+            margin-top: 50px;
+            margin-left: 330px;
+            text-align: left;
         }
 
         .hero h1 {
+            color: var(--white);
             font-family: var(--font-primary);
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 1.5rem;
             font-weight: 700;
             animation: fadeInDown 1s ease;
         }
 
         .hero p {
-            font-size: 1.3rem;
+            color: var(--white);
+            font-size: 1.2rem;
             margin-bottom: 2rem;
-            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
             animation: fadeInUp 1s ease;
+        }
+
+        .hero-image {
+            padding-top: 10px;
+            z-index: 2;
+            margin-top: 180px;
+            margin-right: 300px;
         }
 
         @keyframes fadeInDown {
@@ -1725,9 +1747,10 @@
                 <ul>
                     <li><a href="#accueil">Accueil</a></li>
                     <li><a href="mddirecteur.html">Mot du directeur</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#departements">Départements</a></li>
-                    <li><a href="#projets">Projets</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#candidature">Candidature spontanée</a></li>
+                    <li><a href="candidature/offre-d'emploi.html">Emploi</a></li>
+                    <li><a href="candidature/ds.html">Demandes de stages</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -1758,9 +1781,8 @@
         <ul class="mobile-menu">
             <li><a href="index.html#accueil">Accueil</a></li>
             <li><a href="mddirecteur.html">Mot du directeur</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#departements">Départements</a></li>
-            <li><a href="#projets">Projets</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#candidature">Candidature spontanée</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
@@ -1774,6 +1796,9 @@
                 Nous combinons <strong>expertise technique, innovation et passion</strong> pour transformer vos idées en infrastructures durables et modernes.
             </p>
             <a href="#contact" class="cta-button">Nous contacter</a>
+        </div>
+        <div class="hero-image">
+            <img src="personnedansleBTP.png" alt="image">
         </div>
     </section>
     
@@ -2113,6 +2138,9 @@
                     </div>
                 </a>
             </div>
+            <div class="cta-contact">
+                <a href="#contact" class="cta-button">Nous contacter</a>
+            </div>
         </div>
     </section>
 
@@ -2294,6 +2322,9 @@
                     </div>
                 </div>
             </div>
+            <div class="cta-contact">
+                <a href="#contact" class="cta-button">Nous contacter</a>
+            </div>
         </div>
     </section>
 
@@ -2463,6 +2494,7 @@
     </div>
 
     <script>
+        console.log("opening")
         // Gestion du scroll
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
@@ -2879,6 +2911,8 @@
                 });
             }
 
+            const header = document.getElementById('header');
+
             // Vérification initiale
             checkVisibility();
 
@@ -2902,6 +2936,20 @@
                 checkVisibility();
             });
         });
+        
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY >= 50) {
+                /*header.classList.add('scrolled');*/
+                header.classList.add('nav ul li a .h2');
+                header.classList.remove('nav ul li a');
+            } else {
+                /*header.classList.remove('scrolled');*/
+                header.classList.add('nav ul li a');
+                header.classList.remove('nav ul li a .h2');
+            }
+        })
     </script>
 </body>
 </html>
