@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez la mission d'appui technique à maîtrise d'ouvrage pour le centre de revalidation de bouteilles de gaz à Sèmè, réalisée par ABGP.">
+    <meta property="og:title" content="Centre de Revalidation de Bouteilles de Gaz à Sèmè - ABGP">
+    <meta property="og:description" content="Mission d'appui technique à maîtrise d'ouvrage pour le projet de construction d'un centre de revalidation de bouteilles de gaz à Sèmè, réalisée par Africa Building Group and Partners (ABGP).">
+    <meta property="og:image" content="chemin/vers/image-centre-revalidation-gaz-seme.jpg">
+    <title>Centre de Revalidation de Bouteilles de Gaz à Sèmè - ABGP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/mddirecteur.css">
+    <style>
+        :root {
+            --yellow: #F0D501;
+            --black: #000000;
+            --gray: #F5F5F5;
+            --white: #FFFFFF;
+            --dark-gray: #6c757d;
+            --light-gray: #f8f9fa;
+            --shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --border-radius: 12px;
+            --font-primary: 'Montserrat', sans-serif;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            color: var(--black);
+            background-color: var(--light-gray);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav ul li a {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 0;
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover {
+            color: var(--yellow);
+        }
+
+        .project-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../image-centre-revalidation-gaz-seme.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 70px;
+            position: relative;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .project-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-hero h1 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .project-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .project-detail {
+            padding: 60px 0;
+            background-color: var(--white);
+            margin: -50px 0 0;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            position: relative;
+            z-index: 1;
+            box-shadow: var(--shadow);
+        }
+
+        .project-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-images {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .project-images img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-images img:hover {
+            transform: scale(1.02);
+        }
+
+        .project-info h2 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--black);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .project-info h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--yellow);
+        }
+
+        .project-info h3 {
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem;
+            color: var(--black);
+        }
+
+        .project-info p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: var(--dark-gray);
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(240,213,1,0.1) 0%, rgba(240,213,1,0.05) 100%);
+            border-radius: var(--border-radius);
+        }
+
+        .meta-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .meta-item h4 {
+            font-size: 1rem;
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .meta-item p {
+            font-size: 1.1rem;
+            color: var(--black);
+            font-weight: 500;
+        }
+
+        .project-cta {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .project-cta h2 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-cta p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            background-color: var(--yellow);
+            color: var(--black);
+            padding: 15px 35px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+            font-size: 1rem;
+            border: 2px solid var(--yellow);
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--yellow);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .floating-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .floating-cta .cta-button {
+            background-color: var(--yellow);
+            color: var(--black);
+            padding: 12px 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .floating-cta .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+        }
+
+        .floating-cta i {
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 992px) {
+            .project-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .project-hero h1 {
+                font-size: 2.2rem;
+            }
+            .project-hero p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-hero {
+                height: 50vh;
+            }
+            .project-hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../LOGO ABGP WEB1.jpg" alt="Logo ABGP">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html#accueil">Accueil</a></li>
+                    <li><a href="../index.html#projets">Projets</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="project-hero">
+        <div class="container">
+            <h1>Centre de Revalidation de Bouteilles de Gaz à Sèmè, Bénin</h1>
+            <p>Mission d'appui technique à maîtrise d'ouvrage pour un projet industriel stratégique.</p>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+   <div class="mobile-menu-container">
+    <div class="logo">
+                <img src="../LOGO ABGP WEB1.jpg" alt="Logo ABGP - Africa Building Group and Partners">
+            </div>
+    <div class="space-menu"></div>
+
+    <!-- Checkbox cachée pour gérer l'état -->
+    <input type="checkbox" id="menu-toggle-input">
+
+    <!-- Bouton hamburger (3 lignes) -->
+    <label for="menu-toggle-input" class="menu-toggle">
+        <span class="ligne-menu"></span>
+        <span class="ligne-menu"></span>
+        <span class="ligne-menu"></span>
+        <div class="logo", style="padding-top: 10px;">
+            <img src="../menu.png" alt="Logo ABGP - Africa Building Group and Partners">
+        </div>
+    </label>
+
+    <!-- Menu déroulant -->
+    <ul class="mobile-menu">
+        <li><a href="../index.html#accueil">Accueil</a></li>
+        <li><a href="../index.html#projets">Projets</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    </div>
+</div>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-content">
+                <div class="project-images">
+                    <img "../image1-centre-revalidation-gaz-seme.jpg" alt="Vue du centre de revalidation de bouteilles de gaz" loading="lazy">
+                    <img "../image2-centre-revalidation-gaz-seme.jpg" alt="Détail des installations du centre" loading="lazy">
+                </div>
+                <div class="project-info">
+                    <h2>À propos du projet</h2>
+                    <p>
+                        La mission d'<strong>appui technique à maîtrise d'ouvrage pour le projet de construction d'un centre de revalidation de bouteilles de gaz à la zone franche industrielle de Sèmè</strong> a été confiée à ABGP par ORYX Énergie Bénin SA.
+                        Notre rôle a consisté à accompagner le client dans la planification, la coordination et le suivi technique du projet, en garantissant le respect des normes de sécurité et de qualité.
+                    </p>
+                    <p>
+                        Ce projet illustre notre expertise dans la gestion de projets industriels complexes et notre engagement envers l'innovation et la durabilité.
+                    </p>
+                    <div class="project-meta">
+                        <div class="meta-item">
+                            <h4>Type de projet</h4>
+                            <p>Appui technique à maîtrise d'ouvrage</p>
+                        </div>
+                        <div class="meta-item">
+                            <h4>Localisation</h4>
+                            <p>Zone franche industrielle de Sèmè, Bénin</p>
+                        </div>
+                        <div class="meta-item">
+                            <h4>Période</h4>
+                            <p>Janvier 2022 à ce jour</p>
+                        </div>
+                        <div class="meta-item">
+                            <h4>Client</h4>
+                            <p>ORYX Énergie Bénin SA</p>
+                        </div>
+                    </div>
+                    <h3>Notre rôle</h3>
+                    <p>ABGP a assuré :</p>
+                    <ul style="margin: 1rem 0 1.5rem; padding-left: 20px;">
+                        <li>L'<strong>appui technique à maîtrise d'ouvrage</strong> pour la planification et le suivi du projet.</li>
+                        <li>La <strong>coordination des acteurs</strong> impliqués dans le projet.</li>
+                        <li>Le <strong>suivi des normes de sécurité et de qualité</strong>.</li>
+                        <li>L'<strong>optimisation des processus</strong> pour une livraison efficace.</li>
+                    </ul>
+                    <h3>Innovations et défis</h3>
+                    <p>Ce projet a permis à ABGP de relever plusieurs défis :</p>
+                    <ul style="margin: 1rem 0 1.5rem; padding-left: 20px;">
+                        <li>La gestion des <strong>contraintes techniques</strong> liées à un projet industriel spécialisé.</li>
+                        <li>L'application de <strong>normes strictes</strong> pour garantir la sécurité des installations.</li>
+                        <li>L'utilisation de <strong>technologies innovantes</strong> pour une gestion optimale du projet.</li>
+                    </ul>
+                    <h3>Résultats</h3>
+                    <p>Le centre de revalidation de bouteilles de gaz à Sèmè est aujourd'hui une infrastructure industrielle moderne et sécurisée.</p>
+                    <ul style="margin: 1rem 0 1.5rem; padding-left: 20px;">
+                        <li>Un <strong>taux de satisfaction client de 100%</strong>.</li>
+                        <li>Un <strong>respect strict des normes de sécurité</strong>.</li>
+                        <li>Une <strong>livraison dans les délais</strong> et selon le budget.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-cta">
+        <div class="container">
+            <h2>Vous avez un projet industriel similaire ?</h2>
+            <p>
+                Notre équipe d'experts est prête à vous accompagner pour garantir la qualité et la sécurité de vos infrastructures.
+                Contactez-nous dès aujourd'hui pour discuter de vos besoins.
+            </p>
+            <a href="../index.html#contact" class="cta-button">Nous contacter</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 ABGP - Africa Building Group and Partners. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <div class="floating-cta">
+        <a href="../index.html#contact" class="cta-button">
+            <i class="fas fa-comments"></i>
+            <span>Contactez-nous</span>
+        </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hôtel SOFITEL & Centre International de Conférence - ABGP</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../css/mddirecteur.css">
+    <style>
+        :root {
+            --yellow: #F0D501;
+            --black: #000000;
+            --gray: #F5F5F5;
+            --white: #FFFFFF;
+            --dark-gray: #6c757d;
+            --shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+            --font-primary: 'Montserrat', sans-serif;
+        }
+
+        body {
+            font-family: "Montserrat", sans-serif;
+            color: var(--black);
+            background-color: var(--gray);
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 0;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--yellow);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: var(--yellow);
+        }
+
+        .hero-section {
+            padding: 150px 0 60px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--gray) 0%, var(--light-gray) 100%);
+        }
+
+        .hero-title {
+            font-family: "Montserrat", sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: clamp(0.8rem, 2vw, 1.5rem);
+            animation: fadeIn 1.2s ease-out;
+            line-height: 1.1;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: var(--dark-gray);
+            max-width: 90%;
+            margin: 0 auto clamp(2rem, 4vw, 3rem);
+            animation: fadeIn 1.5s ease-out;
+            line-height: 1.5;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .carousel-wrapper {
+            width: 95%;
+            max-width: 1300px;
+            margin: 0 auto 50px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            padding: 20px;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: clamp(300px, 50vh, 600px);
+            border-radius: var(--border-radius);
+        }
+
+        .swiper-slide {
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .swiper-slide::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            max-width: 80%;
+        }
+
+        .slide-content h2 {
+            font-family: "Montserrat", sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: clamp(8px, 1.5vw, 15px);
+            color: var(--yellow);
+            line-height: 1.2;
+        }
+
+        .slide-content p {
+            font-size: clamp(0.9rem, 2.5vw, 1.4rem);
+            margin-bottom: clamp(4px, 1vw, 8px);
+            line-height: 1.4;
+        }
+
+        .slide-content .client {
+            font-style: italic;
+            font-size: clamp(0.8rem, 2vw, 1.1rem);
+            color: var(--yellow);
+            line-height: 1.3;
+        }
+
+        .swiper-pagination-bullet {
+            background-color: var(--white);
+            opacity: 0.8;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: var(--yellow);
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--yellow);
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .project-detail {
+            padding: 60px 0;
+            background-color: var(--white);
+            margin: -40px 0 0;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
+            position: relative;
+            z-index: 1;
+            box-shadow: var(--shadow);
+        }
+
+        .project-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-images {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .project-images img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.4s ease;
+        }
+
+        .project-images img:hover {
+            transform: scale(1.02);
+        }
+
+        .project-info h2 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--black);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .project-info h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--yellow), transparent);
+        }
+
+        .project-info h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: var(--black);
+            border-bottom: 1px solid var(--gray);
+            padding-bottom: 10px;
+        }
+
+        .project-info p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: var(--dark-gray);
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(240,213,1,0.1) 0%, rgba(240,213,1,0.05) 100%);
+            border-radius: var(--border-radius);
+            border-left: 5px solid var(--yellow);
+        }
+
+        .meta-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .meta-item h4 {
+            font-size: 1rem;
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .meta-item p {
+            font-size: 1.1rem;
+            color: var(--black);
+            font-weight: 500;
+        }
+
+        .project-cta {
+            background: linear-gradient(135deg, var(--black) 0%, #1a1a1a 100%);
+            color: var(--white);
+            padding: 5rem 0;
+            text-align: center;
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><polygon points=\"0,0 100,0 50,50\" fill=\"rgba(240,213,1,0.1)\"/></svg>');
+            animation: shine 15s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
+        }
+
+        .project-cta h2 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 2.4rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-button {
+            background-color: var(--yellow);
+            color: var(--black);
+            padding: 16px 40px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            display: inline-block;
+            font-size: 1.1rem;
+            border: 2px solid var(--yellow);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .cta-button:hover::after {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--yellow);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        @media (max-width: 992px) {
+            .project-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .swiper-container {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            .swiper-container {
+                height: 300px;
+            }
+
+            .project-cta h2 {
+                font-size: 2rem;
+            }
+
+            .project-cta p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="../LOGO ABGP WEB1.jpg" alt="Logo ABGP">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html#accueil">Accueil</a></li>
+                    <li><a href="../index.html#projets">Projets</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+   <div class="mobile-menu-container">
+    <div class="logo">
+                <img src="../LOGO ABGP WEB1.jpg" alt="Logo ABGP - Africa Building Group and Partners">
+            </div>
+    <div class="space-menu"></div>
+
+    <!-- Checkbox cachée pour gérer l'état -->
+    <input type="checkbox" id="menu-toggle-input">
+
+    <!-- Bouton hamburger (3 lignes) -->
+    <label for="menu-toggle-input" class="menu-toggle">
+        <span class="ligne-menu"></span>
+        <span class="ligne-menu"></span>
+        <span class="ligne-menu"></span>
+        <div class="logo", style="padding-top: 10px;">
+            <img src="../menu.png" alt="Logo ABGP - Africa Building Group and Partners">
+        </div>
+    </label>
+
+    <!-- Menu déroulant -->
+    <ul class="mobile-menu">
+        <li><a href="../index.html#accueil">Accueil</a></li>
+        <li><a href="../index.html#projets">Projets</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    </div>
+</div>
+
+    <!-- Section Héro -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Contrôle permanent des projets de construction des stations OBSA, Natitingou et Kandi</h1>
+            <p class="hero-subtitle">
+                Contrôle permanent des projets de construction des stations OBSA, Natitingou et Kandi.
+            </p>
+        </div>
+        <div class="carousel-wrapper">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide" style="background-image: url('../images/OBSA_stations/2.png');">
+                        <div class="slide-content">
+                            <h2>Stations OBSA, Natitingou et Kandi</h2>
+                            <p>Contrôle permanent des projets de construction des stations OBSA, Natitingou et Kandi.</p>
+                            <p class="client">Période : 2020 - 2021</p>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide" style="background-image: url('../images/OBSA_stations/gas-station-architecture.webp');">
+                        <div class="slide-content">
+                            <h2>Stations OBSA, Natitingou et Kandi</h2>
+                            <p>Contrôle permanent des projets de construction des stations OBSA, Natitingou et Kandi.</p>
+                            <p class="client">Période : 2020 - 2021</p>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide" style="background-image: url('../images/OBSA_stations/ou.png');">
+                        <div class="slide-content">
+                            <h2>Stations OBSA, Natitingou et Kandi</h2>
+                            <p>Contrôle permanent des projets de construction des stations OBSA, Natitingou et Kandi.</p>
+                            <p class="client">Période : 2020 - 2021</p>
+                            <p>Fondations et structure</p>
+                            <p class="client">Période : Février 2022</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Détails du Projet -->
+    <section class="project-detail">
+        <div class="container">
+            <div class="project-content">
+                <div class="project-images">
+                    <img src="../images/OBSA_stations/gas-station-architecture.webp" alt="Détail - Structure de l'hôtel">
+                    <img src="../images/OBSA_stations/ou.png" alt="Détail - Salle de conférence">
+                </div>
+                <div class="project-info">
+                    <h2>À propos du projet</h2>
+                    <p>
+                        La mission de contrôle permanent des projets de construction des <strong>stations OBSA, Natitingou et Kandi</strong> a été confiée à ABGP.
+                    </p>
+                    <p>
+                        Notre rôle a consisté à assurer le contrôle permanent des travaux de construction, en garantissant la conformité aux normes internationales et locales.
+                    </p>
+                    <div class="project-meta">
+                        <div class="info-item">
+                            <h4>Type</h4>
+                            <p>Stations de traitement</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Mission</h4>
+                            <p>Contrôle permanent des projets</p>
+                        </div>
+                        <div class="info-item">
+                            <h4>Période</h4>
+                            <p>2020 - 2021</p>
+                        </div>
+                    </div>
+                    <h3>Étapes Clés</h3>
+                    <ul style="margin: 1rem 0 1.5rem; padding-left: 20px;">
+                        <li><strong>Contrôle des fondations</strong> : Vérification de la stabilité.</li>
+                        <li><strong>Supervision des structures</strong> : Suivi de la construction.</li>
+                        <li><strong>Tests finaux</strong> : Validation des installations.</li>
+                    </ul>
+                    <h3>Résultats</h3>
+                    <p>
+                        Les stations OBSA, Natitingou et Kandi sont aujourd'hui des références en matière d'infrastructures touristiques et institutionnelles au Bénin.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section CTA -->
+    <section class="project-cta">
+        <div class="container">
+            <h2>Vous avez un projet de station similaire ?</h2>
+            <p>
+                Notre équipe d'experts est prête à vous accompagner pour garantir la qualité et la conformité de vos infrastructures.
+                Contactez-nous dès aujourd'hui pour discuter de vos besoins.
+            </p>
+            <a href="../index.html#contact" class="cta-button">Nous contacter</a>
+        </div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <div class="container">
+            <p>© 2025 ABGP - Africa Building Group and Partners. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            effect: 'coverflow',
+            coverflowEffect: {
+                rotate: 30,
+                slideShadows: true,
+            },
+        });
+    </script>
+</body>
+</html>

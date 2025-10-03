@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets - ABGP</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Bechtel.com inspired design - Clean, Professional, Minimalist */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e0e0e0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+        }
+        
+        .logo img {
+            height: 40px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #0066cc;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #6c757d;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        /* Projects Section - Bechtel Style */
+        .projects-section {
+            padding: 80px 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: #6c757d;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .view-all-projects {
+            display: inline-block;
+            background: #0066cc;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            margin-top: 2rem;
+        }
+        
+        .view-all-projects:hover {
+            background: #0052a3;
+        }
+        
+        /* Project Categories */
+        .project-category {
+            margin-bottom: 5rem;
+        }
+        
+        .category-title {
+            font-size: 2rem;
+            font-weight: 400;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .category-description {
+            font-size: 1.1rem;
+            color: #6c757d;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        
+        /* Project List - Bechtel Style */
+        .project-list {
+            list-style: none;
+        }
+        
+        .project-item {
+            padding: 2rem 0;
+            border-bottom: 1px solid #e9ecef;
+            transition: background 0.3s ease;
+        }
+        
+        .project-item:hover {
+            background: #f8f9fa;
+            margin: 0 -20px;
+            padding: 2rem 20px;
+        }
+        
+        .project-item:last-child {
+            border-bottom: none;
+        }
+        
+        .project-name {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-description {
+            font-size: 1rem;
+            color: #6c757d;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .project-location {
+            font-size: 0.9rem;
+            color: #0066cc;
+            font-weight: 500;
+        }
+        
+        .project-link {
+            display: inline-block;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .project-link:hover {
+            color: #0052a3;
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #ecf0f1;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #ecf0f1;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .mobile-menu ul {
+            flex-direction: column;
+            padding: 1rem 0;
+        }
+        
+        .mobile-menu ul li {
+            padding: 0.5rem 20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .projects-section {
+                padding: 60px 0;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .category-title {
+                font-size: 1.5rem;
+            }
+            
+            .project-name {
+                font-size: 1.2rem;
+            }
+            
+            .project-item:hover {
+                margin: 0;
+                padding: 2rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="LOGO ABGP WEB1.jpg" alt="ABGP Logo">
+                </a>
+            </div>
+            <nav class="desktop-nav">
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#projets">Projets</a></li>
+                    <li><a href="index.html#galerie">Galerie</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-container">
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav class="mobile-menu" id="mobileMenu">
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#projets">Projets</a></li>
+                        <li><a href="index.html#galerie">Galerie</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Nos Projets</h1>
+            <p>Depuis notre création, ABGP a réalisé plus de 100 projets dans toute l'Afrique de l'Ouest. Notre expertise couvre divers secteurs allant des bâtiments administratifs aux infrastructures industrielles, en passant par les projets d'aménagement urbain.</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Bâtiments Administratifs et Institutionnels</h2>
+                <p>ABGP est spécialisé dans la conception et la réalisation de bâtiments administratifs et institutionnels, alliant fonctionnalité, esthétique et durabilité.</p>
+                <a href="#" class="view-all-projects">Voir tous les projets</a>
+            </div>
+
+            <!-- Tour ALTAIR -->
+            <div class="project-category">
+                <h3 class="category-title">Tour ALTAIR</h3>
+                <p class="category-description">Immeuble de bureaux moderne et élégant, conçu pour accueillir des entreprises internationales.</p>
+                <ul class="project-list">
+                    <li class="project-item">
+                        <h4 class="project-name">Tour ALTAIR - Siège Principal</h4>
+                        <p class="project-description">Immeuble de grande hauteur avec façade moderne et espaces de bureaux flexibles. Conception architecturale innovante avec matériaux haut de gamme.</p>
+                        <p class="project-location">Cotonou, Bénin</p>
+                        <a href="projets/tour-altair.html" class="project-link">Voir le projet →</a>
+                    </li>
+                    <li class="project-item">
+                        <h4 class="project-name">Tour ALTAIR - Phase Construction</h4>
+                        <p class="project-description">Suivi technique et maîtrise d'œuvre pendant la phase de construction. Coordination des différents corps de métier et contrôle qualité.</p>
+                        <p class="project-location">Cotonou, Bénin</p>
+                        <a href="projets/tour-altair.html" class="project-link">Voir le projet →</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Assemblée Nationale -->
+            <div class="project-category">
+                <h3 class="category-title">Assemblée Nationale</h3>
+                <p class="category-description">Bâtiment institutionnel emblématique abritant le parlement national.</p>
+                <ul class="project-list">
+                    <li class="project-item">
+                        <h4 class="project-name">Assemblée Nationale - Bâtiment Principal</h4>
+                        <p class="project-description">Siège du pouvoir législatif béninois. Architecture monumentale avec hémicycle, bureaux et espaces de travail modernes.</p>
+                        <p class="project-location">Porto-Novo, Bénin</p>
+                        <a href="projets/assemblee-nationale.html" class="project-link">Voir le projet →</a>
+                    </li>
+                    <li class="project-item">
+                        <h4 class="project-name">Assemblée Nationale - Architecture Détail</h4>
+                        <p class="project-description">Conception architecturale détaillée avec éléments symboliques et finitions haut de gamme. Intégration des technologies modernes.</p>
+                        <p class="project-location">Porto-Novo, Bénin</p>
+                        <a href="projets/assemblee-nationale.html" class="project-link">Voir le projet →</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section-header">
+                <h2>Hôtellerie et Tourisme</h2>
+                <p>Création d'établissements hôteliers de luxe combinant confort, élégance et authenticité pour une expérience client exceptionnelle.</p>
+                <a href="#" class="view-all-projects">Voir tous les projets</a>
+            </div>
+
+            <!-- Hôtel SOFITEL -->
+            <div class="project-category">
+                <h3 class="category-title">Hôtel SOFITEL</h3>
+                <p class="category-description">Hôtel 5 étoiles de prestige offrant un service d'excellence et un cadre somptueux.</p>
+                <ul class="project-list">
+                    <li class="project-item">
+                        <h4 class="project-name">Hôtel SOFITEL Cotonou</h4>
+                        <p class="project-description">Établissement hôtelier de luxe avec chambres, suites, restaurants et espaces de conférence. Architecture moderne inspirée du patrimoine local.</p>
+                        <p class="project-location">Cotonou, Bénin</p>
+                        <a href="projets/hotel-sofitel.html" class="project-link">Voir le projet →</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section-header">
+                <h2>Infrastructures Industrielles et Logistiques</h2>
+                <p>Conception et réalisation d'infrastructures industrielles robustes et fonctionnelles pour soutenir le développement économique.</p>
+                <a href="#" class="view-all-projects">Voir tous les projets</a>
+            </div>
+
+            <!-- Entrepôts SIPI -->
+            <div class="project-category">
+                <h3 class="category-title">Entrepôts SIPI BENIN</h3>
+                <p class="category-description">Complexe logistique moderne pour le stockage et la distribution de marchandises.</p>
+                <ul class="project-list">
+                    <li class="project-item">
+                        <h4 class="project-name">Entrepôts SIPI - Vue d'Ensemble</h4>
+                        <p class="project-description">Deux entrepôts de 5000 m² chacun avec équipements modernes. Conception optimisée pour la logistique et le stockage industriel.</p>
+                        <p class="project-location">Zone Industrielle de Glo-Djigbé, Bénin</p>
+                        <a href="projets/entrepots-sipi.html" class="project-link">Voir le projet →</a>
+                    </li>
+                    <li class="project-item">
+                        <h4 class="project-name">Entrepôts SIPI - Phase Construction</h4>
+                        <p class="project-description">Maîtrise d'œuvre complète avec suivi des travaux et contrôle qualité. Coordination des équipes et respect des délais.</p>
+                        <p class="project-location">Zone Industrielle de Glo-Djigbé, Bénin</p>
+                        <a href="projets/entrepots-sipi.html" class="project-link">Voir le projet →</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Centre de Revalidation -->
+            <div class="project-category">
+                <h3 class="category-title">Centre de Revalidation</h3>
+                <p class="category-description">Installation industrielle spécialisée dans la revalidation de bouteilles de gaz.</p>
+                <ul class="project-list">
+                    <li class="project-item">
+                        <h4 class="project-name">Centre de Revalidation - Bâtiment Principal</h4>
+                        <p class="project-description">Installation industrielle moderne pour le traitement et la revalidation de bouteilles de gaz. Conception sécurisée et efficace.</p>
+                        <p class="project-location">Zone Industrielle, Bénin</p>
+                        <a href="projets/centre-revalidation.html" class="project-link">Voir le projet →</a>
+                    </li>
+                    <li class="project-item">
+                        <h4 class="project-name">Centre de Revalidation - Équipements Techniques</h4>
+                        <p class="project-description">Installation des équipements techniques et systèmes de sécurité. Intégration des technologies de contrôle et de surveillance.</p>
+                        <p class="project-location">Zone Industrielle, Bénin</p>
+                        <a href="projets/centre-revalidation.html" class="project-link">Voir le projet →</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Clôture GDIZ -->
+            <div class="project-category">
+                <h3 class="category-title">Clôture Zone Industrielle</h3>
+                <p class="category-description">Infrastructure de sécurité périmétrique pour la zone industrielle de Glo-Djigbé.</p>
+                <ul class="project-list">
+                    <li class="project-item">
+                        <h4 class="project-name">Clôture Périmétrique GDIZ</h4>
+                        <p class="project-description">Clôture de sécurité complète pour la zone industrielle avec systèmes de contrôle d'accès et surveillance. Infrastructure robuste et durable.</p>
+                        <p class="project-location">Glo-Djigbé, Bénin</p>
+                        <a href="projets/cloture-glo-djigbe.html" class="project-link">Voir le projet →</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>À propos d'ABGP</h3>
+                    <p>ABGP est un bureau d'études techniques spécialisé dans la maîtrise d'œuvre, le contrôle technique et l'assistance à maîtrise d'ouvrage.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Maîtrise d'œuvre</a></li>
+                        <li><a href="#">Contrôle technique</a></li>
+                        <li><a href="#">Assistance à maîtrise d'ouvrage</a></li>
+                        <li><a href="#">Études techniques</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><i class="fas fa-phone"></i> +229 21 31 00 00</p>
+                    <p><i class="fas fa-envelope"></i> contact@abgp.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Cotonou, Bénin</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ABGP. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Mobile menu functionality
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.style.display = mobileMenu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobileMenu').style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
