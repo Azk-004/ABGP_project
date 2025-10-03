@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Découvrez l'équipe dirigeante d'ABGP - Africa Building Group and Partners. Expertise, passion et excellence au service de vos projets.">
+    <meta name="keywords" content="ABGP, équipe, direction, management, BTP, Afrique, construction, expertise">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ABGP - Notre Équipe Dirigeante">
+    <meta property="og:description" content="Découvrez l'équipe d'experts qui fait la force d'ABGP.">
+    <meta property="og:image" content="images/team-cover.jpg">
+    <meta property="og:url" content="URL_DU_SITE/team.html">
+    <title>Notre Équipe - ABGP Africa Building Group and Partners</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --yellow: #F0D501;
+            --black: #000000;
+            --gray: #F5F5F5;
+            --white: #FFFFFF;
+            --dark-gray: #6c757d;
+            --light-gray: #f8f9fa;
+            --shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --border-radius: 12px;
+            --max-width: 1200px;
+            --font-primary: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--black);
+            background-color: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background 0.3s ease;
+            background: transparent;
+        }
+        header.scrolled {
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            transition: var(--transition);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        header.scrolled nav ul li a {
+            color: black !important;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--yellow);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--yellow);
+        }
+
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+
+        /* Menu Mobile */
+        .mobile-menu-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            z-index: 1001;
+            padding: 15px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu-container .logo img {
+            height: 40px;
+        }
+
+        #menu-toggle-input {
+            display: none;
+        }
+
+        .ligne-menu {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px 0;
+            background-color: var(--black);
+            transition: var(--transition);
+        }
+
+        .mobile-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: var(--white);
+            list-style: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #menu-toggle-input:checked ~ .mobile-menu {
+            max-height: 300px;
+        }
+
+        .mobile-menu li a {
+            display: block;
+            padding: 15px 20px;
+            color: var(--black);
+            text-decoration: none;
+            border-bottom: 1px solid var(--gray);
+            transition: var(--transition);
+        }
+
+        .mobile-menu li a:hover {
+            background-color: var(--yellow);
+            color: var(--black);
+        }
+
+        /* CTA Button */
+        .cta-button {
+            background-color: var(--yellow);
+            color: var(--black);
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: var(--border-radius);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+            font-family: var(--font-primary);
+        }
+
+        .cta-button:hover {
+            background-color: #FFD700;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Hero Section Team */
+        .team-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('images/team-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            text-align: center;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .team-hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .team-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            animation: fadeInDown 1s ease;
+        }
+
+        .team-hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Section Générale */
+        section {
+            padding: 100px 0;
+        }
+
+        section h2 {
+            text-align: center;
+            font-family: var(--font-primary);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--black);
+        }
+
+        section h2:after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--yellow);
+        }
+
+        /* Équipe Dirigeante */
+        #equipe-dirigeante {
+            background: linear-gradient(135deg, rgba(240,213,1,0.1) 0%, rgba(240,213,1,0.05) 100%);
+        }
+
+        .manager-showcase {
+            background: white;
+            border-radius: 15px;
+            padding: 50px;
+            margin: 0 auto 80px;
+            box-shadow: var(--shadow);
+            position: relative;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        @media (min-width: 768px) {
+            .manager-showcase {
+                flex-direction: row;
+                padding: 50px;
+            }
+        }
+
+        .manager-showcase:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+        .manager-photo-container {
+            width: 300px;
+            height: 300px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--yellow);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        @media (min-width: 768px) {
+            .manager-photo-container {
+                margin-bottom: 0;
+                margin-right: 50px;
+            }
+        }
+
+        .manager-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .manager-photo-container:hover .manager-photo {
+            transform: scale(1.03);
+        }
+
+        .manager-info {
+            flex: 1;
+            padding: 20px 0;
+        }
+
+        .manager-name {
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--black);
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .manager-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--yellow);
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .department-info {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .manager-contact {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .contact-btn {
+            background: var(--yellow);
+            color: var(--black);
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-btn:hover {
+            background: #FFD700;
+            transform: translateY(-2px);
+        }
+
+        /* Social Hover */
+        .social-hover {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        .manager-showcase:hover .social-icons {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--black);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            background: #FFD700;
+        }
+
+        .social-icon::before {
+            content: attr(title);
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--black);
+            color: var(--white);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .social-icon::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-bottom-color: var(--black);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-icon:hover::before,
+        .social-icon:hover::after {
+            opacity: 1;
+        }
+
+        /* Galerie de sélection */
+        .selection-gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .thumbnail {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .thumbnail:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .thumbnail.active {
+            border-color: var(--yellow);
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .thumbnail:hover img {
+            transform: scale(1.05);
+        }
+
+        .thumbnail-name {
+            position: absolute;
+            bottom: -35px;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 8px 5px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--black);
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: var(--transition);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .thumbnail:hover .thumbnail-name {
+            bottom: 0;
+            opacity: 1;
+        }
+
+        .thumbnail.active .thumbnail-name {
+            background: var(--yellow);
+            color: var(--black);
+            bottom: 0;
+            opacity: 1;
+        }
+
+        /* Animation pour le changement */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        /* Section équipe complète */
+        #equipe-complete {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .team-member-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            text-align: center;
+            position: relative;
+        }
+
+        .team-member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .member-photo {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--yellow);
+        }
+
+        .member-info {
+            padding: 25px;
+        }
+
+        .member-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--black);
+        }
+
+        .member-position {
+            color: var(--yellow);
+            font-weight: 500;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .member-department {
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .member-bio {
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .member-social a {
+            width: 40px;
+            height: 40px;
+            background: var(--yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--black);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .member-social a:hover {
+            transform: translateY(-3px) scale(1.1);
+            background: #FFD700;
+        }
+
+        .member-social a::before {
+            content: attr(title);
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--black);
+            color: var(--white);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .member-social a:hover::before {
+            opacity: 1;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--yellow) 0%, #FFD700 100%);
+            padding: 80px 0;
+            text-align: center;
+            color: var(--black);
+        }
+
+        .cta-section h2 {
+            color: var(--black);
+            margin-bottom: 20px;
+        }
+
+        .cta-section h2:after {
+            background-color: var(--black);
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo img {
+            height: 60px;
+            margin-bottom: 1rem;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-links h4,
+        .footer-contact h4 {
+            font-family: var(--font-primary);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+            color: var(--white);
+        }
+
+        .footer-links h4:after,
+        .footer-contact h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--yellow);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--yellow);
+        }
+
+        .footer-contact p {
+            margin-bottom: 0.8rem;
+            color: #ccc;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-contact i {
+            color: var(--yellow);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.3rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--yellow);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #333;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--yellow);
+            color: var(--black);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
+            box-shadow: var(--shadow);
+        }
+
+        .back-to-top:hover {
+            background-color: #FFD700;
+            transform: scale(1.1);
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            header {
+                display: none;
+            }
+            .mobile-menu-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            nav ul {
+                display: none;
+            }
+            .team-hero h1 {
+                font-size: 2.8rem;
+            }
+            .team-hero p {
+                font-size: 1.1rem;
+            }
+            .manager-showcase {
+                padding: 30px 20px;
+                flex-direction: column;
+            }
+            .manager-photo-container {
+                width: 250px;
+                height: 250px;
+                margin-bottom: 30px;
+            }
+            .manager-name {
+                font-size: 28px;
+            }
+            .selection-gallery {
+                gap: 20px;
+            }
+            .thumbnail {
+                width: 90px;
+                height: 90px;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .team-hero h1 {
+                font-size: 2.2rem;
+            }
+            .team-hero p {
+                font-size: 1rem;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .manager-contact {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .contact-btn {
+                justify-content: center;
+            }
+            .social-icons {
+                gap: 10px;
+            }
+            .social-icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .manager-photo-container {
+                width: 200px;
+                height: 200px;
+            }
+            .manager-name {
+                font-size: 24px;
+            }
+            .manager-title {
+                font-size: 16px;
+            }
+            .selection-gallery {
+                gap: 15px;
+            }
+            .thumbnail {
+                width: 80px;
+                height: 80px;
+            }
+            .social-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="LOGO ABGP WEB1.jpg" alt="Logo ABGP - Africa Building Group and Partners">
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html#accueil">Accueil</a></li>
+                    <li><a href="mddirecteur.html">Mot du directeur</a></li>
+                    <li><a href="team.html" class="active">Team</a></li>
+                    <li><a href="index.html#candidature">Candidature spontanée</a></li>
+                    <li><a href="candidature/offre-d'emploi.html">Emploi</a></li>
+                    <li><a href="candidature/ds.html">Demandes de stages</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Menu Mobile -->
+    <div class="mobile-menu-container">
+        <div class="logo">
+            <a href="index.html">
+                <img src="LOGO ABGP WEB1.jpg" alt="Logo ABGP - Africa Building Group and Partners">
+            </a>
+        </div>
+        <div class="space-menu"></div>
+
+        <!-- Checkbox cachée pour gérer l'état -->
+        <input type="checkbox" id="menu-toggle-input">
+
+        <!-- Bouton hamburger (3 lignes) -->
+        <label for="menu-toggle-input">
+            <span class="ligne-menu"></span>
+            <span class="ligne-menu"></span>
+            <span class="ligne-menu"></span>
+        </label>
+
+        <!-- Menu déroulant -->
+        <ul class="mobile-menu">
+            <li><a href="index.html#accueil">Accueil</a></li>
+            <li><a href="mddirecteur.html">Mot du directeur</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="index.html#candidature">Candidature spontanée</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section Team -->
+    <section class="team-hero">
+        <div class="container">
+            <h1>NOTRE ÉQUIPE DIRIGEANTE</h1>
+            <p>Découvrez les experts passionnés qui font la force et l'excellence d'ABGP</p>
+        </div>
+    </section>
+
+    <!-- Équipe Dirigeante -->
+    <section id="equipe-dirigeante">
+        <div class="container">
+            <h2>L'Équipe de Direction</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem; color: var(--dark-gray);">
+                Notre équipe dirigeante combine <strong>expertise technique, vision stratégique et passion</strong> pour l'excellence. 
+                Chaque membre apporte une valeur unique à nos projets et à notre croissance.
+            </p>
+
+            <!-- Bloc principal du manager -->
+            <div class="manager-showcase" id="managerShowcase">
+                <div class="manager-photo-container">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Gilles Éric AYI" class="manager-photo">
+                </div>
+                <div class="manager-info">
+                    <h2 class="manager-name" id="managerName">Gilles Éric AYI</h2>
+                    <p class="manager-title" id="managerTitle">Directeur Technique BIM</p>
+                    <p class="department-info" id="departmentInfo">
+                        Accompagnement spécialisé des entreprises et maîtres d'ouvrages dans la réalisation de projets de construction avec une approche BIM intégrée.
+                    </p>
+                    <div class="manager-contact">
+                        <a href="mailto:gilles.ayi@abgp.com" class="contact-btn">
+                            <i class="fas fa-envelope"></i> Contacter
+                        </a>
+                    </div>
+                    <div class="social-hover">
+                        <div class="social-icons">
+                            <a href="mailto:gilles.ayi@abgp.com" class="social-icon" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://wa.me/229XXXXXXXXX" class="social-icon" title="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://instagram.com/abgp" class="social-icon" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/abgp" class="social-icon" title="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galerie de sélection -->
+            <div class="selection-gallery" id="selectionGallery">
+                <!-- Les miniatures seront ajoutées dynamiquement -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Équipe Complète -->
+    <section id="equipe-complete">
+        <div class="container">
+            <h2>Notre Équipe Complète</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem; color: var(--dark-gray);">
+                Découvrez l'ensemble de nos experts dédiés à l'excellence et à l'innovation dans le secteur du BTP.
+            </p>
+
+            <div class="team-grid">
+                <!-- Membre 1 -->
+                <div class="team-member-card">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Gilles Éric AYI" class="member-photo">
+                    <div class="member-info">
+                        <h3 class="member-name">Gilles Éric AYI</h3>
+                        <p class="member-position">Directeur Technique BIM</p>
+                        <p class="member-department">TABIMM</p>
+                        <p class="member-bio">Expert en BIM avec 15 ans d'expérience dans la gestion de projets complexes et l'intégration des technologies numériques.</p>
+                        <div class="member-social">
+                            <a href="mailto:gilles.ayi@abgp.com" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://wa.me/229XXXXXXXXX" title="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://instagram.com/abgp" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/abgp" title="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Membre 2 -->
+                <div class="team-member-card">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Marie KOUKOUI" class="member-photo">
+                    <div class="member-info">
+                        <h3 class="member-name">Marie KOUKOUI</h3>
+                        <p class="member-position">Responsable Formation</p>
+                        <p class="member-department">TLM</p>
+                        <p class="member-bio">Spécialiste en ingénierie de formation avec une expertise dans le développement des compétences techniques en BTP.</p>
+                        <div class="member-social">
+                            <a href="mailto:marie.koukui@abgp.com" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://wa.me/229XXXXXXXXX" title="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://instagram.com/abgp" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/abgp" title="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Membre 3 -->
+                <div class="team-member-card">
+                    <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Pierre AGBOSSOU" class="member-photo">
+                    <div class="member-info">
+                        <h3 class="member-name">Pierre AGBOSSOU</h3>
+                        <p class="member-position">Directeur Développement Durable</p>
+                        <p class="member-department">SBQD</p>
+                        <p class="member-bio">Expert en construction durable et technologies vertes, passionné par l'innovation écologique dans le BTP.</p>
+                        <div class="member-social">
+                            <a href="mailto:pierre.agbossou@abgp.com" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://wa.me/229XXXXXXXXX" title="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://instagram.com/abgp" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/abgp" title="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Membre 4 -->
+                <div class="team-member-card">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Sophie ADJAKA" class="member-photo">
+                    <div class="member-info">
+                        <h3 class="member-name">Sophie ADJAKA</h3>
+                        <p class="member-position">Chef de Projet Structure</p>
+                        <p class="member-department">SDM</p>
+                        <p class="member-bio">Ingénieure structure avec 12 ans d'expérience dans la conception et la supervision de projets d'infrastructure.</p>
+                        <div class="member-social">
+                            <a href="mailto:sophie.adjaka@abgp.com" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://wa.me/229XXXXXXXXX" title="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://instagram.com/abgp" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/abgp" title="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Membre 5 -->
+                <div class="team-member-card">
+                    <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Jean-Michel AHOUANSOU" class="member-photo">
+                    <div class="member-info">
+                        <h3 class="member-name">Jean-Michel AHOUANSOU</h3>
+                        <p class="member-position">Directeur des Ressources Humaines</p>
+                        <p class="member-department">HRRM</p>
+                        <p class="member-bio">Spécialiste en gestion des talents et développement organisationnel dans le secteur du BTP et de l'industrie.</p>
+                        <div class="member-social">
+                            <a href="mailto:jeanmichel.ahouansou@abgp.com" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://wa.me/229XXXXXXXXX" title="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://instagram.com/abgp" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/abgp" title="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Membre 6 -->
+                <div class="team-member-card">
+                    <img src="https://randomuser.me/api/portraits/women/78.jpg" alt="Claire AKPLOGAN" class="member-photo">
+                    <div class="member-info">
+                        <h3 class="member-name">Claire AKPLOGAN</h3>
+                        <p class="member-position">Directrice Immobilière</p>
+                        <p class="member-department">REM</p>
+                        <p class="member-bio">Expert en investissement immobilier et gestion de patrimoine avec une vision stratégique du marché africain.</p>
+                        <div class="member-social">
+                            <a href="mailto:claire.akplogan@abgp.com" title="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://wa.me/229XXXXXXXXX" title="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://instagram.com/abgp" title="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://linkedin.com/in/abgp" title="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Rejoignez Notre Équipe</h2>
+            <p>
+                Vous souhaitez faire partie d'une équipe dynamique et innovante ? 
+                Découvrez nos offres d'emploi et postulez pour contribuer à des projets ambitieux.
+            </p>
+            <a href="candidature/offre-d'emploi.html" class="cta-button" style="background-color: var(--black); color: var(--yellow);">
+                Voir nos offres d'emploi
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="ABGP Logo">
+                    <p style="margin: 1rem 0; color: #ccc;">
+                        <strong>AFRICA BUILDING GROUP AND PARTNERS</strong> est votre partenaire de confiance pour tous vos projets de construction et BTP en Afrique.
+                    </p>
+                    <p style="color: var(--yellow); font-weight: bold; font-size: 1.1rem;">PASSION - PUISSANCE - EXCELLENCE</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Nos Services</h4>
+                    <ul>
+                        <li><a href="index.html#services">Ordonnancement</a></li>
+                        <li><a href="index.html#services">Pilotage & Coordination (OPC)</a></li>
+                        <li><a href="index.html#services">Recrutement Spécialisé</a></li>
+                        <li><a href="index.html#services">Maîtrise d'Œuvre</a></li>
+                        <li><a href="index.html#services">Building Information Modeling (BIM)</a></li>
+                        <li><a href="index.html#services">Économie & Droit de la Construction</a></li>
+                        <li><a href="index.html#services">Formations Continues</a></li>
+                        <li><a href="index.html#services">Développement Durable</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contactez-Nous</h4>
+                    <p><i class="fas fa-phone"></i> +229 01 43 43 00 34</p>
+                    <p><i class="fas fa-envelope"></i> abgpsarl@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Cotonou, Sainte Rita, Bénin</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="copyright">© 2025 ABGP - Africa Building Group and Partners. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Gestion du scroll
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        // Back to top
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Navigation smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Données des managers
+        const managers = [
+            {
+                name: "Gilles Éric AYI",
+                title: "Directeur Technique BIM",
+                photo: "https://randomuser.me/api/portraits/men/32.jpg",
+                department: "TABIMM",
+                description: "Accompagnement spécialisé des entreprises et maîtres d'ouvrages dans la réalisation de projets de construction avec une approche BIM intégrée.",
+                email: "gilles.ayi@abgp.com",
+                whatsapp: "https://wa.me/229XXXXXXXXX",
+                instagram: "https://instagram.com/abgp",
+                linkedin: "https://linkedin.com/in/abgp"
+            },
+            {
+                name: "Marie KOUKOUI",
+                title: "Responsable Formation",
+                photo: "https://randomuser.me/api/portraits/women/44.jpg",
+                department: "TLM",
+                description: "Conception et dispensation de formations techniques adaptées aux besoins spécifiques des professionnels du BTP.",
+                email: "marie.koukui@abgp.com",
+                whatsapp: "https://wa.me/229XXXXXXXXX",
+                instagram: "https://instagram.com/abgp",
+                linkedin: "https://linkedin.com/in/abgp"
+            },
+            {
+                name: "Pierre AGBOSSOU",
+                title: "Directeur Développement Durable",
+                photo: "https://randomuser.me/api/portraits/men/65.jpg",
+                department: "SBQD",
+                description: "Développement d'approches constructives durables et utilisation de drones pour la photogrammétrie et l'inspection des sites.",
+                email: "pierre.agbossou@abgp.com",
+                whatsapp: "https://wa.me/229XXXXXXXXX",
+                instagram: "https://instagram.com/abgp",
+                linkedin: "https://linkedin.com/in/abgp"
+            },
+            {
+                name: "Sophie ADJAKA",
+                title: "Chef de Projet Structure",
+                photo: "https://randomuser.me/api/portraits/women/68.jpg",
+                department: "SDM",
+                description: "Accompagnement des gouvernements et organisations dans la réalisation de projets d'exécution, de la conception à la clôture.",
+                email: "sophie.adjaka@abgp.com",
+                whatsapp: "https://wa.me/229XXXXXXXXX",
+                instagram: "https://instagram.com/abgp",
+                linkedin: "https://linkedin.com/in/abgp"
+            },
+            {
+                name: "Jean-Michel AHOUANSOU",
+                title: "Directeur des Ressources Humaines",
+                photo: "https://randomuser.me/api/portraits/men/75.jpg",
+                department: "HRRM",
+                description: "Recrutement de cadres spécialisés et gestion des ressources humaines en milieu industriel et BTP.",
+                email: "jeanmichel.ahouansou@abgp.com",
+                whatsapp: "https://wa.me/229XXXXXXXXX",
+                instagram: "https://instagram.com/abgp",
+                linkedin: "https://linkedin.com/in/abgp"
+            },
+            {
+                name: "Claire AKPLOGAN",
+                title: "Directrice Immobilière",
+                photo: "https://randomuser.me/api/portraits/women/78.jpg",
+                department: "REM",
+                description: "Accompagnement des promoteurs dans l'investissement et la gestion immobilière avec une approche stratégique.",
+                email: "claire.akplogan@abgp.com",
+                whatsapp: "https://wa.me/229XXXXXXXXX",
+                instagram: "https://instagram.com/abgp",
+                linkedin: "https://linkedin.com/in/abgp"
+            }
+        ];
+
+        // Récupération des éléments du DOM
+        const managerShowcase = document.getElementById('managerShowcase');
+        const managerName = document.getElementById('managerName');
+        const managerTitle = document.getElementById('managerTitle');
+        const departmentInfo = document.getElementById('departmentInfo');
+        const managerPhoto = document.querySelector('.manager-photo');
+        const selectionGallery = document.getElementById('selectionGallery');
+        const contactBtn = document.querySelector('.contact-btn');
+        const socialIcons = document.querySelector('.social-icons');
+
+        let activeManagerIndex = 0;
+
+        // Création de la galerie de sélection
+        function createSelectionGallery() {
+            managers.forEach((manager, index) => {
+                const thumbnail = document.createElement('div');
+                thumbnail.className = 'thumbnail';
+                thumbnail.dataset.index = index;
+
+                const img = document.createElement('img');
+                img.src = manager.photo;
+                img.alt = manager.name;
+
+                const name = document.createElement('div');
+                name.className = 'thumbnail-name';
+                name.textContent = manager.name.split(' ')[0];
+
+                thumbnail.appendChild(img);
+                thumbnail.appendChild(name);
+                selectionGallery.appendChild(thumbnail);
+
+                // Active le premier manager par défaut
+                if (index === 0) {
+                    thumbnail.classList.add('active');
+                }
+
+                // Ajout de l'événement de clic
+                thumbnail.addEventListener('click', () => {
+                    setActiveManager(index);
+                });
+            });
+        }
+
+        // Définir le manager actif
+        function setActiveManager(index) {
+            // Désactiver l'ancien manager actif
+            const currentActive = document.querySelector('.thumbnail.active');
+            if (currentActive) {
+                currentActive.classList.remove('active');
+            }
+
+            // Activer le nouveau manager
+            const newActive = document.querySelector(`.thumbnail[data-index="${index}"]`);
+            newActive.classList.add('active');
+
+            // Mettre à jour l'affichage principal
+            updateManagerDisplay(index);
+
+            // Mettre à jour l'index actif
+            activeManagerIndex = index;
+        }
+
+        // Mettre à jour l'affichage du manager
+        function updateManagerDisplay(index) {
+            const manager = managers[index];
+
+            // Animation de sortie
+            managerShowcase.style.opacity = 0;
+
+            setTimeout(() => {
+                // Mise à jour des informations
+                managerPhoto.src = manager.photo;
+                managerName.textContent = manager.name;
+                managerTitle.textContent = manager.title;
+                departmentInfo.textContent = manager.description;
+
+                // Mettre à jour le lien email
+                const emailBtn = document.querySelector('.contact-btn');
+                emailBtn.href = `mailto:${manager.email}`;
+
+                // Mettre à jour les liens sociaux
+                updateSocialLinks(manager);
+
+                // Animation d'entrée
+                managerShowcase.style.opacity = 1;
+                managerShowcase.classList.add('fade-in');
+
+                setTimeout(() => {
+                    managerShowcase.classList.remove('fade-in');
+                }, 600);
+            }, 300);
+        }
+
+        // Mettre à jour les liens sociaux
+        function updateSocialLinks(manager) {
+            const socialIcons = document.querySelector('.social-icons');
+            socialIcons.innerHTML = `
+                <a href="mailto:${manager.email}" class="social-icon" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="${manager.whatsapp}" class="social-icon" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="${manager.instagram}" class="social-icon" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="${manager.linkedin}" class="social-icon" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            `;
+        }
+
+        // Initialisation
+        createSelectionGallery();
+
+        // Gestion du header au scroll
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY >= 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>
