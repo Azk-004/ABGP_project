@@ -341,11 +341,15 @@
 
         /* CORRECTIONS SPÉCIFIQUES POUR MOBILE - ESPACEMENT HERO */
         @media (max-width: 768px) {
+        .hero-image {
+        display : none;
+        }
             .hero {
                 padding-top: 100px; /* Plus d'espace depuis le header */
                 min-height: 70vh; /* Réduction de la hauteur minimale */
                 height: auto; /* Hauteur automatique */
-            }
+        }
+        
             
             .hero .container {
                 flex-direction: column;
