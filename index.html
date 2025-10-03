@@ -212,7 +212,6 @@
             right: 20px;
             z-index: 1000;
         }
-
         .floating-cta .cta-button {
             background-color: var(--yellow);
             color: var(--black);
@@ -257,7 +256,6 @@
         .hero {
             background: linear-gradient(rgba(253, 237, 4, 0.3), rgba(0, 0, 0, 0.3)), url('PHOTO Batiment durable carriere et drone Sustainable building careers.jpg');
             background-size: cover;
-            /*background-color: #F0D501;*/
             background-position: center;
             height: 100vh;
             display: flex;
@@ -266,6 +264,8 @@
             text-align: left;
             padding-top: 80px;
             position: relative;
+            padding-left: 10%;
+            padding-right: 10%;
         }
 
         .hero:before {
@@ -282,15 +282,16 @@
             position: relative;
             z-index: 2;
             max-width: 40rem;
-            margin-top: 50px;
-            margin-left: 330px;
+            /*margin-top: 50px;
+            margin-left: 330px;*/
             text-align: left;
+            width: 700px;
         }
 
         .hero h1 {
             color: var(--white);
             font-family: var(--font-primary);
-            font-size: 3rem;
+            font-size: 2.5rem;
             margin-bottom: 1.5rem;
             font-weight: 700;
             animation: fadeInDown 1s ease;
@@ -298,7 +299,7 @@
 
         .hero p {
             color: var(--white);
-            font-size: 1.2rem;
+            font-size: initial;
             margin-bottom: 2rem;
             margin-left: auto;
             margin-right: auto;
@@ -306,10 +307,31 @@
         }
 
         .hero-image {
-            padding-top: 10px;
+            display: block;
+            /*padding-top: 10px;*/
             z-index: 2;
-            margin-top: 180px;
-            margin-right: 300px;
+            /*margin-top: 180px;
+            margin-right: 300px;*/
+            width: 50%;
+        }
+        @media(max-width: 992px) {
+            .hero {
+                text-align: center;
+            }
+            .hero-image {
+                display: none;
+            }
+            .hero .container {
+                font-size: x-small;
+                text-align: center !important;
+            }
+            .hero .h1 {
+                text-align: center;
+            }
+            .hero p {
+                font-size: 1rem;
+                text-align: justify;
+            }
         }
 
         @keyframes fadeInDown {
@@ -1749,8 +1771,6 @@
                     <li><a href="mddirecteur.html">Mot du directeur</a></li>
                     <li><a href="#team">Team</a></li>
                     <li><a href="#candidature">Candidature spontanée</a></li>
-                    <li><a href="candidature/offre-d'emploi.html">Emploi</a></li>
-                    <li><a href="candidature/ds.html">Demandes de stages</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -1764,17 +1784,12 @@
         </div>
         <div class="space-menu"></div>
 
-        <!-- Checkbox cachée pour gérer l'état -->
         <input type="checkbox" id="menu-toggle-input">
 
-        <!-- Bouton hamburger (3 lignes) -->
         <label for="menu-toggle-input">
             <span class="ligne-menu"></span>
             <span class="ligne-menu"></span>
             <span class="ligne-menu"></span>
-            <!--<div class="logo" style="padding-top: 10px;">
-                <img src="menu.png" alt="Menu">
-            </div>-->
         </label>
 
         <!-- Menu déroulant -->
@@ -1798,7 +1813,7 @@
             <a href="#contact" class="cta-button">Nous contacter</a>
         </div>
         <div class="hero-image">
-            <img src="personnedansleBTP.png" alt="image">
+            <img src="personnedansledomainedu BBTP.png" alt="image" style="width: 90%; height: 90%;">
         </div>
     </section>
     
