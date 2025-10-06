@@ -252,20 +252,20 @@
             display: inline-block;
         }
 
-        /* Hero Section - CORRECTION ESPACEMENT MOBILE */
+       /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(253, 237, 4, 0.3), rgba(0, 0, 0, 0.3)), 
-                        url('PHOTO Batiment durable carriere et drone Sustainable building careers.jpg');
+            background: linear-gradient(rgba(253, 237, 4, 0.3), rgba(0, 0, 0, 0.3)), url('PHOTO Batiment durable carriere et drone Sustainable building careers.jpg');
             background-size: cover;
             background-position: center;
             height: 100vh;
-            min-height: 600px;
             display: flex;
             align-items: center;
             color: var(--white);
+            text-align: left;
             padding-top: 80px;
             position: relative;
-            overflow: hidden;
+            padding-left: 17%;
+            padding-right: 17%;
         }
 
         .hero:before {
@@ -275,58 +275,64 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+           background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
         }
 
         .hero .container {
             position: relative;
             z-index: 2;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .hero-content {
-            flex: 1;
-            min-width: 300px;
-            padding-right: 40px;
-            animation: fadeInDown 1s ease;
+            max-width: 40rem;
+            /*margin-top: 50px;
+            margin-left: 330px;*/
+            text-align: left;
+            width: 700px;
+            margin: 0 10px;
         }
 
         .hero h1 {
             color: var(--white);
             font-family: var(--font-primary);
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: 2.5rem;
             margin-bottom: 1.5rem;
             font-weight: 700;
-            line-height: 1.2;
+            animation: fadeInDown 1s ease;
         }
 
         .hero p {
             color: var(--white);
-            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-size: initial;
             margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .hero-image {
-            flex: 0 0 auto;
-            max-width: 500px;
-            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
             animation: fadeInUp 1s ease;
         }
 
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            max-height: 500px;
-            object-fit: contain;
+        .hero-image {
             display: block;
+            /*padding-top: 10px;*/
+            z-index: 2;
+            /*margin-top: 180px;
+            margin-right: 300px;*/
+            width: 50%;
+        }
+        @media(max-width: 992px) {
+            .hero {
+                text-align: center;
+            }
+            .hero-image {
+                display: none;
+            }
+            .hero .container {
+                font-size: x-small;
+                text-align: center !important;
+            }
+            .hero .h1 {
+                text-align: center;
+            }
+            .hero p {
+                font-size: 1rem;
+                text-align: justify;
+            }
         }
 
         @keyframes fadeInDown {
@@ -1610,6 +1616,10 @@
             .diagram-container {
                 max-width: 800px;
             }
+
+            .image-slide {
+                display: none;
+            }
             
             .center-circle {
                 width: 130px;
@@ -1951,12 +1961,10 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="index.html#accueil">Accueil</a></li>
                     <li><a href="mddirecteur.html">Mot du directeur</a></li>
                     <li><a href="team.html">Team</a></li>
-                    <li><a href="#candidature">Candidature spontanée</a></li>
-                    <li><a href="candidature/offre-d'emploi.html">Emploi</a></li>
-                    <li><a href="candidature/ds.html">Demandes de stages</a></li>
+                    <li><a href="cs.html">Candidature spontanée</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -1985,7 +1993,7 @@
             <li><a href="index.html#accueil">Accueil</a></li>
             <li><a href="mddirecteur.html">Mot du directeur</a></li>
             <li><a href="team.html">Team</a></li>
-            <li><a href="#candidature">Candidature spontanée</a></li>
+            <li><a href="cs.html">Candidature spontanée</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </div>
@@ -2001,10 +2009,60 @@
                 </p>
                 <a href="#contact" class="cta-button">Nous contacter</a>
             </div>
-            <div class="hero-image">
-                <img src="personnedansleBTP.png" alt="Professionnel du BTP">
-            </div>
         </div>
+        <!-- Animated Images Container -->
+        <style>
+        @keyframes slideInOutRight {
+          0%   { transform: translateX(100%) scale(1.8); opacity: 0; }
+          10%  { transform: translateX(0) scale(1.8); opacity: 1; }
+          20%  { transform: translateX(0) scale(1.8); opacity: 1; }
+          30%  { transform: translateX(100%) scale(1.8); opacity: 0; }
+          100% { transform: translateX(100%) scale(1.8); opacity: 0; }
+        }
+        
+        .image-container {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          pointer-events: none;
+        }
+        
+        .image-slide {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          transform: translateX(100%) scale(1.8);
+          transform-origin: bottom right;
+          opacity: 0;
+          pointer-events: none;
+        }
+        </style>
+        
+        <div class="image-container">
+          <img src="images/secsld-removebg-preview.png" 
+               class="image-slide"
+               style="animation: slideInOutRight 12s ease-in-out infinite 0s;">
+               
+          <img src="images/sldee-removebg-preview.png"
+               class="image-slide"
+               style="animation: slideInOutRight 12s ease-in-out infinite 2s;">
+               
+          <img src="images/corpss-removebg-preview.png"
+               class="image-slide"
+               style="animation: slideInOutRight 12s ease-in-out infinite 4s;">
+               
+          <img src="images/dmson-removebg-preview.png"
+               class="image-slide"
+               style="animation: slideInOutRight 12s ease-in-out infinite 6s;">
+               
+          <img src="images/deskman-removebg-preview.png"
+               class="image-slide"
+               style="animation: slideInOutRight 12s ease-in-out infinite 8s;">
+        </div>
+    </section>
     </section>
     
     <!-- Vision et Mission -->
