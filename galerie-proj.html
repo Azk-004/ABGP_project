@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie de Projets - ABGP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --yellow: #F0D501;
+            --black: #000000;
+            --gray: #F5F5F5;
+            --white: #FFFFFF;
+            --dark-gray: #6c757d;
+            --light-gray: #f8f9fa;
+            --shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --border-radius: 12px;
+            --max-width: 1200px;
+            --font-primary: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--black);
+            background-color: var(--white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+         /* Header */
+         header {
+            background-color: var(--white);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        header.scrolled {
+            padding: 10px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 40px;
+            transition: var(--transition);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        header.scrolled nav ul li a {
+            color: black !important;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--yellow);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--yellow);
+        }
+
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.8)), url('PHOTO Batiment durable carriere et drone Sustainable building careers.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+            padding: 83px 0 60px;
+            position: relative;
+            margin-bottom: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin: 0 auto 1.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            max-width: 90%;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 40px 0 80px;
+        }
+        
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .gallery-header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .gallery-header p {
+            font-size: 1.1rem;
+            color: #6c757d;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            gap: 30px;
+            padding: 30px 0;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 16/9;
+            background: #fff;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+        
+        .gallery-caption h3 {
+            margin: 0 0 5px;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+        
+        .gallery-caption p {
+            margin: 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: #6c757d;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+        
+        .view-all-projects {
+            display: inline-block;
+            background: #0066cc;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            margin-top: 2rem;
+        }
+        
+        .view-all-projects:hover {
+            background: #0052a3;
+        }
+        
+        /* Project Categories */
+        .project-category {
+            margin-bottom: 5rem;
+        }
+        
+        .category-title {
+            font-size: 2rem;
+            font-weight: 400;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+        
+        .category-description {
+            font-size: 1.1rem;
+            color: #6c757d;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        
+        /* Project List - Bechtel Style */
+        .project-list {
+            list-style: none;
+        }
+        
+        .project-item {
+            padding: 2rem 0;
+            border-bottom: 1px solid #e9ecef;
+            transition: background 0.3s ease;
+        }
+        
+        .project-item:hover {
+            background: #f8f9fa;
+            margin: 0 -20px;
+            padding: 2rem 20px;
+        }
+        
+        .project-item:last-child {
+            border-bottom: none;
+        }
+        
+        .project-name {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-description {
+            font-size: 1rem;
+            color: #6c757d;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .project-location {
+            font-size: 0.9rem;
+            color: #0066cc;
+            font-weight: 500;
+        }
+        
+        .project-link {
+            display: inline-block;
+            color: #0066cc;
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .project-link:hover {
+            color: #0052a3;
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #ecf0f1;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #ecf0f1;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #bdc3c7;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .mobile-menu ul {
+            flex-direction: column;
+            padding: 1rem 0;
+        }
+        
+        .mobile-menu ul li {
+            padding: 0.5rem 20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .projects-section {
+                padding: 60px 0;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .category-title {
+                font-size: 1.5rem;
+            }
+            
+            .project-name {
+                font-size: 1.2rem;
+            }
+            
+            .project-item:hover {
+                margin: 0;
+                padding: 2rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <img src="LOGO ABGP WEB1.jpg" alt="Logo ABGP - Africa Building Group and Partners">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html#accueil">Accueil</a></li>
+                    <li><a href="mddirecteur.html">Mot du directeur</a></li>
+                    <li><a href="team.html">Team</a></li>
+                    <li><a href="cs.html">Candidature spontanée</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Galerie de Projets</h1>
+            <p>Découvrez nos réalisations à travers cette sélection de nos projets les plus emblématiques en Afrique de l'Ouest.</p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-grid">
+                <!-- Tour ALTAIR -->
+                <a href="projets/tour-altair.html" class="gallery-item">
+                    <img src="images/tour_altair/TOUR-ALTAIR-00.jpg" alt="Tour ALTAIR, Sénégal" loading="lazy">
+                    <div class="gallery-caption">
+                        <h3>Tour ALTAIR</h3>
+                        <p>Dakar, Sénégal</p>
+                    </div>
+                </a>
+                
+                <!-- Siège de l'Assemblée Nationale -->
+                <a href="projets/assemblee-nationale.html" class="gallery-item">
+                    <img src="images/assemblee_nationale/assemble002.jpg" alt="Siège de l'Assemblée Nationale, Bénin" loading="lazy">
+                    <div class="gallery-caption">
+                        <h3>Siège de l'Assemblée Nationale</h3>
+                        <p>Porto-Novo, Bénin</p>
+                    </div>
+                </a>
+                
+                <!-- Entrepôts SIPI BENIN -->
+                <a href="projets/entrepots-sipi.html" class="gallery-item">
+                    <img src="images/sipi_benin/entrepot.jpg" alt="Entrepôts SIPI BENIN, Glo-Djigbé" loading="lazy">
+                    <div class="gallery-caption">
+                        <h3>Entrepôts SIPI BENIN</h3>
+                        <p>Glo-Djigbé, Bénin</p>
+                    </div>
+                </a>
+                
+                <!-- Zone Industrielle Glo-Djigbé -->
+                <a href="projets/cloture-glo-djigbe.html" class="gallery-item">
+                    <img src="images/GDIZ/GDIZ.jpg" alt="Clôture Zone Industrielle, Glo-Djigbé" loading="lazy">
+                    <div class="gallery-caption">
+                        <h3>Zone Industrielle</h3>
+                        <p>Glo-Djigbé, Bénin</p>
+                    </div>
+                </a>
+                
+                <!-- Centre de Revalidation -->
+                <a href="projets/centre-revalidation.html" class="gallery-item">
+                    <img src="images/centre_revalidation/centre_reval.webp" alt="Centre de Revalidation, Sèmè" loading="lazy">
+                    <div class="gallery-caption">
+                        <h3>Centre de Revalidation</h3>
+                        <p>Sèmè, Bénin</p>
+                    </div>
+                </a>
+                
+                <!-- Hôtel SOFITEL -->
+                <a href="projets/hotel-sofitel.html" class="gallery-item">
+                    <img src="images/sofitel/sofitel_pro.jpg" alt="Hôtel SOFITEL, Cotonou" loading="lazy">
+                    <div class="gallery-caption">
+                        <h3>Hôtel SOFITEL</h3>
+                        <p>Cotonou, Bénin</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
