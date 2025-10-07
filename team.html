@@ -175,7 +175,7 @@
         .mobile-menu li a.active {
             color: var(--yellow);
         }
-        /* Hero Section - Centrage vertical */
+        /* Hero Section */
         .team-hero {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
@@ -245,7 +245,7 @@
             gap: 30px;
             margin-top: 50px;
         }
-        /* Team Member Card - Ratio ajusté */
+        /* Team Member Card */
         .team-member-card {
             background: var(--white);
             border-radius: var(--border-radius);
@@ -254,18 +254,18 @@
             transition: var(--transition);
             display: flex;
             flex-direction: column;
-            height: 450px; /* Hauteur fixe pour uniformiser */
-            position: relative; /* Assure que le label est positionné correctement */
+            height: 450px;
+            position: relative;
         }
         .team-member-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         .member-photo-container {
-            height: 55%; /* 55% pour la photo */
+            height: 62%; /* Hauteur légèrement augmentée */
             overflow: hidden;
             background-color: var(--gray);
-            position: relative; /* Assure que le label est positionné correctement */
+            position: relative;
         }
         .member-photo {
             width: 100%;
@@ -278,9 +278,10 @@
         }
         .member-info {
             padding: 15px;
-            height: 45%; /* 45% pour le texte */
+            height: 38%; /* Réduction pour équilibrer */
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
         }
         .specialty-label {
             position: absolute;
@@ -310,24 +311,13 @@
             color: var(--dark-gray);
             font-size: 0.8rem;
             font-style: italic;
-            margin-bottom: 8px;
-        }
-        .member-description {
-            color: var(--dark-gray);
-            font-size: 0.8rem;
-            line-height: 1.4;
-            margin-bottom: 10px;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
+            margin-bottom: 15px;
         }
         .member-social {
             display: flex;
             justify-content: flex-start;
             gap: 10px;
             margin-top: auto;
-            padding-top: 5px;
         }
         .member-social a {
             width: 30px;
@@ -345,74 +335,6 @@
             background: var(--black);
             color: var(--yellow);
             transform: scale(1.1);
-        }
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--yellow) 0%, #FFD700 100%);
-            padding: 80px 0;
-            text-align: center;
-            color: var(--black);
-        }
-        .cta-section h2 {
-            color: var(--black);
-            margin-bottom: 20px;
-        }
-        .cta-section h2:after {
-            background-color: var(--black);
-        }
-        .cta-section p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            font-weight: 400;
-        }
-        .cta-button {
-            background-color: var(--black);
-            color: var(--yellow);
-            padding: 15px 30px;
-            text-decoration: none;
-            font-weight: 600;
-            border-radius: var(--border-radius);
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            display: inline-block;
-            font-family: var(--font-primary);
-            font-size: 1rem;
-        }
-        .cta-button:hover {
-            background-color: #333;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-        }
-        /* Back to Top */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--yellow);
-            color: var(--black);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: var(--transition);
-            z-index: 999;
-            box-shadow: var(--box-shadow);
-        }
-        .back-to-top:hover {
-            background-color: #FFD700;
-            transform: scale(1.1);
-        }
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
         }
         /* Footer */
         footer {
@@ -602,7 +524,7 @@
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
     </div>
-    <!-- Hero Section - Texte centré verticalement -->
+    <!-- Hero Section -->
     <section class="team-hero">
         <div class="container">
           <h1>NOTRE ÉQUIPE DIRIGEANTE</h1>
@@ -627,8 +549,6 @@
                         <h3 class="member-name">Gilles Éric AYI</h3>
                         <p class="member-position">Directeur Général</p>
                         <p class="member-department">Direction Générale</p>
-                        <p class="member-description">
-                        </p>
                         <div class="member-social">
                             <a href="mailto:gilles.ayi@abgp.com" title="Email"><i class="fas fa-envelope"></i></a>
                             <a href="https://linkedin.com/in/gillesayi" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -645,8 +565,6 @@
                         <h3 class="member-name">Sophie Moreau</h3>
                         <p class="member-position">Manager TABIMM</p>
                         <p class="member-department">Technical Assistance and BIM Management</p>
-                        <p class="member-description">
-                        </p>
                         <div class="member-social">
                             <a href="mailto:sophie.moreau@abgp.com" title="Email"><i class="fas fa-envelope"></i></a>
                             <a href="https://linkedin.com/in/sophiemoreau" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -663,8 +581,6 @@
                         <h3 class="member-name">Marie KOUKOUI</h3>
                         <p class="member-position">Manager TLM</p>
                         <p class="member-department">Training and Learning Management</p>
-                        <p class="member-description">
-                        </p>
                         <div class="member-social">
                             <a href="mailto:marie.koukui@abgp.com" title="Email"><i class="fas fa-envelope"></i></a>
                             <a href="https://linkedin.com/in/mariekoukui" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -681,8 +597,6 @@
                         <h3 class="member-name">Marc Dubois</h3>
                         <p class="member-position">Manager SBQD</p>
                         <p class="member-department">Sustainable Building Quarries and Drône</p>
-                        <p class="member-description">
-                        </p>
                         <div class="member-social">
                             <a href="mailto:marc.dubois@abgp.com" title="Email"><i class="fas fa-envelope"></i></a>
                             <a href="https://linkedin.com/in/marcdubois" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -699,8 +613,6 @@
                         <h3 class="member-name">Thomas Bernard</h3>
                         <p class="member-position">Manager SDM</p>
                         <p class="member-department">Structure and Design Management</p>
-                        <p class="member-description">
-                        </p>
                         <div class="member-social">
                             <a href="mailto:thomas.bernard@abgp.com" title="Email"><i class="fas fa-envelope"></i></a>
                             <a href="https://linkedin.com/in/thomasbernard" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -717,8 +629,6 @@
                         <h3 class="member-name">Jean-Michel AHOUANSOU</h3>
                         <p class="member-position">Manager HRRM</p>
                         <p class="member-department">Human Resource and Recruitment Management</p>
-                        <p class="member-description">
-                        </p>
                         <div class="member-social">
                             <a href="mailto:jeanmichel.ahouansou@abgp.com" title="Email"><i class="fas fa-envelope"></i></a>
                             <a href="https://linkedin.com/in/jeanmichelahouansou" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -735,8 +645,6 @@
                         <h3 class="member-name">Pierre AGBOSSOU</h3>
                         <p class="member-position">Manager REM</p>
                         <p class="member-department">Real Estate Management</p>
-                        <p class="member-description">
-                        </p>
                         <div class="member-social">
                             <a href="mailto:pierre.agbossou@abgp.com" title="Email"><i class="fas fa-envelope"></i></a>
                             <a href="https://linkedin.com/in/pierreagbossou" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -753,8 +661,6 @@
                         <h3 class="member-name">Chantal DOSSOU</h3>
                         <p class="member-position">Manager LBC</p>
                         <p class="member-department">Life and Business Coaching</p>
-                        <p class="member-description">
-                        </p>
                         <div class="member-social">
                             <a href="mailto:chantal.dossou@abgp.com" title="Email"><i class="fas fa-envelope"></i></a>
                             <a href="https://linkedin.com/in/chantaldossou" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
