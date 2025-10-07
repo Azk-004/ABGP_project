@@ -245,7 +245,7 @@
             gap: 30px;
             margin-top: 50px;
         }
-        /* Team Member Card - 70% photo / 30% texte */
+        /* Team Member Card - Ratio ajusté */
         .team-member-card {
             background: var(--white);
             border-radius: var(--border-radius);
@@ -254,16 +254,18 @@
             transition: var(--transition);
             display: flex;
             flex-direction: column;
-            height: 100%;
+            height: 450px; /* Hauteur fixe pour uniformiser */
+            position: relative; /* Assure que le label est positionné correctement */
         }
         .team-member-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         .member-photo-container {
-            height: 70%; /* 70% pour la photo */
+            height: 55%; /* 55% pour la photo */
             overflow: hidden;
             background-color: var(--gray);
+            position: relative; /* Assure que le label est positionné correctement */
         }
         .member-photo {
             width: 100%;
@@ -275,11 +277,10 @@
             transform: scale(1.05);
         }
         .member-info {
-            padding: 20px;
-            height: 30%; /* 30% pour le texte */
+            padding: 15px;
+            height: 45%; /* 45% pour le texte */
             display: flex;
             flex-direction: column;
-            justify-content: center;
         }
         .specialty-label {
             position: absolute;
@@ -294,28 +295,28 @@
             background-color: var(--yellow);
         }
         .member-name {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             color: var(--black);
         }
         .member-position {
             color: var(--dark-gray);
             font-weight: 500;
-            margin-bottom: 10px;
-            font-size: 1rem;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
         }
         .member-department {
             color: var(--dark-gray);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             font-style: italic;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .member-description {
             color: var(--dark-gray);
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 15px;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            margin-bottom: 10px;
             overflow: hidden;
             display: -webkit-box;
             -webkit-line-clamp: 3;
@@ -323,14 +324,14 @@
         }
         .member-social {
             display: flex;
-            justify-content: flex-start; /* Changé pour aligner à gauche */
-            gap: 15px;
+            justify-content: flex-start;
+            gap: 10px;
             margin-top: auto;
-            padding-top: 10px;
+            padding-top: 5px;
         }
         .member-social a {
-            width: 35px;
-            height: 35px;
+            width: 30px;
+            height: 30px;
             background: var(--yellow);
             border-radius: 50%;
             display: flex;
@@ -551,7 +552,7 @@
                 height: 35px;
             }
             .member-info {
-                padding: 15px;
+                padding: 12px;
             }
             .member-name {
                 font-size: 1.2rem;
@@ -579,7 +580,6 @@
             </nav>
         </div>
     </header>
-
     <!-- Menu Mobile -->
     <div class="mobile-menu-container">
         <div class="logo">
@@ -602,7 +602,6 @@
             <li><a href="index.html#contact">Contact</a></li>
         </ul>
     </div>
-
     <!-- Hero Section - Texte centré verticalement -->
     <section class="team-hero">
         <div class="container">
@@ -611,10 +610,8 @@
                 Notre équipe dirigeante combine <strong>expertise technique, vision stratégique et passion</strong> pour l'excellence.
                 Chaque membre apporte une valeur unique à nos projets et à notre croissance.
             </p>
-
         </div>
     </section>
-
     <!-- Team Section -->
     <section id="equipe-dirigeante">
         <div class="container">
@@ -631,7 +628,6 @@
                         <p class="member-position">Directeur Général</p>
                         <p class="member-department">Direction Générale</p>
                         <p class="member-description">
-                            Ingénieur civil avec 19 ans d'expérience. Fondateur et Directeur d'ABGP, spécialiste en gestion de mégaprojets de construction.
                         </p>
                         <div class="member-social">
                             <a href="mailto:gilles.ayi@abgp.com" title="Email"><i class="fas fa-envelope"></i></a>
@@ -639,7 +635,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Sophie Moreau - TABIMM -->
                 <div class="team-member-card">
                     <div class="specialty-label">Assistance Technique</div>
@@ -651,7 +646,6 @@
                         <p class="member-position">Manager TABIMM</p>
                         <p class="member-department">Technical Assistance and BIM Management</p>
                         <p class="member-description">
-                            Responsable de l'accompagnement spécialisé des entreprises et maîtres d'ouvrages dans la réalisation de leurs projets de construction.
                         </p>
                         <div class="member-social">
                             <a href="mailto:sophie.moreau@abgp.com" title="Email"><i class="fas fa-envelope"></i></a>
@@ -659,7 +653,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Marie KOUKOUI - TLM -->
                 <div class="team-member-card">
                     <div class="specialty-label">Formation</div>
@@ -671,7 +664,6 @@
                         <p class="member-position">Manager TLM</p>
                         <p class="member-department">Training and Learning Management</p>
                         <p class="member-description">
-                            Responsable de la conception et dispensation de formations techniques adaptées aux besoins des professionnels du BTP.
                         </p>
                         <div class="member-social">
                             <a href="mailto:marie.koukui@abgp.com" title="Email"><i class="fas fa-envelope"></i></a>
@@ -679,7 +671,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Marc Dubois - SBQD -->
                 <div class="team-member-card">
                     <div class="specialty-label">Développement Durable</div>
@@ -691,7 +682,6 @@
                         <p class="member-position">Manager SBQD</p>
                         <p class="member-department">Sustainable Building Quarries and Drône</p>
                         <p class="member-description">
-                            Expert en constructions durables et photogrammétrie par drone. Spécialiste de l'implémentation des principes de développement durable.
                         </p>
                         <div class="member-social">
                             <a href="mailto:marc.dubois@abgp.com" title="Email"><i class="fas fa-envelope"></i></a>
@@ -699,7 +689,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Thomas Bernard - SDM -->
                 <div class="team-member-card">
                     <div class="specialty-label">Ingénierie Structure</div>
@@ -711,7 +700,6 @@
                         <p class="member-position">Manager SDM</p>
                         <p class="member-department">Structure and Design Management</p>
                         <p class="member-description">
-                            Responsable des études de faisabilité, conception et suivi d'exécution des projets d'infrastructure gouvernementaux et privés.
                         </p>
                         <div class="member-social">
                             <a href="mailto:thomas.bernard@abgp.com" title="Email"><i class="fas fa-envelope"></i></a>
@@ -719,7 +707,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Jean-Michel AHOUANSOU - HRRM -->
                 <div class="team-member-card">
                     <div class="specialty-label">Ressources Humaines</div>
@@ -731,7 +718,6 @@
                         <p class="member-position">Manager HRRM</p>
                         <p class="member-department">Human Resource and Recruitment Management</p>
                         <p class="member-description">
-                            Responsable du recrutement de cadres spécialisés en BTP et de la mise en place de cadres de direction temporaires.
                         </p>
                         <div class="member-social">
                             <a href="mailto:jeanmichel.ahouansou@abgp.com" title="Email"><i class="fas fa-envelope"></i></a>
@@ -739,7 +725,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Pierre AGBOSSOU - REM -->
                 <div class="team-member-card">
                     <div class="specialty-label">Immobilier</div>
@@ -751,7 +736,6 @@
                         <p class="member-position">Manager REM</p>
                         <p class="member-department">Real Estate Management</p>
                         <p class="member-description">
-                            Expert en investissement immobilier, gestion de patrimoine et évaluation de biens pour les promoteurs immobiliers.
                         </p>
                         <div class="member-social">
                             <a href="mailto:pierre.agbossou@abgp.com" title="Email"><i class="fas fa-envelope"></i></a>
@@ -759,7 +743,6 @@
                         </div>
                     </div>
                 </div>
-
                 <!-- Chantal DOSSOU - LBC -->
                 <div class="team-member-card">
                     <div class="specialty-label">Coaching</div>
@@ -771,7 +754,6 @@
                         <p class="member-position">Manager LBC</p>
                         <p class="member-department">Life and Business Coaching</p>
                         <p class="member-description">
-                            Spécialiste en développement personnel, leadership et management du changement pour les professionnels du BTP.
                         </p>
                         <div class="member-social">
                             <a href="mailto:chantal.dossou@abgp.com" title="Email"><i class="fas fa-envelope"></i></a>
@@ -782,7 +764,6 @@
             </div>
         </div>
     </section>
-
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -823,12 +804,10 @@
             <p class="copyright">© 2025 ABGP - Africa Building Group and Partners. Tous droits réservés.</p>
         </div>
     </footer>
-
     <!-- Back to Top -->
     <div class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </div>
-
     <script>
         // Gestion du scroll pour le header
         window.addEventListener('scroll', function() {
@@ -842,7 +821,6 @@
                 backToTop.classList.remove('show');
             }
         });
-
         // Back to top
         document.getElementById('backToTop').addEventListener('click', function() {
             window.scrollTo({
@@ -850,7 +828,6 @@
                 behavior: 'smooth'
             });
         });
-
         // Navigation smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -867,7 +844,6 @@
                 }
             });
         });
-
         // Fermer le menu mobile après clic sur un lien
         document.querySelectorAll('.mobile-menu a').forEach(link => {
             link.addEventListener('click', function() {
