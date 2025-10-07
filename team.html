@@ -74,6 +74,7 @@
             position: relative;
             padding: 5px 0;
             font-family: var(--font-primary);
+            font-size: 0.95rem;
         }
         nav ul li a.active {
             color: var(--yellow);
@@ -167,6 +168,7 @@
             transition: var(--transition);
             font-family: var(--font-primary);
             font-weight: 500;
+            font-size: 1rem;
         }
         .mobile-menu li a:hover {
             background-color: var(--yellow);
@@ -262,7 +264,7 @@
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
         .member-photo-container {
-            height: 62%; /* Hauteur légèrement augmentée */
+            height: 62%;
             overflow: hidden;
             background-color: var(--gray);
             position: relative;
@@ -278,7 +280,7 @@
         }
         .member-info {
             padding: 15px;
-            height: 38%; /* Réduction pour équilibrer */
+            height: 38%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -462,6 +464,15 @@
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
+            .member-name {
+                font-size: 1.2rem;
+            }
+            .member-position {
+                font-size: 0.85rem;
+            }
+            .member-department {
+                font-size: 0.75rem;
+            }
         }
         @media (max-width: 576px) {
             .team-hero h1 {
@@ -477,7 +488,39 @@
                 padding: 12px;
             }
             .member-name {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+            }
+            .member-position {
+                font-size: 0.8rem;
+            }
+            .member-department {
+                font-size: 0.7rem;
+            }
+            .team-member-card {
+                height: 400px;
+            }
+            .member-photo-container {
+                height: 60%;
+            }
+            .member-info {
+                height: 40%;
+            }
+        }
+        @media (max-width: 400px) {
+            .team-hero h1 {
+                font-size: 1.6rem;
+            }
+            .team-hero p {
+                font-size: 0.9rem;
+            }
+            .team-member-card {
+                height: 380px;
+            }
+            .member-photo-container {
+                height: 58%;
+            }
+            .member-info {
+                height: 42%;
             }
         }
     </style>
