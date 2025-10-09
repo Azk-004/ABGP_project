@@ -29,6 +29,7 @@
             background-color: var(--gray);
             line-height: 1.7;
             overflow-x: hidden;
+            padding-top: 100px; /* Espacement pour compenser le header fixe */
         }
         .container {
             width: 100%;
@@ -178,17 +179,24 @@
             color: var(--yellow);
         }
         /* Hero Section */
-        .team-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 40vh;
-            display: flex;
-            color: var(--white);
-            text-align: center;
-            padding-top: 80px;
-            margin-top: 80px;
-        }
+        /* Hero Section */
+.team-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    min-height: 40vh;
+    display: flex;
+    color: var(--white);
+    text-align: center;
+    padding-bottom: 40px; /* Espace en bas de la hero section */
+    margin-top: 0; /* Supprime toute marge en haut */
+}
+
+/* Main Content */
+section {
+    padding: 40px 0; /* Espacement réduit pour les sections */
+}
+
         .team-hero .container {
             position: relative;
             z-index: 2;
@@ -271,9 +279,10 @@
         }
         .member-photo {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
+        height: 100%;
+        object-fit: cover;
+        object-position:center 20%;
+        transition: transform 0.5s ease;
         }
         .team-member-card:hover .member-photo {
             transform: scale(1.05);
@@ -292,7 +301,7 @@
             padding: 6px 14px;
             border-radius: 20px;
             color: var(--black);
-            font-weight: 600;
+h            font-weight: 600;
             font-size: 0.8rem;
             z-index: 1;
             background-color: var(--yellow);
@@ -602,7 +611,7 @@
                 <div class="team-member-card">
                     <div class="specialty-label">Assistance Technique</div>
                     <div class="member-photo-container">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sophie Moreau" class="member-photo">
+                        <img src="jud.png" alt="Sophie Moreau" class="member-photo">
                     </div>
                     <div class="member-info">
                         <h3 class="member-name">Sophie Moreau</h3>
