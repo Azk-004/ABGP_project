@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../css/mddirecteur.css">
     <style>
         :root {
             --yellow: #F0D501;
@@ -84,7 +83,7 @@
             padding: 5px 0;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-        }Main
+        }
         nav ul li a:after {
             content: '';
             position: absolute;
@@ -103,6 +102,7 @@
         }
         /* Hero Section */
         .department-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/sb.jpg');
             background-size: cover;
             background-position: center;
             height: 60vh;
@@ -114,15 +114,6 @@
             padding-top: 100px;
             position: relative;
             margin-bottom: 40px;
-        }
-        .department-hero:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(253, 237, 4, 0.3), rgba(0, 0, 0, 0.3)) url(../sb.jpg);
         }
         .department-hero .container {
             position: relative;
@@ -231,15 +222,17 @@
         }
         .feature-list {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
             list-style: none;
             max-width: 1100px;
-            text-align: left;
-        }
-        .feature-list-block{
-            list-style: none;
-            max-width: 800px;
-            text-align: left;
             margin: 0 auto;
+        }
+        .feature-list-block {
+            list-style: none;
+            max-width: 500px;
+            text-align: left;
         }
         .feature-list li {
             font-family: var(--font-primary);
@@ -468,8 +461,6 @@
             text-decoration: none;
             transition: var(--transition);
             font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
         }
         .footer-links ul li a:hover {
             color: var(--yellow);
@@ -492,7 +483,6 @@
             display: flex;
             gap: 15px;
             margin-top: 1.5rem;
-            justify-content: center;
         }
         .social-links a {
             color: var(--white);
@@ -571,25 +561,14 @@
                 font-size: 1.6rem;
             }
             .feature-list {
-                text-align: center;
+                flex-direction: column;
+                align-items: center;
             }
-            .feature-list li {
-                padding-left: 0;
-                text-align: left;
-                display: flex;
-                align-items: flex-start;
-                gap: 0.5rem;
-            }
-            .feature-list li:before {
-                position: static;
-                margin-top: 0.1rem;
+            .feature-list-block {
+                max-width: 100%;
             }
             .contact-department {
                 gap: 2rem;
-            }
-            .nav-arrow {
-                padding: 10px 15px;
-                font-size: 0.8rem;
             }
         }
         @media (max-width: 575px) {
@@ -628,38 +607,8 @@
             </nav>
         </div>
     </header>
-    <!-- Hero Section -->
-   <div class="mobile-menu-container">
-    <div class="logo">
-                <img src="../LOGO ABGP WEB1.jpg" alt="Logo ABGP - Africa Building Group and Partners">
-            </div>
-    <div class="space-menu"></div>
 
-    <!-- Checkbox cachée pour gérer l'état -->
-    <input type="checkbox" id="menu-toggle-input">
-
-    <!-- Bouton hamburger (3 lignes) -->
-    <label for="menu-toggle-input">
-        <span class="ligne-menu"></span>
-        <span class="ligne-menu"></span>
-        <span class="ligne-menu"></span>
-        <div class="logo", style="padding-top: 10px;">
-            <img src="../menu.png" alt="Logo ABGP - Africa Building Group and Partners">
-        </div>
-    </label>
-
-    <!-- Menu déroulant -->
-    <ul class="mobile-menu">
-        <li><a href="../index.html#accueil">Accueil</a></li>
-        <li><a href="../mddirecteur.html">Mot du directeur</a></li>
-        <li><a href="../team.html">Team</a></li>
-        <li><a href="../cs.html">Candidature spontanée</a></li>
-        <li><a href="../index.html#contact">Contact</a></li>
-    </ul>
-    </div>
-</div>
-
-    <section class="department-hero" style="background-image: linear-gradient(rgba(253, 237, 4, 0.3), rgba(0, 0, 0, 0.3)), url('../images/sb.jpg');">
+    <section class="department-hero">
         <div class="container">
             <h1>SUSTAINABLE BUILDING QUARRIES AND DRONE</h1>
             <p>INNOVATIONS DURABLES ET TECHNOLOGIES DRONES POUR LE BTP ET LES CARRIÈRES</p>
@@ -688,17 +637,17 @@
                     <h3>NOS SERVICES</h3>
                     <ul class="feature-list">
                         <ul class="feature-list-block">
-                        <li>Conceptions de bâtiments durables et écoresponsables</li>
-                        <li>Gestion optimisée des carrières avec approches durables</li>
-                        <li>Cartographie et surveillance de sites par drones</li>
-                        <li>Photogrammétrie et modélisation 3D avancée</li>
+                            <li>Conceptions de bâtiments durables et écoresponsables</li>
+                            <li>Gestion optimisée des carrières avec approches durables</li>
+                            <li>Cartographie et surveillance de sites par drones</li>
+                            <li>Photogrammétrie et modélisation 3D avancée</li>
                         </ul>
                         <ul class="feature-list-block">
-                        <li>Conseil en énergie renouvelable pour le BTP</li>
-                        <li>Optimisation des ressources naturelles et matériaux</li>
-                        <li>Formation aux technologies durables et drones</li>
-                        <li>Audit environnemental et certification durable</li>
-                        </ul> 
+                            <li>Conseil en énergie renouvelable pour le BTP</li>
+                            <li>Optimisation des ressources naturelles et matériaux</li>
+                            <li>Formation aux technologies durables et drones</li>
+                            <li>Audit environnemental et certification durable</li>
+                        </ul>
                     </ul>
                 </div>
             </div>
@@ -715,7 +664,7 @@
                         </p>
                         <div class="contact-details">
                             <h4>COORDONNÉES DU DÉPARTEMENT SBQD</h4>
-                            <p><i class="fas fa-phone"></i> <strong>TÉLÉPHONE:</strong> <a href="tel:+22997726564">+229 01 43 43 00 39</a></p>
+                            <p><i class="fas fa-phone"></i> <strong>TÉLÉPHONE:</strong> <a href="tel:+2290143430039">+229 01 43 43 00 39</a></p>
                             <p><i class="fas fa-envelope"></i> <strong>EMAIL:</strong> <a href="mailto:abgpsarl@gmail.com">abgpsarl@gmail.com</a></p>
                             <p><i class="fas fa-map-marker-alt"></i> <strong>ADRESSE:</strong> Cotonou Sainte Rita, 4ème étage Immeuble La Lucide, Bénin</p>
                         </div>
@@ -749,7 +698,7 @@
                 </div>
                 <div class="footer-contact">
                     <h4>CONTACTEZ-NOUS</h4>
-                    <p><i class="fas fa-phone"></i> +229 01 43 43 00 39 </p>
+                    <p><i class="fas fa-phone"></i> +229 01 43 43 00 39</p>
                     <p><i class="fas fa-envelope"></i> abgpsarl@gmail.com</p>
                     <p><i class="fas fa-map-marker-alt"></i> Cotonou, Sainte Rita, Bénin</p>
                     <div class="social-links">
@@ -770,19 +719,45 @@
     </div>
 
     <script>
-        // Effet de scroll pour le header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Gestion des flèches de navigation
+        // Configuration de la navigation
+        const currentDept = 'sbqd';
+        
+        const departmentsOrder = ['hrrm', 'lbc', 'rem', 'sbqd', 'tabimm', 'tlm'];
+        
+        // Trouver l'index courant
+        const currentIndex = departmentsOrder.indexOf(currentDept);
+        
+        // Calculer les départements précédent et suivant
+        const prevIndex = (currentIndex - 1 + departmentsOrder.length) % departmentsOrder.length;
+        const nextIndex = (currentIndex + 1) % departmentsOrder.length;
+        
+        const prevDept = departmentsOrder[prevIndex];
+        const nextDept = departmentsOrder[nextIndex];
+        
+        // Mettre à jour les liens des flèches
         document.addEventListener('DOMContentLoaded', function() {
-            const navArrows = document.querySelectorAll('.nav-arrow, .floating-arrow');
+            const prevArrow = document.querySelector('.prev-arrow');
+            const nextArrow = document.querySelector('.next-arrow');
+            
+            if (prevArrow) {
+                prevArrow.href = `${prevDept}.html`;
+            }
+            if (nextArrow) {
+                nextArrow.href = `${nextDept}.html`;
+            }
+            
+            // Effet de scroll pour le header
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Gestion du clic sur les flèches
+            const navArrows = document.querySelectorAll('.floating-arrow');
             navArrows.forEach(arrow => {
                 arrow.addEventListener('click', function(e) {
                     e.preventDefault();

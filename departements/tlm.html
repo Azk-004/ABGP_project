@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ABGP - Solutions durables et technologies drones pour le BTP et les carrières">
-    <title>TLM | ABGP</title>
+    <meta name="description" content="ABGP - Formation professionnelle pour les acteurs du BTP">
+    <title>TLM - Formation BTP | ABGP</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="../css/mddirecteur.css">
     <style>
         :root {
             --yellow: #F0D501;
@@ -84,7 +83,7 @@
             padding: 5px 0;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-        }Main
+        }
         nav ul li a:after {
             content: '';
             position: absolute;
@@ -103,6 +102,7 @@
         }
         /* Hero Section */
         .department-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/tl.jpg');
             background-size: cover;
             background-position: center;
             height: 60vh;
@@ -114,15 +114,6 @@
             padding-top: 100px;
             position: relative;
             margin-bottom: 40px;
-        }
-        .department-hero:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(253, 237, 4, 0.3), rgba(0, 0, 0, 0.3)) url(../sb.jpg);
         }
         .department-hero .container {
             position: relative;
@@ -231,15 +222,17 @@
         }
         .feature-list {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
             list-style: none;
             max-width: 1100px;
-            text-align: left;
+            margin: 0 auto;
         }
         .feature-list-block {
             list-style: none;
-            max-width: 800px;
+            max-width: 500px;
             text-align: left;
-            margin: 0 auto;
         }
         .feature-list li {
             font-family: var(--font-primary);
@@ -468,8 +461,6 @@
             text-decoration: none;
             transition: var(--transition);
             font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
         }
         .footer-links ul li a:hover {
             color: var(--yellow);
@@ -492,7 +483,6 @@
             display: flex;
             gap: 15px;
             margin-top: 1.5rem;
-            justify-content: center;
         }
         .social-links a {
             color: var(--white);
@@ -571,25 +561,14 @@
                 font-size: 1.6rem;
             }
             .feature-list {
-                text-align: center;
+                flex-direction: column;
+                align-items: center;
             }
-            .feature-list li {
-                padding-left: 0;
-                text-align: left;
-                display: flex;
-                align-items: flex-start;
-                gap: 0.5rem;
-            }
-            .feature-list li:before {
-                position: static;
-                margin-top: 0.1rem;
+            .feature-list-block {
+                max-width: 100%;
             }
             .contact-department {
                 gap: 2rem;
-            }
-            .nav-arrow {
-                padding: 10px 15px;
-                font-size: 0.8rem;
             }
         }
         @media (max-width: 575px) {
@@ -628,41 +607,11 @@
             </nav>
         </div>
     </header>
-    <!-- Hero Section -->
-   <div class="mobile-menu-container">
-    <div class="logo">
-                <img src="../LOGO ABGP WEB1.jpg" alt="Logo ABGP - Africa Building Group and Partners">
-            </div>
-    <div class="space-menu"></div>
 
-    <!-- Checkbox cachée pour gérer l'état -->
-    <input type="checkbox" id="menu-toggle-input">
-
-    <!-- Bouton hamburger (3 lignes) -->
-    <label for="menu-toggle-input">
-        <span class="ligne-menu"></span>
-        <span class="ligne-menu"></span>
-        <span class="ligne-menu"></span>
-        <div class="logo", style="padding-top: 10px;">
-            <img src="../menu.png" alt="Logo ABGP - Africa Building Group and Partners">
-        </div>
-    </label>
-
-    <!-- Menu déroulant -->
-    <ul class="mobile-menu">
-        <li><a href="../index.html#accueil">Accueil</a></li>
-        <li><a href="../mddirecteur.html">Mot du directeur</a></li>
-        <li><a href="../team.html">Team</a></li>
-        <li><a href="../cs.html">Candidature spontanée</a></li>
-        <li><a href="../index.html#contact">Contact</a></li>
-    </ul>
-    </div>
-</div>
-
-    <section class="department-hero" style="background-image: linear-gradient(rgba(253, 237, 4, 0.3), rgba(0, 0, 0, 0.3)), url('../images/tl.jpg');">
+    <section class="department-hero">
         <div class="container">
             <h1>TRAINING AND LEARNING MANAGEMENT</h1>
-            <p>LA FORMATION, UN FAVTEUR IMPORTANT DANS LE DÉVELOPPEMENT DE L'ENTREPRISE</p>
+            <p>LA FORMATION, UN FACTEUR IMPORTANT DANS LE DÉVELOPPEMENT DE L'ENTREPRISE</p>
         </div>
     </section>
 
@@ -679,7 +628,7 @@
                             Le département TLM du Cabinet ABGP prépare des modules adaptés à chaque besoin. Les séances de formation dispensées concernent les secteurs suivants :
                         </p>
                         <p>
-                            Notre expertise couvre l'ensemble de la chaîne de valeur : des carrières durables à la construction écoresponsable, en passant par la modélisation 3D et l'optimisation des ressources. Nous combinons innovation technologique et respect de l'environnement pour des projets performants et durables.
+                            Notre expertise couvre l'ensemble des besoins en formation du secteur BTP, alliant théorie et pratique pour un développement optimal des compétences. Nous proposons des formations adaptées aux réalités du terrain africain.
                         </p>
                     </div>
                 </div>
@@ -710,13 +659,13 @@
                 <h2 class="section-title">CONTACTEZ-NOUS</h2>
                 <div class="contact-department">
                     <div class="contact-info">
-                        <h3>Besoin d'une formation sur mesure ?</h3>
+                        <h3>BESOIN D'UNE FORMATION SUR MESURE ?</h3>
                         <p>
-                            Notre équipe est à votre disposition pour discuter de vos besoins en formation et vous proposer des solutions adaptées.
+                            Notre équipe est à votre disposition pour discuter de vos besoins en formation et vous proposer des solutions adaptées à vos objectifs et contraintes spécifiques.
                         </p>
                         <div class="contact-details">
-                            <h4>COORDONNÉES DU DÉPARTEMENT SBQD</h4>
-                            <p><i class="fas fa-phone"></i> <strong>TÉLÉPHONE:</strong> <a href="tel:+22997726564">+229 01 43 43 00 37</a></p>
+                            <h4>COORDONNÉES DU DÉPARTEMENT TLM</h4>
+                            <p><i class="fas fa-phone"></i> <strong>TÉLÉPHONE:</strong> <a href="tel:+2290143430037">+229 01 43 43 00 37</a></p>
                             <p><i class="fas fa-envelope"></i> <strong>EMAIL:</strong> <a href="mailto:abgpsarl@gmail.com">abgpsarl@gmail.com</a></p>
                             <p><i class="fas fa-map-marker-alt"></i> <strong>ADRESSE:</strong> Cotonou Sainte Rita, 4ème étage Immeuble La Lucide, Bénin</p>
                         </div>
@@ -733,19 +682,19 @@
                 <div class="footer-logo">
                     <img src="../images/logo.png" alt="ABGP Logo">
                     <p>
-                        <strong>AFRICA BUILDING GROUP AND PARTNERS</strong> vous accompagne dans la transition vers des pratiques BTP plus durables et innovantes, alliant performance économique et respect de l'environnement.
+                        <strong>AFRICA BUILDING GROUP AND PARTNERS</strong> vous accompagne dans le développement des compétences et l'excellence professionnelle dans le secteur BTP grâce à des formations adaptées et innovantes.
                     </p>
                     <p style="color: var(--yellow); font-weight: bold; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px;">PASSION - PUISSANCE - EXCELLENCE</p>
                 </div>
                 <div class="footer-links">
-                    <h4>NOS EXPERTISES DURABLES</h4>
+                    <h4>NOS DOMAINES DE FORMATION</h4>
                     <ul>
-                        <li><a href="../index.html#services">BÂTIMENT DURABLE</a></li>
-                        <li><a href="../index.html#services">CARRIÈRES ÉCORESPONSABLES</a></li>
-                        <li><a href="../index.html#services">TECHNOLOGIES DRONES</a></li>
-                        <li><a href="../index.html#services">MODÉLISATION 3D</a></li>
-                        <li><a href="../index.html#services">ÉNERGIES RENOUVELABLES</a></li>
-                        <li><a href="../index.html#services">OPTIMISATION RESSOURCES</a></li>
+                        <li><a href="../index.html#services">GESTION DE PROJET</a></li>
+                        <li><a href="../index.html#services">ÉCONOMIE CONSTRUCTION</a></li>
+                        <li><a href="../index.html#services">PLANIFICATION</a></li>
+                        <li><a href="../index.html#services">BIM MANAGEMENT</a></li>
+                        <li><a href="../index.html#services">DROIT BTP</a></li>
+                        <li><a href="../index.html#services">DÉVELOPPEMENT DURABLE</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
@@ -766,24 +715,50 @@
     </footer>
 
     <div class="floating-nav-arrows">
-        <a href="rem.html" class="floating-arrow prev-arrow" id="prev-dept"><i class="fas fa-arrow-left"></i></a>
-        <a href="tabimm.html" class="floating-arrow next-arrow" id="next-dept"><i class="fas fa-arrow-right"></i></a>
+        <a href="tabimm.html" class="floating-arrow prev-arrow" id="prev-dept"><i class="fas fa-arrow-left"></i></a>
+        <a href="hrrm.html" class="floating-arrow next-arrow" id="next-dept"><i class="fas fa-arrow-right"></i></a>
     </div>
 
     <script>
-        // Effet de scroll pour le header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-
-        // Gestion des flèches de navigation
+        // Configuration de la navigation
+        const currentDept = 'tlm';
+        
+        const departmentsOrder = ['hrrm', 'lbc', 'rem', 'sbqd', 'tabimm', 'tlm'];
+        
+        // Trouver l'index courant
+        const currentIndex = departmentsOrder.indexOf(currentDept);
+        
+        // Calculer les départements précédent et suivant
+        const prevIndex = (currentIndex - 1 + departmentsOrder.length) % departmentsOrder.length;
+        const nextIndex = (currentIndex + 1) % departmentsOrder.length;
+        
+        const prevDept = departmentsOrder[prevIndex];
+        const nextDept = departmentsOrder[nextIndex];
+        
+        // Mettre à jour les liens des flèches
         document.addEventListener('DOMContentLoaded', function() {
-            const navArrows = document.querySelectorAll('.nav-arrow, .floating-arrow');
+            const prevArrow = document.querySelector('.prev-arrow');
+            const nextArrow = document.querySelector('.next-arrow');
+            
+            if (prevArrow) {
+                prevArrow.href = `${prevDept}.html`;
+            }
+            if (nextArrow) {
+                nextArrow.href = `${nextDept}.html`;
+            }
+            
+            // Effet de scroll pour le header
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('header');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Gestion du clic sur les flèches
+            const navArrows = document.querySelectorAll('.floating-arrow');
             navArrows.forEach(arrow => {
                 arrow.addEventListener('click', function(e) {
                     e.preventDefault();
