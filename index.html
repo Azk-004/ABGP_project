@@ -2465,131 +2465,337 @@
         </div>
     </section>
 
-    <!-- Projets -->
-    <section id="projets">
-        <div class="container">
-            <h2>Nos Projets Réalisés</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem; color: var(--dark-gray);">
-                Découvrez quelques-uns de nos projets emblématiques qui illustrent notre <strong>expertise et notre engagement</strong> en faveur de l'excellence.
+   
+
+<!-- Projects Gallery -->
+<section id="projets" style="background-color: var(--light-gray); overflow: hidden; width: 100%; margin: 0; padding: 60px 0;">
+    <div class="container" style="width: 90%; max-width: 1400px; margin: 0 auto;">
+        <div class="section-title" style="text-align: center; margin-bottom: 40px;">
+            <h2 style="font-size: 2.5rem; color: var(--black); margin-bottom: 1rem; position: relative; display: inline-block;">
+                Galerie de Projets
+            </h2>
+            <p style="color: var(--dark-gray); font-size: 1.1rem; line-height: 1.6;">
+                Découvrez nos réalisations les plus marquantes à travers l'Afrique de l'Ouest.
             </p>
-            <div class="projets-grid">
-                <!-- Tour ALTAIR -->
-                <a href="projets/tour-altair.html" class="projet-card-link">
-                    <div class="projet-card">
-                        <div class="projet-image">
-                            <img src="images/tour_altair/TOUR-ALTAIR-00.jpg" alt="Tour ALTAIR, Sénégal" loading="lazy">
-                        </div>
-                        <div class="projet-info">
-                            <h4>Tour ALTAIR, Sénégal</h4>
-                            <p><strong>Type :</strong> Bâtiment résidentiel & commercial</p>
-                            <p><strong>Mission :</strong> Établissement du budget de soumission </p>
-                            <p><strong>Période :</strong> 2022 - 2024</p>
-                        </div>
-                    </div>
-                </a>
-                <!-- Siège de l'Assemblée Nationale -->
-                <a href="projets/siege-assemblee.html" class="projet-card-link">
-                    <div class="projet-card">
-                        <div class="projet-image">
-                            <img src="images/assemblee_nationale/assemble002.jpg" alt="Siège de l'Assemblée Nationale, Bénin" loading="lazy">
-                        </div>
-                        <div class="projet-info">
-                            <h4>Siège de l'Assemblée Nationale, Bénin</h4>
-                            <p><strong>Type :</strong> Bâtiment institutionnel</p>
-                            <p><strong>Mission :</strong> Mission de methodes et révision du budget de soumission</p>
-                            <p><strong>Période :</strong> 2021 - 2023</p>
+        </div>
+
+        <div style="position: relative; padding: 20px 0;">
+            <div class="projects-scroll-container" style="display: flex; overflow-x: auto; padding: 20px 0; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; gap: 20px; scroll-behavior: smooth;">
+                <!-- Project 1 -->
+                <a href="projets/siege-assemblee.html" class="project-card" style="flex: 0 0 350px; height: 500px; position: relative; scroll-snap-align: start; margin: 0 10px; text-decoration: none; display: block; border-radius: 8px; overflow: hidden;">
+                    <div style="width: 100%; height: 100%; position: relative; overflow: hidden;">
+                        <img src="images/assemblee_nationale/assemble002.jpg" alt="Siège de l'Assemblée Nationale" 
+                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                        <div class="project-details">
+                            <span class="project-category">GOUVERNEMENT</span>
+                            <h3 class="project-title">Siège de l'Assemblée Nationale</h3>
+                            <div class="project-meta-container">
+                                <p class="project-meta"><strong>Type :</strong> Bâtiment gouvernemental</p>
+                                <p class="project-meta"><strong>Mission :</strong> Construction et aménagement</p>
+                                <p class="project-meta"><strong>Période :</strong> 2020 - 2022</p>
+                                <span class="project-link">
+                                    Voir le projet <i class="fas fa-arrow-right"></i>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </a>
-                <!-- Entrepôts SIPI BENIN -->
-                <a href="projets/entrepots-sipi.html" class="projet-card-link">
-                    <div class="projet-card">
-                        <div class="projet-image">
-                            <img src="images/sipi_benin/entrepot.jpg" alt="Entrepôts SIPI BENIN, Glo-Djigbé" loading="lazy">
-                        </div>
-                        <div class="projet-info">
-                            <h4>Entrepôts SIPI BENIN, Glo-Djigbé</h4>
-                            <p><strong>Type :</strong> Bâtiment industriel</p>
-                            <p><strong>Mission :</strong> Assistance QHSE et planification pour le compte de SIPI BENIN</p>
-                            <p><strong>Période :</strong> 2021 - 2022</p>
-                        </div>
-                    </div>
-                </a>
-                <!-- Clôture Zone Industrielle -->
-                <a href="projets/cloture-glo-djigbe.html" class="projet-card-link">
-                    <div class="projet-card">
-                        <div class="projet-image">
-                            <img src="images/GDIZ/GDIZ.jpg" alt="Clôture Zone Industrielle, Glo-Djigbé" loading="lazy">
-                        </div>
-                        <div class="projet-info">
-                            <h4>Clôture Zone Industrielle, Glo-Djigbé</h4>
-                            <p><strong>Type :</strong> Infrastructure publique</p>
-                            <p><strong>Mission :</strong> Gestion QHSE pou VICO  </p>
-                            <p><strong>Période :</strong> 2021 - 2022</p>
+
+                <!-- Project 2 -->
+                <a href="projets/hotel-sofitel.html" class="project-card" style="flex: 0 0 350px; height: 500px; position: relative; scroll-snap-align: start; margin: 0 10px; text-decoration: none; display: block; border-radius: 8px; overflow: hidden;">
+                    <div style="width: 100%; height: 100%; position: relative; overflow: hidden;">
+                        <img src="images/sofitel/sofitel_pro.jpg" alt="Hôtel SOFITEL" 
+                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                        <div class="project-details">
+                            <span class="project-category">HÔTELLERIE</span>
+                            <h3 class="project-title">Hôtel SOFITEL</h3>
+                            <div class="project-meta-container">
+                                <p class="project-meta"><strong>Type :</strong> Hôtel 5 étoiles</p>
+                                <p class="project-meta"><strong>Mission :</strong> Gestion de projet</p>
+                                <p class="project-meta"><strong>Période :</strong> 2019 - 2021</p>
+                                <span class="project-link">
+                                    Voir le projet <i class="fas fa-arrow-right"></i>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </a>
-                <!-- Centre de Revalidation -->
-                <a href="projets/centre-revalidation.html" class="projet-card-link">
-                    <div class="projet-card">
-                        <div class="projet-image">
-                            <img src="images/centre_revalidation/centre_reval.webp" alt="Centre de Revalidation, Sèmè" loading="lazy">
-                        </div>
-                        <div class="projet-info">
-                            <h4>Centre de Revalidation, Sèmè</h4>
-                            <p><strong>Type :</strong> Infrastructure industrielle</p>
-                            <p><strong>Mission :</strong> Appui technique</p>
-                            <p><strong>Période :</strong> 2022 - En cours</p>
-                        </div>
-                    </div>
-                </a>
-                <!-- Hôtel SOFITEL -->
-                <a href="projets/hotel-sofitel.html" class="projet-card-link">
-                    <div class="projet-card">
-                        <div class="projet-image">
-                            <img src="images/sofitel/sofitel_pro.jpg" alt="Hôtel SOFITEL, Cotonou" loading="lazy">
-                        </div>
-                        <div class="projet-info">
-                            <h4>Hôtel SOFITEL, Cotonou</h4>
-                            <p><strong>Type :</strong> Bâtiment hôtelier</p>
-                            <p><strong>Mission :</strong> Assistance à Contrôle permanent pour les cabinets d'architecture BAA et MOKE</p>
-                            <p><strong>Période :</strong> 2021 - 2022</p>
+
+                <!-- Project 3 -->
+                <a href="projets/cloture-glo-djigbe.html" class="project-card" style="flex: 0 0 350px; height: 500px; position: relative; scroll-snap-align: start; margin: 0 10px; text-decoration: none; display: block; border-radius: 8px; overflow: hidden;">
+                    <div style="width: 100%; height: 100%; position: relative; overflow: hidden;">
+                        <img src="images/GDIZ/GDIZ.jpg" alt="Zone Industrielle Glo-Djigbé" 
+                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                        <div class="project-details">
+                            <span class="project-category">INDUSTRIEL</span>
+                            <h3 class="project-title">Clôture Zone Industrielle, Glo-Djigbé</h3>
+                            <div class="project-meta-container">
+                                <p class="project-meta"><strong>Type :</strong> Infrastructure publique</p>
+                                <p class="project-meta"><strong>Mission :</strong> Gestion QHSE pour VICO</p>
+                                <p class="project-meta"><strong>Période :</strong> 2021 - 2022</p>
+                                <span class="project-link">
+                                    Voir le projet <i class="fas fa-arrow-right"></i>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </a>
-                <a href="projets/obs-stations.html" class="projet-card-link">
-                    <div class="projet-card">
-                        <div class="projet-image">
-                            <img src="images/OBSA_stations/gas-station-architecture.webp" alt="Stations OBSA, Natitingou et Kandi" loading="lazy">
-                        </div>
-                        <div class="projet-info">
-                            <h4>Stations OBSA, Natitingou et Kandi</h4>
-                            <p><strong>Type :</strong> Stations de traitement</p>
-                            <p><strong>Mission :</strong> Contrôle permanent des projets</p>
-                            <p><strong>Période :</strong> 2020 - 2021</p>
+
+                <!-- Project 4 -->
+                <a href="projets/centre-revalidation.html" class="project-card" style="flex: 0 0 350px; height: 500px; position: relative; scroll-snap-align: start; margin: 0 10px; text-decoration: none; display: block; border-radius: 8px; overflow: hidden;">
+                    <div style="width: 100%; height: 100%; position: relative; overflow: hidden;">
+                        <img src="images/centre_revalidation/centre_reval.webp" alt="Centre de Revalidation" 
+                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                        <div class="project-details">
+                            <span class="project-category">SANTÉ</span>
+                            <h3 class="project-title">Centre de Rééducation Fonctionnelle</h3>
+                            <div class="project-meta-container">
+                                <p class="project-meta"><strong>Type :</strong> Établissement médical</p>
+                                <p class="project-meta"><strong>Mission :</strong> Construction et équipement</p>
+                                <p class="project-meta"><strong>Période :</strong> 2020 - 2021</p>
+                                <span class="project-link">
+                                    Voir le projet <i class="fas fa-arrow-right"></i>
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </a>
-            </div>
-            <div class="cta-contact">
-                <a href="#contact" class="cta-button">Nous contacter pour un projet</a>
+
+                <!-- Project 5 -->
+                <a href="projets/tour-altair.html" class="project-card" style="flex: 0 0 350px; height: 500px; position: relative; scroll-snap-align: start; margin: 0 10px; text-decoration: none; display: block; border-radius: 8px; overflow: hidden;">
+                    <div style="width: 100%; height: 100%; position: relative; overflow: hidden;">
+                        <img src="images/tour_altair/TOUR-ALTAIR-00.jpg" alt="Tour Altair" 
+                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                        <div class="project-details">
+                            <span class="project-category">BUREAUX</span>
+                            <h3 class="project-title">Tour Altair</h3>
+                            <div class="project-meta-container">
+                                <p class="project-meta"><strong>Type :</strong> Immeuble de bureaux</p>
+                                <p class="project-meta"><strong>Mission :</strong> Gestion de projet</p>
+                                <p class="project-meta"><strong>Période :</strong> 2018 - 2020</p>
+                                <span class="project-link">
+                                    Voir le projet <i class="fas fa-arrow-right"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 6 -->
+                <a href="projets/entrepots-sipi.html" class="project-card" style="flex: 0 0 350px; height: 500px; position: relative; scroll-snap-align: start; margin: 0 10px; text-decoration: none; display: block; border-radius: 8px; overflow: hidden;">
+                    <div style="width: 100%; height: 100%; position: relative; overflow: hidden;">
+                        <img src="images/sipi_benin/entrpot.jpg" alt="Entrepôts SIPI" 
+                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                        <div class="project-details">
+                            <span class="project-category">LOGISTIQUE</span>
+                            <h3 class="project-title">Entrepôts SIPI</h3>
+                            <div class="project-meta-container">
+                                <p class="project-meta"><strong>Type :</strong> Entrepôts logistiques</p>
+                                <p class="project-meta"><strong>Mission :</strong> Construction et gestion</p>
+                                <p class="project-meta"><strong>Période :</strong> 2019 - 2021</p>
+                                <span class="project-link">
+                                    Voir le projet <i class="fas fa-arrow-right"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project 7 -->
+                <a href="projets/obs-stations.html" class="project-card" style="flex: 0 0 350px; height: 500px; position: relative; scroll-snap-align: start; margin: 0 10px; text-decoration: none; display: block; border-radius: 8px; overflow: hidden;">
+                    <div style="width: 100%; height: 100%; position: relative; overflow: hidden;">
+                        <img src="images/OBSA_stations/2.png" alt="Station d'Observation" 
+                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                        <div class="project-details">
+                            <span class="project-category">INFRASTRUCTURE</span>
+                            <h3 class="project-title">Stations OBSA</h3>
+                            <div class="project-meta-container">
+                                <p class="project-meta"><strong>Type :</strong> Stations de surveillance</p>
+                                <p class="project-meta"><strong>Mission :</strong> Installation et maintenance</p>
+                                <p class="project-meta"><strong>Période :</strong> 2020 - 2021</p>
+                                <span class="project-link">
+                                    Voir le projet <i class="fas fa-arrow-right"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
-    </section>
 
-
-    <!-- Galerie -->
-    <section id="projets" style="background-color: var(--light-gray); padding: 60px 20px;">
-        <div class="container">
-            <h2>Galerie de Projets</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem; color: var(--dark-gray);">
-                Explorez nos réalisations à travers cette galerie d'images.
-            </p>
-            <div class="cta-contact" style="margin-top: 2rem; text-align: center;">
-                <a href="galerie-proj.html" class="cta-button">Voir tous nos projets</a>
-            </div>
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="galerie-proj.html" 
+               style="display: inline-flex; align-items: center; background: transparent; color: #0066cc; 
+                      border: 2px solid #0066cc; padding: 12px 30px; border-radius: 30px; font-weight: 600; 
+                      text-decoration: none; transition: all 0.3s ease;">
+                Voir tous nos projets
+                <i class="fas fa-arrow-right" style="margin-left: 10px; transition: transform 0.3s ease;"></i>
+            </a>
         </div>
-    </section>
+    </div>
+</section>
+
+<style>
+    /* Projects Gallery Container */
+    #projets .container {
+        width: 90% !important;
+        max-width: 1400px !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+    }
+</style>
+
+<style>
+    /* Custom Scrollbar */
+    .projects-scroll-container::-webkit-scrollbar {
+        height: 8px;
+        background-color: #f5f5f5;
+        border-radius: 4px;
+    }
+    
+    .projects-scroll-container::-webkit-scrollbar-thumb {
+        background-color: #c1c1c1;
+        border-radius: 4px;
+    }
+    
+    .projects-scroll-container::-webkit-scrollbar-thumb:hover {
+        background-color: #a8a8a8;
+    }
+    
+    .projects-scroll-container {
+        scrollbar-width: thin;
+        scrollbar-color: #c1c1c1 #f5f5f5;
+        padding-bottom: 25px;
+        margin-bottom: -25px;
+    }
+    
+    /* Project Card Styles */
+    .project-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    
+    .project-card > div {
+        position: relative;
+        height: 100%;
+    }
+    
+    .project-card img {
+        transition: transform 0.5s ease;
+    }
+    
+    .project-card:hover img {
+        transform: scale(1.05);
+    }
+    
+    .project-details {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding-bottom: 30px;
+        right: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+        color: white;
+        padding: 30px 20px 20px;
+        transition: all 0.3s ease;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+    
+    .project-category {
+        background: var(--yellow);
+        color: #000 !important;
+        display: inline-block;
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        align-self: flex-start;
+    }
+    
+    .project-title {
+        font-size: 1.4rem;
+        margin: 0 0 15px 0;
+        color: white;
+    }
+    
+    .project-meta {
+        margin-bottom: 5px;
+        color: #eee;
+        font-size: 0.95rem;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+    }
+    
+    .project-meta strong {
+        color: var(--yellow);
+    }
+    
+    .project-meta-container {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+    
+    .project-card:hover .project-meta {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .project-card:hover .project-meta-container {
+        max-height: 200px;
+        margin-top: 10px;
+    }
+    
+    .project-card:hover .project-link {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .project-link {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        margin-top: 20px;
+        align-self: flex-start;
+        border-bottom: 2px solid var(--yellow);
+        padding-bottom: 2px;
+        transition: all 0.3s ease;
+    }
+    
+    .project-link:hover {
+        color: var(--yellow);
+    }
+    
+    .project-link i {
+        margin-left: 8px;
+        transition: transform 0.3s ease;
+    }
+    
+    .project-link:hover i {
+        transform: translateX(5px);
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+        .project-card {
+            flex: 0 0 300px !important;
+            height: 450px !important;
+        }
+    }
+</style>
 
     <!-- Partenaires -->
     <section id="partenaires" style="background-color: #FFFFFF; padding: 60px 20px;">
