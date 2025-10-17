@@ -516,12 +516,11 @@
             line-height: 1.7;
         }
 
-        /* Atouts et Valeurs - DESIGN AMÉLIORÉ */
+        /* Section Atouts et Valeurs - NOUVEAU DESIGN */
         #atouts-valeurs {
-            padding: 80px 0;
-            background-color: var(--white);
             position: relative;
             overflow: hidden;
+            padding: 80px 0;
         }
 
         #atouts-valeurs::before {
@@ -531,86 +530,89 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 30% 70%, rgba(240, 213, 1, 0.05) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 30%, rgba(240, 213, 1, 0.05) 0%, transparent 50%);
+            background: radial-gradient(circle at 30% 70%, rgba(240, 213, 1, 0.05) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 30%, rgba(240, 213, 1, 0.05) 0%, transparent 60%);
             z-index: 0;
         }
 
-        .intro-text {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            font-size: 1.1rem;
-            color: var(--dark-gray);
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Version Desktop - Diagramme circulaire */
         .diagram-container {
             position: relative;
             width: 100%;
             aspect-ratio: 1/1;
-            max-height: 90vh;
-            margin: 0 auto 3rem;
-            display: block;
-            position: relative;
-            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
+        /* Cercle central */
         .center-circle {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 150px;
-            height: 150px;
-            background-color: var(--white);
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
             border-radius: 50%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 20;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-            border: 3px solid var(--yellow);
-            transition: transform 0.4s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15),
+                        0 0 0 3px var(--yellow),
+                        0 0 0 6px rgba(240, 213, 1, 0.2),
+                        inset 0 -3px 15px rgba(0, 0, 0, 0.05);
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .center-circle:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2),
+                        0 0 0 4px var(--yellow),
+                        0 0 0 8px rgba(240, 213, 1, 0.3),
+                        inset 0 -3px 15px rgba(0, 0, 0, 0.05);
         }
 
         .center-icon {
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             color: var(--yellow);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            filter: drop-shadow(0 4px 10px rgba(240, 213, 1, 0.4));
         }
 
         .center-text {
-            font-size: 1.1rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--black);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 3px;
         }
 
-        /* Blocs de valeurs (1.5x plus grands - 240px) */
+        /* Blocs de valeurs élégants et statiques */
         .value-block {
             position: absolute;
-            width: 240px;
-            height: 240px;
-            background-color: var(--white);
-            border: 2px solid var(--light-gray);
+            width: 280px;
+            height: 280px;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.95) 0%, 
+                rgba(250, 250, 250, 0.98) 100%);
+            backdrop-filter: blur(10px);
             border-radius: 50%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 1.5rem;
+            padding: 2.5rem;
             text-align: center;
-            transition: all 0.4s ease;
             cursor: pointer;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.12),
+                        0 0 0 2px rgba(240, 213, 1, 0.3),
+                        inset 0 2px 5px rgba(255, 255, 255, 0.8);
             z-index: 10;
             opacity: 0;
             transform: scale(0.8);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
         .value-block.active {
@@ -619,41 +621,148 @@
         }
 
         .value-block:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-            border-color: var(--yellow);
+            transform: scale(1.08) translateY(-8px);
+            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2),
+                        0 0 0 3px var(--yellow),
+                        0 0 0 6px rgba(240, 213, 1, 0.2),
+                        inset 0 2px 5px rgba(255, 255, 255, 0.9);
             z-index: 30;
         }
 
         .value-icon {
-            font-size: 2.7rem;
+            font-size: 3.5rem;
             color: var(--yellow);
-            margin-bottom: 0.8rem;
+            margin-bottom: 1.2rem;
+            filter: drop-shadow(0 4px 12px rgba(240, 213, 1, 0.4));
         }
 
         .value-title {
-            font-size: 1.65rem;
-            font-weight: 600;
+            font-size: 1.85rem;
+            font-weight: 700;
             color: var(--black);
-            margin-bottom: 0.8rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            letter-spacing: 0.5px;
         }
 
-        /* Lignes de connexion (ajustées pour les grands cercles) */
+        /* Lignes de connexion élégantes */
         .connecting-line {
             position: absolute;
-            height: 3px;
-            background: linear-gradient(90deg, var(--yellow), var(--yellow));
+            height: 2px;
+            background: linear-gradient(90deg, 
+                rgba(240, 213, 1, 0) 0%,
+                rgba(240, 213, 1, 0.6) 50%,
+                rgba(240, 213, 1, 0) 100%);
             z-index: 5;
             top: 50%;
             left: 50%;
             transform-origin: 0% 50%;
             opacity: 0;
-            transition: opacity 0.5s ease;
-            border-radius: 1.5px;
+            transition: opacity 0.8s ease;
         }
 
         .connecting-line.active {
             opacity: 1;
+        }
+
+        /* Nuages flottants de description */
+        .floating-clouds {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9998;
+        }
+
+        .value-cloud {
+            position: absolute;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.98) 0%, 
+                rgba(250, 250, 250, 0.96) 100%);
+            backdrop-filter: blur(25px);
+            border-radius: 25px;
+            padding: 25px 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25),
+                        0 0 0 3px var(--yellow),
+                        0 0 0 6px rgba(240, 213, 1, 0.2),
+                        inset 0 2px 5px rgba(255, 255, 255, 0.9);
+            max-width: 320px;
+            z-index: 10000;
+            pointer-events: none;
+            opacity: 0;
+            transform: translate(-50%, -100%) scale(0.85);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #222;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .value-cloud::before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid var(--yellow);
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.2));
+        }
+
+        .value-cloud::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-3px);
+            width: 0;
+            height: 0;
+            border-left: 14px solid transparent;
+            border-right: 14px solid transparent;
+            border-top: 14px solid rgba(255, 255, 255, 0.98);
+        }
+
+        .value-cloud.active {
+            opacity: 1;
+            transform: translate(-50%, -130%) scale(1);
+        }
+
+        /* Nuage central pour le texte d'introduction */
+        .center-cloud {
+            position: absolute;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.98) 0%, 
+                rgba(250, 250, 250, 0.96) 100%);
+            backdrop-filter: blur(25px);
+            border-radius: 25px;
+            padding: 25px 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25),
+                        0 0 0 3px var(--yellow),
+                        0 0 0 6px rgba(240, 213, 1, 0.2),
+                        inset 0 2px 5px rgba(255, 255, 255, 0.9);
+            max-width: 350px;
+            z-index: 10000;
+            pointer-events: none;
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.85);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #222;
+            text-align: center;
+            font-weight: 500;
+            top: 50%;
+            left: 50%;
+        }
+
+        .center-cloud.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
         }
 
         /* Version Mobile - Grille AMÉLIORÉE */
@@ -710,177 +819,159 @@
             padding: 0 1rem;
         }
 
-        /* NUAGES FLOTTANTS */
-        .floating-clouds {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 9998;
+        /* Responsive */
+        @media (max-width: 768px) {
+            .diagram-container {
+                display: none;
+            }
+            
+            .values-grid {
+                display: grid;
+            }
         }
 
-        .value-cloud {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.98);
-            border-radius: 15px;
-            padding: 15px 20px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-            border: 2px solid var(--yellow);
-            max-width: 250px;
-            z-index: 10000;
-            pointer-events: none;
-            opacity: 0;
-            transform: translate(-50%, -100%);
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-            line-height: 1.4;
-            color: #333;
-            text-align: center;
-        }
-
-        .value-cloud::after {
-            content: '';
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 8px solid transparent;
-            border-right: 8px solid transparent;
-            border-top: 8px solid var(--yellow);
-        }
-
-        .value-cloud.active {
-            opacity: 1;
-            transform: translate(-50%, -120%);
-        }
-
-        .cloud-content {
-            font-weight: 500;
-        }
-
-        /* Services - CORRECTION DES MARGES */
+        /* Services - NOUVEAU DESIGN AMÉLIORÉ */
         #services {
-            padding: 80px 0 100px;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            background: linear-gradient(135deg, rgba(240,213,1,0.1) 0%, rgba(240,213,1,0.05) 100%);
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(240,213,1,0.03) 0%, rgba(240,213,1,0.06) 100%);
         }
 
-        /* Conteneur des services */
-        #services .container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
+        .intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
         }
 
-        /* Timeline des services */
+        .intro-text p {
+            font-size: 1.15rem;
+            color: var(--dark-gray);
+            line-height: 1.8;
+            font-family: var(--font-primary);
+        }
+
+        /* Services Timeline */
         .services-timeline {
             position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            flex: 1;
-            padding: 20px 0; 
+            padding: 40px 0;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+            scrollbar-color: var(--yellow) var(--light-gray);
+            -ms-overflow-style: none;
+        }
+
+        .services-timeline::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .services-timeline::-webkit-scrollbar-thumb {
+            background-color: var(--yellow);
+            border-radius: 10px;
         }
 
         .services-timeline::before {
             content: "";
             position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 6px;
-            background-color: var(--yellow);
-            transform: translateX(-50%);
-            border-radius: 3px;
-            height: 100%;
+            top: 50%;
+            left: 50px;
+            right: 50px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--yellow), #FFD700);
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .timeline-track {
+            position: relative;
+            display: flex;
+            min-width: max-content;
+            padding: 0 50px;
+            gap: 2rem;
         }
 
         .service-node {
+            scroll-snap-align: center;
             position: relative;
-            margin: 80px 0;
-            width: 100%;
-            min-height: 200px;
+            width: 320px;
+            flex-shrink: 0;
         }
 
         .node-wrapper {
-            width: 45%;
             position: relative;
-        }
-
-        .service-node:nth-child(odd) .node-wrapper {
-            float: left;
-            clear: both;
-            padding-right: 30px;
-            text-align: right;
-        }
-
-        .service-node:nth-child(even) .node-wrapper {
-            float: right;
-            clear: both;
-            padding-left: 30px;
-            text-align: left;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .node-content {
             background-color: var(--white);
-            padding: 30px;
-            border-radius: 10px;
+            padding: 2rem;
+            border-radius: var(--border-radius);
             box-shadow: var(--shadow);
+            border: 1px solid rgba(240, 213, 1, 0.15);
+            opacity: 0.4;
+            transform: translateY(30px);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            min-height: 300px;
             position: relative;
-            border: 2px solid rgba(240, 213, 1, 0.2);
-            opacity: 0;
-            transform: translateX(-100px);
-            transition: all 0.8s ease-out;
-        }
-
-        .service-node:nth-child(even) .node-content {
-            transform: translateX(100px);
+            z-index: 2;
         }
 
         .service-node.active .node-content {
             opacity: 1;
-            transform: translateX(0);
+            transform: translateY(0);
         }
 
         .node-content:hover {
             transform: translateY(-5px) !important;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+            border-color: rgba(240, 213, 1, 0.3);
         }
 
         .node-icon {
             color: var(--yellow);
             font-size: 2.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
             display: block;
+        }
+
+        .node-content:hover .node-icon {
+            transform: scale(1.1);
         }
 
         .node-content h3 {
             color: var(--black);
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+            font-size: 1.5rem;
+            margin-bottom: 1.2rem;
             font-weight: 600;
+            font-family: var(--font-primary);
         }
 
         .node-content p {
-            color: #555;
-            font-size: 1.1rem;
+            color: var(--dark-gray);
+            font-size: 0.95rem;
             line-height: 1.7;
+            font-family: var(--font-primary);
         }
 
         .node-connector {
             position: absolute;
-            top: 50%;
-            width: 50px;
-            height: 4px;
-            background-color: var(--yellow);
+            left: 50%;
+            width: 3px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--yellow), #FFD700);
+            transform: translateX(-50%);
             z-index: 1;
             opacity: 0;
-            transition: opacity 0.5s ease 0.3s;
+            transition: var(--transition);
         }
 
         .service-node.active .node-connector {
@@ -888,38 +979,129 @@
         }
 
         .service-node:nth-child(odd) .node-connector {
-            right: -50px;
-            transform: translateY(-50%);
+            top: auto;
+            bottom: 0;
         }
 
         .service-node:nth-child(even) .node-connector {
-            left: -50px;
-            transform: translateY(-50%);
+            top: 0;
+            bottom: auto;
         }
 
         .node-point {
             position: absolute;
-            top: 50%;
-            width: 20px;
-            height: 20px;
+            left: 50%;
+            width: 16px;
+            height: 16px;
             background-color: var(--yellow);
             border-radius: 50%;
-            transform: translateY(-50%) scale(0);
-            z-index: 2;
-            box-shadow: 0 0 0 5px rgba(240, 213, 1, 0.3);
-            transition: transform 0.5s ease 0.2s;
+            transform: translate(-50%, -50%) scale(0);
+            z-index: 3;
+            box-shadow: 0 0 0 6px rgba(240, 213, 1, 0.2);
+            transition: var(--transition);
         }
 
         .service-node.active .node-point {
-            transform: translateY(-50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
         }
 
         .service-node:nth-child(odd) .node-point {
-            right: -10px;
+            bottom: 0;
+            top: auto;
         }
 
         .service-node:nth-child(even) .node-point {
-            left: -10px;
+            top: 0;
+            bottom: auto;
+        }
+
+        .scroll-hint {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+            font-family: var(--font-primary);
+        }
+
+        .scroll-hint i {
+            color: var(--yellow);
+            margin: 0 10px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .service-node {
+                width: 280px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .services-timeline {
+                overflow-x: visible;
+            }
+
+            .timeline-track {
+                flex-direction: column;
+                min-width: auto;
+                padding: 0;
+                gap: 3rem;
+            }
+
+            .services-timeline::before {
+                top: 0;
+                bottom: 0;
+                left: 50%;
+                right: auto;
+                width: 4px;
+                height: 100%;
+                transform: translateX(-50%);
+            }
+
+            .service-node {
+                width: 100%;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .node-content {
+                min-height: auto;
+                transform: translateX(-30px) !important;
+                position: static;
+            }
+
+            .service-node.active .node-content {
+                transform: translateX(0) !important;
+            }
+
+            .node-connector {
+                display: none;
+            }
+
+            .node-point {
+                left: 0 !important;
+                top: 50% !important;
+                transform: translate(-50%, -50%) scale(0);
+            }
+
+            .service-node.active .node-point {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .node-content {
+                padding: 1.5rem;
+            }
+
+            .node-content h3 {
+                font-size: 1.3rem;
+            }
         }
 
         /* Départements Grid */
@@ -1621,68 +1803,6 @@
             .value-title {
                 font-size: 1.2rem;
             }
-            
-            /* Services responsive */
-            .services-timeline::before {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            
-            .node-wrapper {
-                width: 85%;
-                margin: 0 auto;
-                text-align: center !important;
-                padding: 0 20px !important;
-                float: none !important;
-            }
-            
-            .service-node:nth-child(odd) .node-wrapper,
-            .service-node:nth-child(even) .node-wrapper {
-                float: none;
-                text-align: center;
-                padding: 0 20px;
-            }
-            
-            .node-content {
-                transform: translateY(30px) !important;
-                margin: 0 10px;
-                padding: 20px;
-            }
-            
-            .service-node.active .node-content {
-                transform: translateY(0) !important;
-            }
-            
-            .node-connector {
-                display: none;
-            }
-            
-            .node-point {
-                left: 50% !important;
-                right: auto !important;
-                top: -10px !important;
-                transform: translateX(-50%) scale(0);
-                width: 16px;
-                height: 16px;
-            }
-            
-            .service-node.active .node-point {
-                transform: translateX(-50%) scale(1);
-            }
-            
-            .node-content h3 {
-                font-size: 1.3rem;
-            }
-            
-            .node-content p {
-                font-size: 0.95rem;
-                line-height: 1.5;
-            }
-            
-            .node-icon {
-                font-size: 2rem;
-                margin-bottom: 15px;
-            }
         }
 
         /* Mobiles */
@@ -1718,11 +1838,6 @@
             /* Atouts et Valeurs mobile */
             #atouts-valeurs h2 {
                 font-size: 2rem;
-                margin-bottom: 2rem;
-            }
-            
-            .intro-text {
-                font-size: 1rem;
                 margin-bottom: 2rem;
             }
             
@@ -1812,33 +1927,6 @@
             .indicator {
                 width: 10px;
                 height: 10px;
-            }
-            
-            .node-wrapper {
-                width: 90%;
-                padding: 0 15px !important;
-            }
-            
-            .node-content {
-                padding: 18px;
-                margin: 0 5px;
-            }
-            
-            .node-content h3 {
-                font-size: 1.2rem;
-            }
-            
-            .node-content p {
-                font-size: 0.9rem;
-            }
-            
-            .node-icon {
-                font-size: 1.8rem;
-            }
-            
-            .node-point {
-                width: 14px;
-                height: 14px;
             }
             
             .departements-grid,
@@ -2047,24 +2135,24 @@
         </div>
     </section>
 
-    <!-- Atouts et Valeurs - DESIGN AMÉLIORÉ -->
+    <!-- Atouts et Valeurs - NOUVEAU DESIGN -->
     <section id="atouts-valeurs">
         <div class="container">
             <h2>Nos Atouts et <span style="color: #F0D501;">Valeurs Fondamentales</span></h2>
-            <p class="intro-text">
-                Chez <strong>ABGP</strong>, nous nous distinguons par notre <strong>engagement, notre expertise et nos valeurs fortes</strong>.
-                Voici ce qui fait notre force et notre différence.
-            </p>
 
-            <!-- Version Desktop - Diagramme circulaire -->
             <div class="diagram-container" id="diagram">
-                <div class="center-circle">
+                <!-- Cercle central -->
+                <div class="center-circle" id="centerCircle">
                     <div class="center-icon">
                         <i class="fas fa-bullseye"></i>
                     </div>
                     <div class="center-text">ABGP</div>
                 </div>
-                <!-- Les blocs de valeurs et lignes de connexion seront ajoutés par JavaScript -->
+
+                <!-- Nuage central (texte intro) -->
+                <div class="center-cloud" id="centerCloud">
+                    Chez <strong>ABGP</strong>, nous nous distinguons par notre <strong>engagement, notre expertise et nos valeurs fortes</strong>. Voici ce qui fait notre force et notre différence.
+                </div>
             </div>
 
             <!-- Version Mobile - Grille AMÉLIORÉE -->
@@ -2106,169 +2194,180 @@
                 </div>
             </div>
 
-            <!-- Container pour les nuages flottants -->
             <div class="floating-clouds" id="floatingClouds"></div>
         </div>
     </section>
 
-    <!-- Services - CORRECTION DES MARGES -->
+    <!-- Services - NOUVEAU DESIGN AMÉLIORÉ -->
     <section id="services">
         <div class="container">
-            <h2>Nos Services</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem; color: var(--dark-gray);">
-                <strong>ABGP</strong> vous propose une gamme complète de services pour répondre à tous vos besoins en construction et gestion de projets.
-            </p>
-            
-            <div class="services-timeline">
-                <!-- Bureau d'Étude Méthode -->
-                <div class="service-node" data-index="0">
-                    <div class="node-wrapper">
-                        <div class="node-connector"></div>
-                        <div class="node-point"></div>
-                        <div class="node-content">
-                            <div class="node-icon">
-                                <i class="fas fa-hard-hat"></i>
-                            </div>
-                            <h3>Bureau d'Étude Méthode</h3>
-                            <p>Analyse et optimisation des méthodes de construction pour garantir qualité, coût et délais.</p>
-                        </div>
-                    </div>
-                </div>
+            <h2>Nos Services d'Excellence</h2>
+            <div class="intro-text">
+                <p><strong>ABGP</strong> vous propose une gamme complète de services pour répondre à tous vos besoins en construction et gestion de projets.</p>
+            </div>
 
-                <!-- AMO -->
-                <div class="service-node" data-index="1">
-                    <div class="node-wrapper">
-                        <div class="node-connector"></div>
-                        <div class="node-point"></div>
-                        <div class="node-content">
-                            <div class="node-icon">
-                                <i class="fas fa-hands-helping"></i>
+            <div class="services-timeline" tabindex="0" aria-label="Timeline horizontale des services">
+                <div class="timeline-track">
+                    <!-- Bureau d'Étude Méthode -->
+                    <div class="service-node" data-index="0">
+                        <div class="node-wrapper">
+                            <div class="node-connector"></div>
+                            <div class="node-point"></div>
+                            <div class="node-content">
+                                <div class="node-icon">
+                                    <i class="fas fa-hard-hat" aria-hidden="true"></i>
+                                </div>
+                                <h3>Bureau d'Étude Méthode</h3>
+                                <p>Analyse et optimisation des méthodes de construction pour garantir qualité, coût et délais.</p>
                             </div>
-                            <h3>AMO</h3>
-                            <p>Assistance à Maître d'Ouvrage pour piloter vos projets avec expertise et sérénité.</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- ATMO -->
-                <div class="service-node" data-index="2">
-                    <div class="node-wrapper">
-                        <div class="node-connector"></div>
-                        <div class="node-point"></div>
-                        <div class="node-content">
-                            <div class="node-icon">
-                                <i class="fas fa-tools"></i>
+                    <!-- AMO -->
+                    <div class="service-node" data-index="1">
+                        <div class="node-wrapper">
+                            <div class="node-connector"></div>
+                            <div class="node-point"></div>
+                            <div class="node-content">
+                                <div class="node-icon">
+                                    <i class="fas fa-hands-helping" aria-hidden="true"></i>
+                                </div>
+                                <h3>AMO</h3>
+                                <p>Assistance à Maître d'Ouvrage pour piloter vos projets avec expertise et sérénité.</p>
                             </div>
-                            <h3>ATMO</h3>
-                            <p>Assistance Technique à Maître d'Ouvrage pour une gestion optimale de vos chantiers.</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- OPC -->
-                <div class="service-node" data-index="3">
-                    <div class="node-wrapper">
-                        <div class="node-connector"></div>
-                        <div class="node-point"></div>
-                        <div class="node-content">
-                            <div class="node-icon">
-                                <i class="fas fa-project-diagram"></i>
+                    <!-- ATMO -->
+                    <div class="service-node" data-index="2">
+                        <div class="node-wrapper">
+                            <div class="node-connector"></div>
+                            <div class="node-point"></div>
+                            <div class="node-content">
+                                <div class="node-icon">
+                                    <i class="fas fa-tools" aria-hidden="true"></i>
+                                </div>
+                                <h3>ATMO</h3>
+                                <p>Assistance Technique à Maître d'Ouvrage pour une gestion optimale de vos chantiers.</p>
                             </div>
-                            <h3>OPC</h3>
-                            <p>Ordonnancement, Pilotage et Coordination pour une exécution fluide de vos projets.</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- Schedule Management -->
-                <div class="service-node" data-index="4">
-                    <div class="node-wrapper">
-                        <div class="node-connector"></div>
-                        <div class="node-point"></div>
-                        <div class="node-content">
-                            <div class="node-icon">
-                                <i class="fas fa-calendar-alt"></i>
+                    <!-- OPC -->
+                    <div class="service-node" data-index="3">
+                        <div class="node-wrapper">
+                            <div class="node-connector"></div>
+                            <div class="node-point"></div>
+                            <div class="node-content">
+                                <div class="node-icon">
+                                    <i class="fas fa-project-diagram" aria-hidden="true"></i>
+                                </div>
+                                <h3>OPC</h3>
+                                <p>Ordonnancement, Pilotage et Coordination pour une exécution fluide de vos projets.</p>
                             </div>
-                            <h3>Schedule Management</h3>
-                            <p>Planification rigoureuse et gestion des délais pour respecter vos échéances.</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- Quality Management -->
-                <div class="service-node" data-index="5">
-                    <div class="node-wrapper">
-                        <div class="node-connector"></div>
-                        <div class="node-point"></div>
-                        <div class="node-content">
-                            <div class="node-icon">
-                                <i class="fas fa-check-circle"></i>
+                    <!-- Schedule Management -->
+                    <div class="service-node" data-index="4">
+                        <div class="node-wrapper">
+                            <div class="node-connector"></div>
+                            <div class="node-point"></div>
+                            <div class="node-content">
+                                <div class="node-icon">
+                                    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                                </div>
+                                <h3>Schedule Management</h3>
+                                <p>Planification rigoureuse et gestion des délais pour respecter vos échéances.</p>
                             </div>
-                            <h3>Quality Management</h3>
-                            <p>Contrôle qualité et respect des normes pour des infrastructures durables.</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- Cost Management -->
-                <div class="service-node" data-index="6">
-                    <div class="node-wrapper">
-                        <div class="node-connector"></div>
-                        <div class="node-point"></div>
-                        <div class="node-content">
-                            <div class="node-icon">
-                                <i class="fas fa-money-bill-wave"></i>
+                    <!-- Quality Management -->
+                    <div class="service-node" data-index="5">
+                        <div class="node-wrapper">
+                            <div class="node-connector"></div>
+                            <div class="node-point"></div>
+                            <div class="node-content">
+                                <div class="node-icon">
+                                    <i class="fas fa-check-circle" aria-hidden="true"></i>
+                                </div>
+                                <h3>Quality Management</h3>
+                                <p>Contrôle qualité et respect des normes pour des infrastructures durables.</p>
                             </div>
-                            <h3>Cost Management</h3>
-                            <p>Optimisation des coûts et maîtrise budgétaire pour maximiser votre retour sur investissement.</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- Risk Management -->
-                <div class="service-node" data-index="7">
-                    <div class="node-wrapper">
-                        <div class="node-connector"></div>
-                        <div class="node-point"></div>
-                        <div class="node-content">
-                            <div class="node-icon">
-                                <i class="fas fa-shield-alt"></i>
+                    <!-- Cost Management -->
+                    <div class="service-node" data-index="6">
+                        <div class="node-wrapper">
+                            <div class="node-connector"></div>
+                            <div class="node-point"></div>
+                            <div class="node-content">
+                                <div class="node-icon">
+                                    <i class="fas fa-money-bill-wave" aria-hidden="true"></i>
+                                </div>
+                                <h3>Cost Management</h3>
+                                <p>Optimisation des coûts et maîtrise budgétaire pour maximiser votre retour sur investissement.</p>
                             </div>
-                            <h3>Risk Management</h3>
-                            <p>Identification et mitigation des risques pour sécuriser vos projets.</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- Drawing Management -->
-                <div class="service-node" data-index="8">
-                    <div class="node-wrapper">
-                        <div class="node-connector"></div>
-                        <div class="node-point"></div>
-                        <div class="node-content">
-                            <div class="node-icon">
-                                <i class="fas fa-file-alt"></i>
+                    <!-- Risk Management -->
+                    <div class="service-node" data-index="7">
+                        <div class="node-wrapper">
+                            <div class="node-connector"></div>
+                            <div class="node-point"></div>
+                            <div class="node-content">
+                                <div class="node-icon">
+                                    <i class="fas fa-shield-alt" aria-hidden="true"></i>
+                                </div>
+                                <h3>Risk Management</h3>
+                                <p>Identification et mitigation des risques pour sécuriser vos projets.</p>
                             </div>
-                            <h3>Drawing Management</h3>
-                            <p>Gestion documentaire et plans techniques pour une traçabilité parfaite.</p>
                         </div>
                     </div>
-                </div>
 
-                <!-- BIM Integration -->
-                <div class="service-node" data-index="9">
-                    <div class="node-wrapper">
-                        <div class="node-connector"></div>
-                        <div class="node-point"></div>
-                        <div class="node-content">
-                            <div class="node-icon">
-                                <i class="fas fa-cubes"></i>
+                    <!-- Drawing Management -->
+                    <div class="service-node" data-index="8">
+                        <div class="node-wrapper">
+                            <div class="node-connector"></div>
+                            <div class="node-point"></div>
+                            <div class="node-content">
+                                <div class="node-icon">
+                                    <i class="fas fa-file-alt" aria-hidden="true"></i>
+                                </div>
+                                <h3>Drawing Management</h3>
+                                <p>Gestion documentaire et plans techniques pour une traçabilité parfaite.</p>
                             </div>
-                            <h3>BIM Integration</h3>
-                            <p>Intégration des méthodes BIM pour une conception et gestion innovante de vos projets.</p>
+                        </div>
+                    </div>
+
+                    <!-- BIM Integration -->
+                    <div class="service-node" data-index="9">
+                        <div class="node-wrapper">
+                            <div class="node-connector"></div>
+                            <div class="node-point"></div>
+                            <div class="node-content">
+                                <div class="node-icon">
+                                    <i class="fas fa-cubes" aria-hidden="true"></i>
+                                </div>
+                                <h3>BIM Integration</h3>
+                                <p>Intégration des méthodes BIM pour une conception et gestion innovante de vos projets.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="scroll-hint">
+                <i class="fas fa-chevron-left"></i>
+                Faites défiler horizontalement pour découvrir tous nos services
+                <i class="fas fa-chevron-right"></i>
+            </div>
+
+            <div class="cta-contact" style="margin-top: 3rem;">
+                <a href="#contact" class="cta-button">Discutons de votre projet</a>
             </div>
         </div>
     </section>
@@ -2362,8 +2461,7 @@
             </div>
             <div class="cta-contact">
                 <a href="#contact" class="cta-button">Nous contacter</a>
-           
-</div>
+            </div>
         </div>
     </section>
 
@@ -2785,178 +2883,228 @@
                 { 
                     icon: 'fas fa-handshake', 
                     title: 'Respect',
-                    description: 'Le respect mutuel est la base de toutes nos relations professionnelles et humaines, tant en interne qu\'avec nos partenaires.' 
+                    description: 'Le respect mutuel est la base de toutes nos relations professionnelles et humaines.' 
                 },
                 { 
                     icon: 'fas fa-chart-line', 
                     title: 'Progrès',
-                    description: 'Nous nous engageons à progresser constamment pour un avenir meilleur et plus durable, en innovant dans nos pratiques.' 
+                    description: 'Nous nous engageons à progresser constamment pour un avenir meilleur et plus durable.' 
                 }
             ];
 
             const diagram = document.getElementById('diagram');
             const cloudsContainer = document.getElementById('floatingClouds');
+            const centerCircle = document.getElementById('centerCircle');
+            const centerCloud = document.getElementById('centerCloud');
 
-            if (diagram) {
-                function positionValues() {
-                    // Supprimer les éléments existants
-                    const existingBlocks = diagram.querySelectorAll('.value-block, .connecting-line');
-                    existingBlocks.forEach(block => block.remove());
+            // Gestion du nuage central
+            centerCircle.addEventListener('mouseenter', function() {
+                centerCloud.classList.add('active');
+            });
 
-                    // Dimensions du conteneur
-                    const centerX = diagram.offsetWidth / 2;
-                    const centerY = diagram.offsetHeight / 2;
-                    const radius = Math.min(centerX, centerY) * 0.6; // Rayon ajusté pour les grands cercles
-                    const blockSize = 240; // 160px * 1.5
-                    const blockRadius = blockSize / 2;
+            centerCircle.addEventListener('mouseleave', function() {
+                centerCloud.classList.remove('active');
+            });
 
-                    // Positionner chaque bloc et sa ligne
-                    values.forEach((value, index) => {
-                        const angle = (index * (2 * Math.PI / values.length)) - Math.PI / 2;
+            // Gestion tactile pour mobile
+            centerCircle.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                centerCloud.classList.add('active');
+            });
 
-                        // Coordonnées du centre du bloc
-                        const blockX = centerX + radius * Math.cos(angle);
-                        const blockY = centerY + radius * Math.sin(angle);
+            centerCircle.addEventListener('touchend', function(e) {
+                e.preventDefault();
+                setTimeout(() => {
+                    centerCloud.classList.remove('active');
+                }, 3000);
+            });
 
-                        // Créer le bloc de valeur
-                        const valueBlock = document.createElement('div');
-                        valueBlock.className = 'value-block';
-                        valueBlock.style.width = `${blockSize}px`;
-                        valueBlock.style.height = `${blockSize}px`;
-                        valueBlock.style.left = `${blockX - blockRadius}px`;
-                        valueBlock.style.top = `${blockY - blockRadius}px`;
-                        valueBlock.style.transitionDelay = `${index * 0.1}s`;
-                        valueBlock.innerHTML = `
-                            <div class="value-icon"><i class="${value.icon}"></i></div>
-                            <h3 class="value-title">${value.title}</h3>
-                        `;
-                        
-                        valueBlock.setAttribute('data-description', value.description);
-                        
-                        valueBlock.addEventListener('mouseenter', function(e) {
-                            showCloud(e, value.description);
-                        });
-                        
-                        valueBlock.addEventListener('mouseleave', function() {
-                            hideCloud();
-                        });
+            function positionValues() {
+                const existingBlocks = diagram.querySelectorAll('.value-block, .connecting-line');
+                existingBlocks.forEach(block => block.remove());
 
-                        // Gestion tactile pour mobile
-                        valueBlock.addEventListener('touchstart', function(e) {
-                            e.preventDefault();
-                            showCloud(e, value.description);
-                        });
+                const centerX = diagram.offsetWidth / 2;
+                const centerY = diagram.offsetHeight / 2;
+                const radius = Math.min(centerX, centerY) * 0.65;
+                const blockSize = 280;
+                const blockRadius = blockSize / 2;
 
-                        valueBlock.addEventListener('touchend', function(e) {
-                            e.preventDefault();
-                            setTimeout(hideCloud, 2000);
-                        });
+                values.forEach((value, index) => {
+                    const angle = (index * (2 * Math.PI / values.length)) - Math.PI / 2;
+                    const blockX = centerX + radius * Math.cos(angle);
+                    const blockY = centerY + radius * Math.sin(angle);
 
-                        diagram.appendChild(valueBlock);
-
-                        // Créer la ligne de connexion
-                        const line = document.createElement('div');
-                        line.className = 'connecting-line';
-                        const lineLength = Math.sqrt(Math.pow(blockX - centerX, 2) + Math.pow(blockY - centerY, 2));
-                        line.style.width = `${lineLength}px`;
-                        line.style.transform = `rotate(${Math.atan2(blockY - centerY, blockX - centerX)}rad)`;
-                        line.style.left = `${centerX}px`;
-                        line.style.top = `${centerY}px`;
-                        line.style.transitionDelay = `${index * 0.1}s`;
-                        diagram.appendChild(line);
-
-                        // Animation d'apparition
-                        setTimeout(() => {
-                            valueBlock.classList.add('active');
-                            line.classList.add('active');
-                        }, index * 200);
+                    // Créer le bloc
+                    const valueBlock = document.createElement('div');
+                    valueBlock.className = 'value-block';
+                    valueBlock.style.left = `${blockX - blockRadius}px`;
+                    valueBlock.style.top = `${blockY - blockRadius}px`;
+                    valueBlock.style.transitionDelay = `${index * 0.12}s`;
+                    valueBlock.innerHTML = `
+                        <div class="value-icon"><i class="${value.icon}"></i></div>
+                        <h3 class="value-title">${value.title}</h3>
+                    `;
+                    
+                    valueBlock.addEventListener('mouseenter', function(e) {
+                        showCloud(e, value.description);
+                    });
+                    
+                    valueBlock.addEventListener('mouseleave', hideCloud);
+                    
+                    valueBlock.addEventListener('touchstart', function(e) {
+                        e.preventDefault();
+                        showCloud(e, value.description);
+                    });
+                    
+                    valueBlock.addEventListener('touchend', function(e) {
+                        e.preventDefault();
+                        setTimeout(hideCloud, 2500);
                     });
 
-                    // Animation du cercle central
-                    const centerCircle = document.querySelector('.center-circle');
+                    diagram.appendChild(valueBlock);
+
+                    // Créer la ligne
+                    const line = document.createElement('div');
+                    line.className = 'connecting-line';
+                    const lineLength = Math.sqrt(Math.pow(blockX - centerX, 2) + Math.pow(blockY - centerY, 2));
+                    line.style.width = `${lineLength}px`;
+                    line.style.transform = `rotate(${Math.atan2(blockY - centerY, blockX - centerX)}rad)`;
+                    line.style.left = `${centerX}px`;
+                    line.style.top = `${centerY}px`;
+                    line.style.transitionDelay = `${index * 0.12}s`;
+                    diagram.appendChild(line);
+
+                    // Animation d'apparition
                     setTimeout(() => {
-                        centerCircle.style.transform = 'translate(-50%, -50%) scale(1.05)';
-                        setTimeout(() => {
-                            centerCircle.style.transform = 'translate(-50%, -50%) scale(1)';
-                        }, 1000);
-                    }, 200 * values.length + 300);
-                }
-
-                function showCloud(event, description) {
-                    hideCloud();
-                    
-                    const cloud = document.createElement('div');
-                    cloud.className = 'value-cloud';
-                    cloud.innerHTML = `<div class="cloud-content">${description}</div>`;
-                    
-                    let rect;
-                    if (event.type === 'touchstart') {
-                        const touch = event.touches[0];
-                        rect = {
-                            left: touch.clientX,
-                            top: touch.clientY,
-                            width: 0,
-                            height: 0
-                        };
-                    } else {
-                        rect = event.currentTarget.getBoundingClientRect();
-                    }
-                    
-                    cloud.style.left = `${rect.left + rect.width/2}px`;
-                    cloud.style.top = `${rect.top}px`;
-                    
-                    // Ajustement pour les écrans mobiles
-                    if (window.innerWidth <= 768) {
-                        cloud.style.maxWidth = '200px';
-                        cloud.style.fontSize = '0.8rem';
-                        cloud.style.transform = 'translate(-50%, -130%)';
-                    }
-                    
-                    cloudsContainer.appendChild(cloud);
-                    
-                    setTimeout(() => {
-                        cloud.classList.add('active');
-                    }, 10);
-                }
-
-                function hideCloud() {
-                    const existingClouds = cloudsContainer.querySelectorAll('.value-cloud');
-                    existingClouds.forEach(cloud => {
-                        cloud.classList.remove('active');
-                        setTimeout(() => {
-                            if (cloud.parentNode) {
-                                cloud.parentNode.removeChild(cloud);
-                            }
-                        }, 300);
-                    });
-                }
-
-                // Positionner les blocs au chargement
-                positionValues();
-
-                // Repositionner en cas de redimensionnement
-                let resizeTimeout;
-                window.addEventListener('resize', function() {
-                    clearTimeout(resizeTimeout);
-                    resizeTimeout = setTimeout(positionValues, 250);
-                });
-
-                // Réinitialiser au redimensionnement
-                window.addEventListener('orientationchange', function() {
-                    setTimeout(positionValues, 500);
+                        valueBlock.classList.add('active');
+                        line.classList.add('active');
+                    }, index * 180);
                 });
             }
 
-            // Gestion des cartes sur mobile
-            const valueCards = document.querySelectorAll('.value-card');
-            valueCards.forEach(card => {
-                card.addEventListener('click', function() {
-                    // Animation de feedback au clic
-                    this.style.transform = 'scale(0.95)';
+            function showCloud(event, description) {
+                hideCloud();
+                
+                const cloud = document.createElement('div');
+                cloud.className = 'value-cloud';
+                cloud.innerHTML = description;
+                
+                let rect;
+                if (event.type === 'touchstart') {
+                    const touch = event.touches[0];
+                    rect = {
+                        left: touch.clientX,
+                        top: touch.clientY,
+                        width: 0,
+                        height: 0
+                    };
+                } else {
+                    rect = event.currentTarget.getBoundingClientRect();
+                }
+                
+                cloud.style.left = `${rect.left + rect.width/2}px`;
+                cloud.style.top = `${rect.top}px`;
+                cloudsContainer.appendChild(cloud);
+                
+                setTimeout(() => cloud.classList.add('active'), 10);
+            }
+
+            function hideCloud() {
+                const existingClouds = cloudsContainer.querySelectorAll('.value-cloud');
+                existingClouds.forEach(cloud => {
+                    cloud.classList.remove('active');
                     setTimeout(() => {
-                        this.style.transform = '';
-                    }, 150);
+                        if (cloud.parentNode) cloud.parentNode.removeChild(cloud);
+                    }, 500);
                 });
+            }
+
+            positionValues();
+
+            let resizeTimeout;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(positionValues, 250);
+            });
+
+            // Services Timeline Animation
+            const serviceNodes = document.querySelectorAll('.service-node');
+            const timeline = document.querySelector('.services-timeline');
+
+            // Fonction pour vérifier la visibilité des nodes
+            function checkServicesVisibility() {
+                serviceNodes.forEach((node, index) => {
+                    const nodeRect = node.getBoundingClientRect();
+                    const timelineRect = timeline.getBoundingClientRect();
+
+                    // Vérifie si le node est dans le viewport horizontalement
+                    const isVisible = (
+                        nodeRect.left < window.innerWidth &&
+                        nodeRect.right > 0
+                    );
+
+                    if (isVisible && !node.classList.contains('active')) {
+                        setTimeout(() => {
+                            node.classList.add('active');
+                        }, index * 150);
+                    }
+                });
+            }
+
+            // Déclenche la vérification au chargement et au scroll
+            window.addEventListener('load', () => {
+                setTimeout(checkServicesVisibility, 300);
+            });
+
+            window.addEventListener('scroll', checkServicesVisibility);
+            timeline.addEventListener('scroll', checkServicesVisibility);
+
+            // Gestion du scroll horizontal sur mobile/tablette
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            timeline.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX - timeline.offsetLeft;
+                scrollLeft = timeline.scrollLeft;
+            });
+
+            timeline.addEventListener('mouseleave', () => {
+                isDown = false;
+            });
+
+            timeline.addEventListener('mouseup', () => {
+                isDown = false;
+            });
+
+            timeline.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - timeline.offsetLeft;
+                const walk = (x - startX) * 2;
+                timeline.scrollLeft = scrollLeft - walk;
+                checkServicesVisibility();
+            });
+
+            // Support tactile
+            timeline.addEventListener('touchstart', (e) => {
+                isDown = true;
+                startX = e.touches[0].pageX - timeline.offsetLeft;
+                scrollLeft = timeline.scrollLeft;
+            });
+
+            timeline.addEventListener('touchend', () => {
+                isDown = false;
+            });
+
+            timeline.addEventListener('touchmove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.touches[0].pageX - timeline.offsetLeft;
+                const walk = (x - startX) * 2;
+                timeline.scrollLeft = scrollLeft - walk;
+                checkServicesVisibility();
             });
 
             // CARROUSEL DES PARTENAIRES
@@ -3082,49 +3230,6 @@
 
             carouselTrack.addEventListener('mouseleave', () => {
                 startAutoPlay();
-            });
-
-            // ANIMATION DES SERVICES
-            const serviceNodes = document.querySelectorAll('.service-node');
-
-            function checkVisibility() {
-                const windowHeight = window.innerHeight;
-                
-                serviceNodes.forEach((node) => {
-                    const nodeRect = node.getBoundingClientRect();
-                    
-                    const isVisible = (
-                        nodeRect.top <= windowHeight * 0.8 && 
-                        nodeRect.bottom >= windowHeight * 0.2
-                    );
-
-                    if (isVisible) {
-                        node.classList.add('active');
-                    }
-                });
-            }
-
-            // Vérification initiale
-            checkVisibility();
-
-            // Écouteur d'événement optimisé
-            let ticking = false;
-            window.addEventListener('scroll', function() {
-                if (!ticking) {
-                    requestAnimationFrame(function() {
-                        checkVisibility();
-                        ticking = false;
-                    });
-                    ticking = true;
-                }
-            });
-
-            // Forcer le recalcul après le chargement
-            window.addEventListener('load', checkVisibility);
-
-            // Gestion du redimensionnement
-            window.addEventListener('resize', function() {
-                checkVisibility();
             });
         });
         
